@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<resources>
+    <!--Basic Palette-->
+    <color name="black">#000000</color>
+    <color name="white">#ffffff</color>
+    <color name="gray">#888888</color>
+    <color name="fresh_green">#4cd964</color>
+    <color name="error_red">#ff0033</color>
+    <color name="hyperlink_blue">#0000ee</color>
+
+    <!--Original Palette-->
+    <color name="sandstorm">#edcd42</color>
+    <color name="faded_orange">#ed9b42</color>
+    <color name="rust_brown">#8b3a0d</color>
+    <color name="cedar_wood">#6e1a0c</color>
+
+    <!--Expanded Palette-->
+    <color name="deep_oak">#451c0d</color>
+    <color name="sunset">#efd9ac</color>
+    <color name="indian_yellow">#dda54a</color>
+    <color name="desert_sand">#ebceb0</color>
+    <color name="floral_white">#fff9ed</color>
+</resources>

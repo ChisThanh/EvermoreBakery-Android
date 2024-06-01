@@ -1,0 +1,19 @@
+<resources>
+    <!--Common Strings-->
+    <string name="app_name">Evermore Bakery</string>
+    <string name="image">Image</string>
+
+    <!--Start Strings-->
+    <string name="login">Login</string>
+    <string name="email">Email</string>
+    <string name="email_annotation">Email Annotation</string>
+    <string name="password">Password</string>
+    <string name="password_annotation">Password Annotation</string>
+    <string name="confirm">Confirm</string>
+    <string name="confirm_annotation">Confirm Annotation</string>
+    <string name="forgot_password">Forgot Password?</string>
+    <string name="register">Register</string>
+    <string name="quote">Quote</string>
+    <string name="open_quote">I Had A Feeling So <font color="#ffff8f">Peculiar</font>\nThat\'s This Love Would Be <font color="#ffff8f">Evermore</font></string>
+    <string name="s_continue">Continue</string>
+</resources>
