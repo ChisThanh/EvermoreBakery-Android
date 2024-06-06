@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.core.widget.NestedScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/vNested_fHome_Nested"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingStart="20dp"
+    android:paddingEnd="20dp"
+    android:background="@color/desert_sand"
+    android:orientation="vertical"
+>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+    >
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/vRecycler_fHome_Banner"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:nestedScrollingEnabled="true"
+            android:scrollbars="none"
+            tools:ignore="TextSizeCheck"
+        />
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:contentDescription="@string/image"
+            app:srcCompat="@drawable/custom_line"
+            tools:ignore="ImageContrastCheck"
+        />
+
+        <TextView
+            style="@style/TextViewRecommendation"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:text="@string/revisit_orders"
+        />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/vRecycler_fHome_Revisit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:nestedScrollingEnabled="true"
+            android:scrollbars="none"
+        />
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:contentDescription="@string/image"
+            app:srcCompat="@drawable/custom_line"
+            tools:ignore="ImageContrastCheck"
+        />
+
+        <TextView
+            style="@style/TextViewRecommendation"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:text="@string/week_recommendations"
+        />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/vRecycler_fHome_Recommendation"
+            android:layout_width="match_parent"
+            android:layout_height="500dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:nestedScrollingEnabled="true"
+            android:scrollbars="none"
+        />
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:contentDescription="@string/image"
+            app:srcCompat="@drawable/custom_line"
+        />
+
+        <TextView
+            style="@style/TextViewRecommendation"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:text="@string/chef_delights"
+        />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/vRecycler_fHome_Delights"
+            android:layout_width="match_parent"
+            android:layout_height="500dp"
+            android:nestedScrollingEnabled="true"
+            android:scrollbars="none"
+        />
+
+     </LinearLayout>
+
+</androidx.core.widget.NestedScrollView>

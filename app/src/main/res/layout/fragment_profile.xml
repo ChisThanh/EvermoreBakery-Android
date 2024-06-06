@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingStart="20dp"
+    android:paddingEnd="20dp"
+    android:background="@color/desert_sand"
+    android:orientation="vertical"
+    android:scrollbars="none"
+>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+    >
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:layout_gravity="center"
+            app:cardCornerRadius="70dp"
+            app:cardElevation="1dp"
+            app:cardUseCompatPadding="true"
+        >
+
+            <ImageView
+                android:id="@+id/vImage_fProfile_Avatar"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:contentDescription="@string/image"
+                tools:srcCompat="@tools:sample/avatars"
+                tools:ignore="ImageContrastCheck"
+            />
+
+        </androidx.cardview.widget.CardView>
+
+        <TextView
+            android:id="@+id/vText_fProfile_Avatar"
+            style="@style/TextViewHyperlink"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:gravity="center"
+            android:text="@string/edit_avatar"
+            tools:ignore="TextContrastCheck"
+        />
+
+        <TextView
+            android:id="@+id/vText_fProfile_Name"
+            style="@style/TextViewMedium"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:gravity="center"
+            android:text="@string/name"
+        />
+
+        <EditText
+            android:id="@+id/uText_fProfile_Email"
+            style="@style/EditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:drawableStart="@drawable/icon_email"
+            android:hint="@string/email"
+            android:autofillHints=""
+            android:ems="10"
+            android:inputType="textEmailAddress"
+            tools:ignore="LabelFor,VisualLintTextFieldSize"
+        />
+
+        <EditText
+            android:id="@+id/uText_fProfile_Password"
+            style="@style/EditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:drawableStart="@drawable/icon_password"
+            android:drawableEnd="@drawable/icon_show"
+            android:hint="@string/password"
+            android:autofillHints=""
+            android:ems="10"
+            android:inputType="textPassword"
+            tools:ignore="LabelFor,VisualLintTextFieldSize"
+        />
+
+        <EditText
+            android:id="@+id/uText_fProfile_Confirm"
+            style="@style/EditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:drawableStart="@drawable/icon_password"
+            android:drawableEnd="@drawable/icon_show"
+            android:hint="@string/confirm"
+            android:autofillHints=""
+            android:ems="10"
+            android:inputType="textPassword"
+            tools:ignore="LabelFor,VisualLintTextFieldSize"
+        />
+
+        <EditText
+            android:id="@+id/uText_fProfile_Name"
+            style="@style/EditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:autofillHints=""
+            android:drawableStart="@drawable/icon_profile"
+            android:ems="10"
+            android:hint="@string/name"
+            android:inputType="text"
+            tools:ignore="LabelFor,VisualLintTextFieldSize,DuplicateSpeakableTextCheck"
+        />
+
+        <Spinner
+            android:id="@+id/uSpinner_fProfile_Gender"
+            style="@style/Spinner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:gravity="center"
+            tools:ignore="TouchTargetSizeCheck"
+        />
+
+        <EditText
+            android:id="@+id/uText_fProfile_DoB"
+            style="@style/EditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:drawableStart="@drawable/icon_dob"
+            android:hint="@string/dob"
+            android:autofillHints=""
+            android:ems="10"
+            android:inputType="date"
+            tools:ignore="LabelFor,VisualLintTextFieldSize"
+        />
+
+        <EditText
+            android:id="@+id/uText_fProfile_Phone"
+            style="@style/EditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:drawableStart="@drawable/icon_phone"
+            android:hint="@string/phone"
+            android:autofillHints=""
+            android:ems="10"
+            android:inputType="phone"
+            tools:ignore="LabelFor,VisualLintTextFieldSize"
+        />
+
+        <EditText
+            android:id="@+id/uText_fProfile_Address"
+            style="@style/EditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:drawableStart="@drawable/icon_address"
+            android:hint="@string/address"
+            android:autofillHints=""
+            android:ems="10"
+            android:inputType="text"
+            tools:ignore="LabelFor,VisualLintTextFieldSize"
+        />
+
+        <Button
+            android:id="@+id/uButton_fProfile_Update"
+            style="@style/ButtonPrimary"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="@string/update_account"
+            tools:ignore="TextContrastCheck,VisualLintButtonSize"
+        />
+
+        <Button
+            android:id="@+id/uButton_fProfile_Logout"
+            style="@style/ButtonSecondary"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="@string/logout"
+            tools:ignore="TextContrastCheck,VisualLintButtonSize"
+        />
+
+    </LinearLayout>
+
+</ScrollView>

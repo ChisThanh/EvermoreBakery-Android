@@ -5,6 +5,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:paddingStart="20dp"
+    android:paddingEnd="20dp"
     android:background="@color/desert_sand"
     android:orientation="vertical"
 >
@@ -25,11 +27,11 @@
 
         <EditText
             android:id="@+id/uText_fRegister_Email"
-            style="@style/EditTextPrimary"
+            style="@style/EditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
-            android:drawableStart="@drawable/email"
+            android:drawableStart="@drawable/icon_email"
             android:hint="@string/email"
             android:autofillHints=""
             android:ems="10"
@@ -50,12 +52,12 @@
 
         <EditText
             android:id="@+id/uText_fRegister_Password"
-            style="@style/EditTextPrimary"
+            style="@style/EditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:drawableStart="@drawable/password"
-            android:drawableEnd="@drawable/show"
+            android:drawableStart="@drawable/icon_password"
+            android:drawableEnd="@drawable/icon_show"
             android:hint="@string/password"
             android:autofillHints=""
             android:ems="10"
@@ -76,12 +78,12 @@
 
         <EditText
             android:id="@+id/uText_fRegister_Confirm"
-            style="@style/EditTextPrimary"
+            style="@style/EditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:drawableStart="@drawable/password"
-            android:drawableEnd="@drawable/show"
+            android:drawableStart="@drawable/icon_password"
+            android:drawableEnd="@drawable/icon_show"
             android:hint="@string/confirm"
             android:autofillHints=""
             android:ems="10"
@@ -110,33 +112,25 @@
             tools:ignore="TextContrastCheck,VisualLintButtonSize"
         />
 
-        <RelativeLayout
+        <TextView
+            style="@style/TextViewBasic"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginTop="20dp"
-            android:orientation="horizontal"
-        >
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:gravity="center"
+            android:text="@string/or"
+        />
 
-            <TextView
-                android:id="@+id/vText_fRegister_Recover"
-                style="@style/TextViewMedium"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/forgot_password"
-            />
-
-            <TextView
-                android:id="@+id/vText_fRegister_Login"
-                style="@style/TextViewMedium"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentEnd="true"
-                android:layout_marginEnd="0dp"
-                android:text="@string/login"
-                tools:ignore="RelativeOverlap"
-            />
-
-        </RelativeLayout>
+        <TextView
+            android:id="@+id/vText_fRegister_Login"
+            style="@style/TextViewHyperlink"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:gravity="center"
+            android:text="@string/already_account"
+            tools:ignore="RelativeOverlap,TextContrastCheck"
+        />
 
     </LinearLayout>
 

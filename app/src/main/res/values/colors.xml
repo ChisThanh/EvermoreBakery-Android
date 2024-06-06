@@ -7,11 +7,12 @@
     <color name="gray">#888888</color>
     <color name="fresh_green">#4cd964</color>
     <color name="error_red">#ff0033</color>
-    <color name="hyperlink_blue">#0000ee</color>
+    <color name="hyperlink_blue">#0070e0</color>
 
     <!--Original Palette-->
     <color name="sandstorm">#edcd42</color>
     <color name="faded_orange">#ed9b42</color>
+    <color name="potters_clay">#905e30</color>
     <color name="rust_brown">#8b3a0d</color>
     <color name="cedar_wood">#6e1a0c</color>
 
