@@ -47,7 +47,7 @@
     <string name="name" >Name</string>
     <string name="price" >Price</string>
     <string name="rating" >Rating</string>
-    <string name="add_cart" >+</string>
+    <string name="category" >Category</string>
 
     <!--Profile Strings-->
     <string name="edit_avatar" >Edit Avatar</string>

@@ -8,6 +8,7 @@
     <color name="fresh_green">#4cd964</color>
     <color name="error_red">#ff0033</color>
     <color name="hyperlink_blue">#0070e0</color>
+    <color name="canary_yellow">#ffff8f</color>
 
     <!--Original Palette-->
     <color name="sandstorm">#edcd42</color>

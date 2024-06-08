@@ -10,6 +10,7 @@
     android:paddingEnd="20dp"
     android:background="@color/desert_sand"
     android:orientation="vertical"
+    android:overScrollMode="never"
     android:scrollbars="none"
 >
 

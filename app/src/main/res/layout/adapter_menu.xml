@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="150dp"
+    android:padding="10dp"
+    android:background="@color/desert_sand"
+>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/vCard_aMenu_Card"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="10dp"
+        app:cardCornerRadius="20dp"
+        app:cardElevation="4dp"
+    >
+
+        <ImageView
+            android:id="@+id/vImage_aMenu_Image"
+            android:layout_width="130dp"
+            android:layout_height="130dp"
+            android:contentDescription="@string/image"
+            android:scaleType="centerCrop"
+            tools:srcCompat="@tools:sample/avatars"
+            tools:ignore="ImageContrastCheck"
+        />
+
+    </androidx.cardview.widget.CardView>
+
+    <TextView
+        android:id="@+id/vText_aMenu_Name"
+        style="@style/TextViewMenuTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_toEndOf="@+id/vCard_aMenu_Card"
+        android:text="@string/name"
+    />
+
+    <TextView
+        android:id="@+id/vText_aMenu_Price"
+        style="@style/TextViewMenuSubtitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_toEndOf="@+id/vCard_aMenu_Card"
+        android:layout_below="@id/vText_aMenu_Name"
+        android:layout_marginTop="10dp"
+        android:text="@string/price"
+    />
+
+    <RatingBar
+        android:id="@+id/uRating_aMenu_Rating"
+        style="@style/RatingBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/vText_aMenu_Price"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="100dp"
+        android:elevation="500dp"
+        android:clickable="false"
+    />
+
+</RelativeLayout>

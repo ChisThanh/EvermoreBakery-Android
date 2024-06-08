@@ -21,6 +21,7 @@ import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 
 import project.evermorebakery.Fragment.FragmentHome;
+import project.evermorebakery.Fragment.FragmentMenu;
 import project.evermorebakery.Fragment.FragmentProfile;
 import project.evermorebakery.R;
 
@@ -86,6 +87,7 @@ public class ActivityMain extends AppCompatActivity
             }
             else if(id == R.id.iMenu_mMain_Menu)
             {
+                loadFragment(new FragmentMenu());
                 return true;
             }
             else if(id == R.id.iMenu_mMain_Cart)

@@ -5,7 +5,6 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -57,8 +56,6 @@ public class AdapterHome extends RecyclerView.Adapter<AdapterHome.HomeViewHolder
 
         NumberFormat vnd_currency = NumberFormat.getCurrencyInstance(new Locale("vi", "VN"));
         holder.vText_aHome_Price.setText("Price: " + vnd_currency.format(product_list.get(position).getPrice()));
-
-        holder.uButton_aHome_Add.setOnClickListener(view -> {});
     }
 
     @Override
@@ -72,7 +69,6 @@ public class AdapterHome extends RecyclerView.Adapter<AdapterHome.HomeViewHolder
         ImageView vImage_aHome_Image;
         TextView vText_aHome_Name;
         TextView vText_aHome_Price;
-        Button uButton_aHome_Add;
 
         public HomeViewHolder(View item_view)
         {
@@ -81,7 +77,6 @@ public class AdapterHome extends RecyclerView.Adapter<AdapterHome.HomeViewHolder
             vImage_aHome_Image = item_view.findViewById(R.id.vImage_aHome_Image);
             vText_aHome_Name = item_view.findViewById(R.id.vText_aHome_Name);
             vText_aHome_Price = item_view.findViewById(R.id.vText_aHome_Price);
-            uButton_aHome_Add = item_view.findViewById(R.id.uButton_aHome_Add);
         }
     }
 }

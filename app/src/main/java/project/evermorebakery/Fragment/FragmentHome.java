@@ -19,7 +19,6 @@ import java.util.ArrayList;
 
 import project.evermorebakery.Adapter.AdapterBanner;
 import project.evermorebakery.Adapter.AdapterHome;
-import project.evermorebakery.Custom.CustomEdgeEffectFactory;
 import project.evermorebakery.Custom.CustomGridSpacingItemDecoration;
 import project.evermorebakery.Model.ModelProduct;
 import project.evermorebakery.R;
@@ -91,7 +90,6 @@ public class FragmentHome extends Fragment
         LinearSnapHelper snap_helper = new LinearSnapHelper();
         AdapterBanner banner_adapter = new AdapterBanner(requireContext(), banner_list);
         vRecycler_fHome_Banner.setLayoutManager(layout_manager);
-        vRecycler_fHome_Banner.setEdgeEffectFactory(new CustomEdgeEffectFactory());
         vRecycler_fHome_Banner.setAdapter(banner_adapter);
         snap_helper.attachToRecyclerView(vRecycler_fHome_Banner);
     }
@@ -102,14 +100,7 @@ public class FragmentHome extends Fragment
         LinearLayoutManager layout_manager = new LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false);
         AdapterHome home_adapter = new AdapterHome(requireContext(), product_list);
         recycler_view.setLayoutManager(layout_manager);
-        recycler_view.setEdgeEffectFactory(new CustomEdgeEffectFactory());
         recycler_view.setAdapter(home_adapter);
-
-        recycler_view.setOnTouchListener((view, motionEvent) ->
-        {
-            vNested_fHome_Nested.requestDisallowInterceptTouchEvent(true);
-            return false;
-        });
     }
 
     @SuppressLint("ClickableViewAccessibility")
@@ -119,14 +110,7 @@ public class FragmentHome extends Fragment
         AdapterHome home_adapter = new AdapterHome(requireContext(), product_list);
         recycler_view.setLayoutManager(layout_manager);
         recycler_view.addItemDecoration(new CustomGridSpacingItemDecoration(2, 10, true));
-        recycler_view.setEdgeEffectFactory(new CustomEdgeEffectFactory());
         recycler_view.setAdapter(home_adapter);
-
-        recycler_view.setOnTouchListener((view, motionEvent) ->
-        {
-            vNested_fHome_Nested.requestDisallowInterceptTouchEvent(true);
-            return false;
-        });
     }
 
     void addEvents()

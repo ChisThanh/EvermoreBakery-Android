@@ -12,9 +12,9 @@
 
     <RelativeLayout
         android:id="@+id/lRelative_aMain_Header"
-        style="@style/RelativeLayoutHeader"
         android:layout_width="match_parent"
         android:layout_height="110dp"
+        android:background="@color/rust_brown"
         android:orientation="horizontal"
     >
 
@@ -55,7 +55,6 @@
 
     <SearchView
         android:id="@+id/vSearch_aMain_Search"
-        style="@style/SearchView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/lRelative_aMain_Header"
@@ -64,14 +63,20 @@
         android:layout_marginEnd="20dp"
         android:queryHint="@string/search"
         android:elevation="1dp"
+        android:searchIcon="@drawable/icon_search"
+        android:closeIcon="@drawable/icon_close"
+        android:background="@drawable/custom_search_view"
     />
 
     <FrameLayout
         android:id="@+id/lFrame_aMain_Layout"
-        style="@style/FrameLayoutMain"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@+id/lRelative_aMain_Header"
+        android:layout_marginTop="0dp"
+        android:paddingTop="30dp"
+        android:paddingBottom="65dp"
+        android:background="@color/desert_sand"
     />
 
     <com.google.android.material.bottomnavigation.BottomNavigationView

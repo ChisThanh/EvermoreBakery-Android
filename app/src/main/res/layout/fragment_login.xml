@@ -8,6 +8,7 @@
     android:paddingStart="20dp"
     android:paddingEnd="20dp"
     android:background="@color/desert_sand"
+    android:overScrollMode="never"
     android:orientation="vertical"
 >
 
