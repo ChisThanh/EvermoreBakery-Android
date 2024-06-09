@@ -38,4 +38,6 @@ dependencies {
     testImplementation(libs.junit)
     androidTestImplementation(libs.ext.junit)
     androidTestImplementation(libs.espresso.core)
+    implementation("com.android.volley:volley-cronet:1.2.1")
+    implementation("com.squareup.picasso:picasso:2.5.2")
 }
