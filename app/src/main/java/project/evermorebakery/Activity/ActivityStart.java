@@ -1,8 +1,3 @@
-//Activity Start:
-//Is Use to Open the App when There Is No User Logged
-//Has a Frame Layout to Open Fragment Login, Fragment Register, and Fragment Recover
-//Has a Progress Bar to Stylize the App
-
 package project.evermorebakery.Activity;
 
 import android.os.Bundle;
@@ -28,15 +23,14 @@ import project.evermorebakery.R;
 
 public class ActivityStart extends AppCompatActivity implements Runnable
 {
-    ProgressBar uProgress_aStart_ProgressBar; //ProgressBar: Show Progress Bar
-    Button uButton_aStart_Continue; //Button: Start Fragment Login
-    FrameLayout lFrame_aStart_Layout; //FrameLayout: Store Fragments
-    final static int INTERVAL = 100; //Static: Interval of the Progress Bar
+    ProgressBar uProgress_aStart_ProgressBar;
+    Button uButton_aStart_Continue;
+    FrameLayout lFrame_aStart_Layout;
+    final static int INTERVAL = 100;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) //Extends: Extends from AppCompatActivity
     {
-        //Code: Start Activity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_start);
         addControls();
@@ -73,44 +67,37 @@ public class ActivityStart extends AppCompatActivity implements Runnable
     }
 
     @Override
-    public void run() //Interface: Override from Interface Runnable
+    public void run()
     {
-        //Code: Increase the Progress Bar and Set New Progress
         int progress = uProgress_aStart_ProgressBar.getProgress() + 1;
         uProgress_aStart_ProgressBar.setProgress(progress);
 
-        //Code: Check If The Progress Bar is Max Out
-        if (progress < uProgress_aStart_ProgressBar.getMax()) //Code: Continue The Loop
-            //Code: Continue The Progress Bar with the Delay Correspond with the INTERVAL
+        if (progress < uProgress_aStart_ProgressBar.getMax())
             new Handler().postDelayed(ActivityStart.this, INTERVAL);
-        else //Code: Stop The Loop
+        else
         {
-            //Code: Hide Progress Bar and Show Button
             uProgress_aStart_ProgressBar.setVisibility(View.GONE);
             uButton_aStart_Continue.setVisibility(View.VISIBLE);
         }
     }
 
-    void addControls() //Function: Add Controls for Easy Access
+    void addControls()
     {
         uProgress_aStart_ProgressBar = findViewById(R.id.uProgress_aStart_ProgressBar);
         uButton_aStart_Continue = findViewById(R.id.uButton_aStart_Continue);
         lFrame_aStart_Layout = findViewById(R.id.lFrame_aStart_Layout);
     }
 
-    void setProgressBar() //Function: Create and Run Progress Bar
+    void setProgressBar()
     {
-        //Code: Initialize The Progress Bar
         uProgress_aStart_ProgressBar.setMax(100);
         uProgress_aStart_ProgressBar.setProgress(0);
 
-        //Code: Start The Progress Bar and Set the Delay Correspond with the INTERVAL
         new Handler().postDelayed(ActivityStart.this, INTERVAL);
     }
 
-    void addEvents() //Function: Add Events for User to Interact
+    void addEvents()
     {
-        //Code: Hide Button and Show Frame Layout
         uButton_aStart_Continue.setOnClickListener(view ->
         {
             uButton_aStart_Continue.setVisibility(View.GONE);
@@ -119,7 +106,7 @@ public class ActivityStart extends AppCompatActivity implements Runnable
         });
     }
 
-    void loadFragment(Fragment fragment) //Code: Load Fragment from Input Fragment into Frame Layout
+    void loadFragment(Fragment fragment)
     {
         FragmentTransaction fragment_transaction = getSupportFragmentManager().beginTransaction();
         fragment_transaction.replace(R.id.lFrame_aStart_Layout, fragment);

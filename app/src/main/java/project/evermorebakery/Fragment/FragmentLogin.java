@@ -1,7 +1,3 @@
-//Fragment Login:
-//Login a User by Finding the User Data and Check the Account
-//Has Text View to Open Fragment Recover and Fragment Register
-
 package project.evermorebakery.Fragment;
 
 import android.content.Intent;
@@ -10,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.TextView;
 
@@ -19,6 +16,7 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
 import project.evermorebakery.Activity.ActivityContinue;
+import project.evermorebakery.Helper.HelperInterface;
 import project.evermorebakery.R;
 
 public class FragmentLogin extends Fragment
@@ -47,6 +45,8 @@ public class FragmentLogin extends Fragment
         //Code: Hide Annotation when Start
         vText_fLogin_EmailAnnotation.setText("");
         vText_fLogin_PasswordAnnotation.setText("");
+
+        HelperInterface.toggleVisibility(uText_fLogin_Password);
 
         return view;
     }

@@ -14,8 +14,9 @@
         android:usesCleartextTraffic="true"
         android:theme="@style/Theme.EvermoreBakery"
         tools:targetApi="31">
+
         <activity
-            android:name=".Activity.ActivityStart"
+            android:name=".Activity.ActivityMain"
             android:windowSoftInputMode="adjustNothing"
             android:exported="true">
             <intent-filter>
@@ -25,8 +26,8 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".Activity.ActivityContinue" />
-        <activity android:name=".Activity.ActivityMain" />
+        <activity android:name=".Activity.ActivityContinue" android:windowSoftInputMode="adjustNothing" />
+        <activity android:name=".Activity.ActivityStart" android:windowSoftInputMode="adjustNothing" />
     </application>
 
 </manifest>

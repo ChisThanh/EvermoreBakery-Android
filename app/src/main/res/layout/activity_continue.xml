@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:tools="http://schemas.android.com/tools"
-    android:background="@drawable/background_donut"
+    android:background="@drawable/potrait_donut"
     android:orientation="vertical"
     tools:context=".Activity.ActivityContinue"
 >
@@ -24,7 +24,7 @@
             android:layout_height="100dp"
             android:layout_gravity="center"
             android:contentDescription="@string/image"
-            app:srcCompat="@drawable/logo"
+            app:srcCompat="@drawable/square_logo"
         />
 
         <TextView

@@ -4,6 +4,7 @@
 
 package project.evermorebakery.Activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.TextView;
@@ -45,7 +46,8 @@ public class ActivityContinue extends AppCompatActivity
         //Button: Click to Open Activity Main
         uButton_aContinue_Continue.setOnClickListener(view ->
         {
-            //Code: Open Activity Main with Account Data
+            Intent intent = new Intent(ActivityContinue.this, ActivityMain.class);
+            startActivity(intent);
         });
     }
 }

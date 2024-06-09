@@ -1,4 +1,4 @@
 package project.evermorebakery.Fragment;
 
-public class FragmentDisplay {
+public class FragmentSearch {
 }

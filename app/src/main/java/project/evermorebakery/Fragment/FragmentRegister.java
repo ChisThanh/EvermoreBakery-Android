@@ -1,7 +1,3 @@
-//Fragment Register:
-//Register a User and Check the New Account's Validation
-//Has Text View to Open Fragment Recover and Fragment Login
-
 package project.evermorebakery.Fragment;
 
 import android.content.Intent;
@@ -19,6 +15,7 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
 import project.evermorebakery.Activity.ActivityContinue;
+import project.evermorebakery.Helper.HelperInterface;
 import project.evermorebakery.R;
 
 public class FragmentRegister extends Fragment
@@ -46,10 +43,12 @@ public class FragmentRegister extends Fragment
         addControls();
         addEvents();
 
-        //Code: Hide Annotation when Start
         vText_fRegister_EmailAnnotation.setText("");
         vText_fRegister_PasswordAnnotation.setText("");
         vText_fRegister_ConfirmAnnotation.setText("");
+
+        HelperInterface.toggleVisibility(uText_fRegister_Password);
+        HelperInterface.toggleVisibility(uText_fRegister_Confirm);
 
         return view;
     }
@@ -62,7 +61,6 @@ public class FragmentRegister extends Fragment
         vText_fRegister_EmailAnnotation = view.findViewById(R.id.vText_fRegister_EmailAnnotation);
         vText_fRegister_PasswordAnnotation = view.findViewById(R.id.vText_fRegister_PasswordAnnotation);
         vText_fRegister_ConfirmAnnotation = view.findViewById(R.id.vText_fRegister_ConfirmAnnotation);
-        vText_fRegister_Recover = view.findViewById(R.id.vText_fRegister_Recover);
         vText_fRegister_Login = view.findViewById(R.id.vText_fRegister_Login);
         uButton_fRegister_Register = view.findViewById(R.id.uButton_fRegister_Register);
     }
