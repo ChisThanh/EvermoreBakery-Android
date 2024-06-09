@@ -11,7 +11,7 @@
 >
 
     <androidx.cardview.widget.CardView
-        android:id="@+id/vCard_aMenu_Card"
+        android:id="@+id/vCard_aDisplay_Card"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="10dp"
@@ -20,7 +20,7 @@
     >
 
         <ImageView
-            android:id="@+id/vImage_aMenu_Image"
+            android:id="@+id/vImage_aDisplay_Image"
             android:layout_width="130dp"
             android:layout_height="130dp"
             android:contentDescription="@string/image"
@@ -32,35 +32,23 @@
     </androidx.cardview.widget.CardView>
 
     <TextView
-        android:id="@+id/vText_aMenu_Name"
-        style="@style/TextViewMenuTitle"
+        android:id="@+id/vText_aDisplay_Name"
+        style="@style/TextViewDisplayTitle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_toEndOf="@+id/vCard_aMenu_Card"
+        android:layout_toEndOf="@+id/vCard_aDisplay_Card"
         android:text="@string/name"
     />
 
     <TextView
-        android:id="@+id/vText_aMenu_Price"
-        style="@style/TextViewMenuSubtitle"
+        android:id="@+id/vText_aDisplay_Price"
+        style="@style/TextViewDisplaySubtitle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_toEndOf="@+id/vCard_aMenu_Card"
-        android:layout_below="@id/vText_aMenu_Name"
+        android:layout_toEndOf="@+id/vCard_aDisplay_Card"
+        android:layout_below="@id/vText_aDisplay_Name"
         android:layout_marginTop="10dp"
         android:text="@string/price"
-    />
-
-    <RatingBar
-        android:id="@+id/uRating_aMenu_Rating"
-        style="@style/RatingBar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/vText_aMenu_Price"
-        android:layout_marginTop="10dp"
-        android:layout_marginStart="100dp"
-        android:elevation="500dp"
-        android:clickable="false"
     />
 
 </RelativeLayout>

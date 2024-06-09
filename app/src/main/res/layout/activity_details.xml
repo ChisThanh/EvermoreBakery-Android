@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/lRelative_aDetails_Background"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/portrait_shortcake"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".Activity.ActivityDetails"
+>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/vCard_aDetails_Return"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="10dp"
+        app:cardCornerRadius="20dp"
+        app:cardElevation="4dp"
+        app:cardUseCompatPadding="true"
+    >
+
+        <ImageView
+            android:id="@+id/vImage_aDetails_Return"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:contentDescription="@string/image"
+            app:srcCompat="@drawable/icon_return"
+            android:background="@color/floral_white"
+        />
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/vCard_aDetails_Share"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="10dp"
+        app:cardCornerRadius="20dp"
+        app:cardElevation="4dp"
+        app:cardUseCompatPadding="true"
+    >
+
+        <ImageView
+            android:id="@+id/vImage_aDetails_Share"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:layout_gravity="center"
+            android:contentDescription="@string/image"
+            app:srcCompat="@drawable/icon_share"
+            android:background="@color/floral_white"
+        />
+
+    </androidx.cardview.widget.CardView>
+
+    <FrameLayout
+        android:id="@+id/lFrame_aDetails_Layout"
+        style="@style/FrameLayout"
+        android:layout_width="match_parent"
+        android:layout_height="500dp"
+        android:layout_alignParentBottom="true"
+    />
+
+</RelativeLayout>

@@ -9,6 +9,8 @@
     android:paddingEnd="20dp"
     android:background="@color/desert_sand"
     android:overScrollMode="never"
+    android:scrollbars="none"
+    android:scrollbarSize="0dp"
     android:orientation="vertical"
 >
 

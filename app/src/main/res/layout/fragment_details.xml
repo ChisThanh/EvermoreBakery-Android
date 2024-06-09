@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingStart="20dp"
+    android:paddingEnd="20dp"
+    android:background="@color/desert_sand"
+    android:overScrollMode="never"
+    android:scrollbars="none"
+    android:scrollbarSize="0dp"
+    android:orientation="vertical"
+>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+    >
+
+        <TextView
+            android:id="@+id/vText_fDetails_Name"
+            style="@style/TextViewTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/name"
+        />
+
+        <TextView
+            android:id="@+id/vText_fDetails_Flavor"
+            style="@style/TextViewFaded"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/vText_fDetails_Name"
+            android:layout_marginTop="2dp"
+            android:text="@string/flavor"
+            tools:ignore="TextContrastCheck"
+        />
+
+        <ImageView
+            android:id="@+id/vImage_fDetails_Star"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/vText_fDetails_Flavor"
+            android:layout_marginTop="10dp"
+            android:contentDescription="@string/image"
+            app:srcCompat="@drawable/icon_star"
+            tools:ignore="ImageContrastCheck"
+        />
+
+        <TextView
+            android:id="@+id/vText_fDetails_Rating"
+            style="@style/TextViewBasic"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/vText_fDetails_Flavor"
+            android:layout_marginStart="2dp"
+            android:layout_marginTop="11dp"
+            android:layout_toEndOf="@+id/vImage_fDetails_Star"
+            android:text="@string/rating" />
+
+        <TextView
+            android:id="@+id/vText_fDetails_Comment"
+            style="@style/TextViewFaded"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/vText_fDetails_Flavor"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="11dp"
+            android:layout_toEndOf="@+id/vText_fDetails_Rating"
+            android:text="@string/comment"
+            tools:ignore="TextContrastCheck"
+        />
+
+        <ImageView
+            android:id="@+id/vImage_fDetails_Comment"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_below="@+id/vText_fDetails_Name"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="0dp"
+            android:contentDescription="@string/image"
+            app:srcCompat="@drawable/icon_comment"
+        />
+
+        <TextView
+            android:id="@+id/vText_fDetails_DescriptionTitle"
+            style="@style/TextViewMedium"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/vImage_fDetails_Star"
+            android:layout_marginTop="10dp"
+            android:text="@string/description"
+        />
+
+        <TextView
+            android:id="@+id/vText_fDetails_Description"
+            style="@style/TextViewFaded"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/vText_fDetails_DescriptionTitle"
+            android:layout_marginTop="2dp"
+            android:text="@string/description_area"
+            tools:ignore="TextContrastCheck"
+        />
+
+        <TextView
+            android:id="@+id/vText_fDetails_TotalPriceTitle"
+            style="@style/TextViewBasic"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/vText_fDetails_Description"
+            android:layout_marginTop="10dp"
+            android:text="@string/total_price"
+        />
+
+        <TextView
+            android:id="@+id/vText_fDetails_TotalPrice"
+            style="@style/TextViewMedium"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/vText_fDetails_TotalPriceTitle"
+            android:layout_marginTop="2dp"
+            android:layout_marginStart="10dp"
+            android:text="@string/total_price_number"
+        />
+
+        <Button
+            android:id="@+id/uButton_fDetails_Decrease"
+            style="@style/ButtonValue"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_below="@+id/vText_fDetails_Description"
+            android:layout_toStartOf="@+id/vText_fDetails_Quantity"
+            android:layout_marginTop="13dp"
+            android:text="@string/decrease"
+            tools:ignore="TouchTargetSizeCheck,TextSizeCheck"
+        />
+
+        <TextView
+            android:id="@+id/vText_fDetails_Quantity"
+            style="@style/TextViewMedium"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_below="@+id/vText_fDetails_Description"
+            android:layout_toStartOf="@+id/uButton_fDetails_Increase"
+            android:layout_marginTop="13dp"
+            android:gravity="center"
+            android:text="@string/quantity_number"
+            tools:ignore="TextSizeCheck"
+        />
+
+        <Button
+            android:id="@+id/uButton_fDetails_Increase"
+            style="@style/ButtonValue"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_below="@+id/vText_fDetails_Description"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="13dp"
+            android:text="@string/increase"
+            tools:ignore="TouchTargetSizeCheck,TextSizeCheck"
+        />
+
+        <Button
+            android:id="@+id/uButton_fDetails_Cart"
+            style="@style/ButtonIcon"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/vText_fDetails_TotalPrice"
+            android:layout_marginTop="20dp"
+            android:drawableStart="@drawable/icon_cart"
+            android:text="@string/add_to_cart"
+            tools:ignore="VisualLintButtonSize"
+        />
+
+    </RelativeLayout>
+
+</ScrollView>

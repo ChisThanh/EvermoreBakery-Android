@@ -5,15 +5,8 @@
     <style name="FrameLayout">
         <item name="android:background">@drawable/custom_frame_layout</item>
         <item name="android:backgroundTint">@color/desert_sand</item>
-        <item name="android:paddingTop">20dp</item>
-        <item name="android:paddingBottom">20dp</item>
-    </style>
-
-    <!--Search View-->
-    <style name="SearchView">
-        <item name="android:background">@drawable/custom_search_view</item>
-        <item name="android:searchIcon">@drawable/icon_search</item>
-        <item name="android:closeIcon">@drawable/icon_close</item>
+        <item name="android:paddingTop">35dp</item>
+        <item name="android:paddingBottom">5dp</item>
     </style>
 
     <!--Header Title Text View-->
@@ -56,6 +49,12 @@
         <item name="android:textColor">@color/black</item>
     </style>
 
+    <!--Faded Text View-->
+    <style name="TextViewFaded">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@color/gray</item>
+    </style>
+
     <!--Recommendation Text View-->
     <style name="TextViewRecommendation">
         <item name="android:textSize">20sp</item>
@@ -84,19 +83,19 @@
 
     <!--Category Text View-->
     <style name="TextViewCategory">
-        <item name="android:textSize">18sp</item>
+        <item name="android:textSize">16sp</item>
         <item name="android:textColor">@color/floral_white</item>
     </style>
 
-    <!--Menu Title Text View-->
-    <style name="TextViewMenuTitle">
+    <!--Display Title Text View-->
+    <style name="TextViewDisplayTitle">
         <item name="android:textSize">24sp</item>
         <item name="android:textStyle">bold</item>
         <item name="android:textColor">@color/cedar_wood</item>
     </style>
 
-    <!--Menu Subtitle Text View-->
-    <style name="TextViewMenuSubtitle">
+    <!--Display Subtitle Text View-->
+    <style name="TextViewDisplaySubtitle">
         <item name="android:textSize">16sp</item>
         <item name="android:textColor">@color/cedar_wood</item>
     </style>
@@ -154,6 +153,30 @@
         <item name="android:padding">10dp</item>
         <item name="android:textColor">@color/floral_white</item>
         <item name="android:textSize">20sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:gravity">center</item>
+    </style>
+
+    <!--Icon Button-->
+    <style name="ButtonIcon">
+        <item name="android:background">@drawable/custom_button_icon</item>
+        <item name="android:padding">10dp</item>
+        <item name="android:textColor">@color/cedar_wood</item>
+        <item name="android:textSize">24sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:paddingStart">60dp</item>
+        <item name="android:paddingEnd">60dp</item>
+        <item name="android:drawablePadding">50dp</item>
+        <item name="android:drawableTint">@color/cedar_wood</item>
+    </style>
+
+    <!--Value Button-->
+    <style name="ButtonValue">
+        <item name="android:background">@drawable/custom_button</item>
+        <item name="android:backgroundTint">@color/cedar_wood</item>
+        <item name="android:textColor">@color/floral_white</item>
+        <item name="android:textSize">30sp</item>
         <item name="android:textStyle">bold</item>
         <item name="android:gravity">center</item>
     </style>

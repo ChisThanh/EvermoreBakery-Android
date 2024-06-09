@@ -21,7 +21,7 @@
 
     <item
         android:id="@+id/iMenu_mMain_Cart"
-        android:icon="@drawable/icon_cart"
+        android:icon="@drawable/icon_bag"
         app:showAsAction="ifRoom"
         android:title="@string/cart"
     />

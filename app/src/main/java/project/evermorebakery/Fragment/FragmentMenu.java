@@ -1,6 +1,7 @@
 package project.evermorebakery.Fragment;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -18,7 +19,8 @@ import com.google.android.material.tabs.TabLayout;
 
 import java.util.ArrayList;
 
-import project.evermorebakery.Adapter.AdapterMenu;
+import project.evermorebakery.Activity.ActivityDetails;
+import project.evermorebakery.Adapter.AdapterDisplay;
 import project.evermorebakery.Model.ModelCategory;
 import project.evermorebakery.Model.ModelProduct;
 import project.evermorebakery.R;
@@ -85,9 +87,15 @@ public class FragmentMenu extends Fragment
     void addAdapter()
     {
         LinearLayoutManager layout_manager = new LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false);
-        AdapterMenu menu_adapter = new AdapterMenu(requireContext(), product_list);
+        AdapterDisplay menu_adapter = new AdapterDisplay(requireContext(), product_list);
         vRecycler_fMenu_Item.setLayoutManager(layout_manager);
         vRecycler_fMenu_Item.setAdapter(menu_adapter);
+
+        menu_adapter.setOnItemClickListener(product ->
+        {
+            Intent intent = new Intent(requireContext(), ActivityDetails.class);
+            startActivity(intent);
+        });
     }
 
     @SuppressLint("InflateParams")
