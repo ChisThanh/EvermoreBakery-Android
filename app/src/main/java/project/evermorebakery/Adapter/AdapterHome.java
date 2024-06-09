@@ -51,13 +51,13 @@ public class AdapterHome extends RecyclerView.Adapter<AdapterHome.HomeViewHolder
             Picasso.get()
                     .load(drawable_id)
                     .placeholder(R.drawable.square_placeholder)
-                    .error(R.drawable.square_error).into(holder.vImage_aHome_Image);
-        else holder.vImage_aHome_Image.setImageResource(R.drawable.square_placeholder);
+                    .error(R.drawable.square_error).into(holder.vImage_dHome_Image);
+        else holder.vImage_dHome_Image.setImageResource(R.drawable.square_placeholder);
 
-        holder.vText_aHome_Name.setText(product_list.get(position).getName());
+        holder.vText_dHome_Name.setText(product_list.get(position).getName());
 
         NumberFormat vnd_currency = NumberFormat.getCurrencyInstance(new Locale("vi", "VN"));
-        holder.vText_aHome_Price.setText("Price: " + vnd_currency.format(product_list.get(position).getPrice()));
+        holder.vText_dHome_Price.setText("Price: " + vnd_currency.format(product_list.get(position).getPrice()));
     }
 
     @Override
@@ -73,17 +73,17 @@ public class AdapterHome extends RecyclerView.Adapter<AdapterHome.HomeViewHolder
 
     public class HomeViewHolder extends RecyclerView.ViewHolder
     {
-        ImageView vImage_aHome_Image;
-        TextView vText_aHome_Name;
-        TextView vText_aHome_Price;
+        ImageView vImage_dHome_Image;
+        TextView vText_dHome_Name;
+        TextView vText_dHome_Price;
 
         public HomeViewHolder(View item_view)
         {
             super(item_view);
 
-            vImage_aHome_Image = item_view.findViewById(R.id.vImage_aHome_Image);
-            vText_aHome_Name = item_view.findViewById(R.id.vText_aHome_Name);
-            vText_aHome_Price = item_view.findViewById(R.id.vText_aHome_Price);
+            vImage_dHome_Image = item_view.findViewById(R.id.vImage_dHome_Image);
+            vText_dHome_Name = item_view.findViewById(R.id.vText_dHome_Name);
+            vText_dHome_Price = item_view.findViewById(R.id.vText_dHome_Price);
 
             item_view.setOnClickListener(view ->
             {

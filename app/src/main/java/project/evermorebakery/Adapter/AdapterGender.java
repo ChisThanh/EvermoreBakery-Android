@@ -47,13 +47,13 @@ public class AdapterGender extends BaseAdapter
         View item_view = LayoutInflater.from(context).inflate(R.layout.adapter_gender, null, false);
         String gender = gender_list[position];
 
-        TextView vText_aGender_Name = item_view.findViewById(R.id.vText_aGender_Name);
-        vText_aGender_Name.setText(gender);
+        TextView vText_dGender_Name = item_view.findViewById(R.id.vText_dGender_Name);
+        vText_dGender_Name.setText(gender);
 
-        ImageView vImage_aGender_Icon = item_view.findViewById(R.id.vImage_aGender_Icon);
-        if(gender.equals("Male")) vImage_aGender_Icon.setImageResource(R.drawable.icon_male);
-        else if(gender.equals("Female")) vImage_aGender_Icon.setImageResource(R.drawable.icon_female);
-        else vImage_aGender_Icon.setImageResource(R.drawable.icon_gender);
+        ImageView vImage_dGender_Icon = item_view.findViewById(R.id.vImage_dGender_Icon);
+        if(gender.equals("Male")) vImage_dGender_Icon.setImageResource(R.drawable.icon_male);
+        else if(gender.equals("Female")) vImage_dGender_Icon.setImageResource(R.drawable.icon_female);
+        else vImage_dGender_Icon.setImageResource(R.drawable.icon_gender);
 
         return item_view;
     }

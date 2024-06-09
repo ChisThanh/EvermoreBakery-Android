@@ -54,13 +54,13 @@ public class AdapterDisplay extends RecyclerView.Adapter<AdapterDisplay.DisplayV
             Picasso.get()
                     .load(drawable_id)
                     .placeholder(R.drawable.square_placeholder)
-                    .error(R.drawable.square_error).into(holder.vImage_aDisplay_Image);
-        else holder.vImage_aDisplay_Image.setImageResource(R.drawable.square_placeholder);
+                    .error(R.drawable.square_error).into(holder.vImage_dDisplay_Image);
+        else holder.vImage_dDisplay_Image.setImageResource(R.drawable.square_placeholder);
 
-        holder.vText_aDisplay_Name.setText(product.getName());
+        holder.vText_dDisplay_Name.setText(product.getName());
 
         NumberFormat vnd_currency = NumberFormat.getCurrencyInstance(new Locale("vi", "VN"));
-        holder.vText_aDisplay_Price.setText("Price: " + vnd_currency.format(product_list.get(position).getPrice()));
+        holder.vText_dDisplay_Price.setText("Price: " + vnd_currency.format(product_list.get(position).getPrice()));
     }
 
     @Override
@@ -76,16 +76,16 @@ public class AdapterDisplay extends RecyclerView.Adapter<AdapterDisplay.DisplayV
 
     public class DisplayViewHolder extends RecyclerView.ViewHolder
     {
-        ImageView vImage_aDisplay_Image;
-        TextView vText_aDisplay_Name;
-        TextView vText_aDisplay_Price;
+        ImageView vImage_dDisplay_Image;
+        TextView vText_dDisplay_Name;
+        TextView vText_dDisplay_Price;
 
         public DisplayViewHolder(@NonNull View item_view)
         {
             super(item_view);
-            vImage_aDisplay_Image = item_view.findViewById(R.id.vImage_aDisplay_Image);
-            vText_aDisplay_Name = item_view.findViewById(R.id.vText_aDisplay_Name);
-            vText_aDisplay_Price = item_view.findViewById(R.id.vText_aDisplay_Price);
+            vImage_dDisplay_Image = item_view.findViewById(R.id.vImage_dDisplay_Image);
+            vText_dDisplay_Name = item_view.findViewById(R.id.vText_dDisplay_Name);
+            vText_dDisplay_Price = item_view.findViewById(R.id.vText_dDisplay_Price);
 
             item_view.setOnClickListener(view ->
             {

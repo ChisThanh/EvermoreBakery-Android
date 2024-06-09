@@ -19,7 +19,7 @@
     >
 
         <androidx.cardview.widget.CardView
-            android:id="@+id/vCart_aHome_Image"
+            android:id="@+id/vCart_dHome_Image"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:cardCornerRadius="15dp"
@@ -28,7 +28,7 @@
         >
 
             <ImageView
-                android:id="@+id/vImage_aHome_Image"
+                android:id="@+id/vImage_dHome_Image"
                 android:layout_width="match_parent"
                 android:layout_height="120dp"
                 android:contentDescription="@string/image"
@@ -40,22 +40,22 @@
         </androidx.cardview.widget.CardView>
 
         <TextView
-            android:id="@+id/vText_aHome_Name"
+            android:id="@+id/vText_dHome_Name"
             style="@style/TextViewNormal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/vCart_aHome_Image"
+            android:layout_below="@+id/vCart_dHome_Image"
             android:layout_marginTop="5dp"
             android:gravity="center"
             android:text="@string/name"
         />
 
         <TextView
-            android:id="@+id/vText_aHome_Price"
+            android:id="@+id/vText_dHome_Price"
             style="@style/TextViewBasic"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/vText_aHome_Name"
+            android:layout_below="@+id/vText_dHome_Name"
             android:layout_marginTop="10dp"
             android:text="@string/price"
             tools:ignore="RelativeOverlap"

@@ -20,7 +20,7 @@
     >
 
         <ImageView
-            android:id="@+id/vImage_aCategory_Image"
+            android:id="@+id/vImage_dCategory_Image"
             android:layout_width="80dp"
             android:layout_height="80dp"
             android:layout_gravity="center"
@@ -31,7 +31,7 @@
         />
 
         <TextView
-            android:id="@+id/vText_aCategory_Name"
+            android:id="@+id/vText_dCategory_Name"
             style="@style/TextViewCategory"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

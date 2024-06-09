@@ -12,7 +12,7 @@
 >
 
     <ImageView
-        android:id="@+id/vImage_aBanner_Banner"
+        android:id="@+id/vImage_dBanner_Banner"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:contentDescription="@string/image"

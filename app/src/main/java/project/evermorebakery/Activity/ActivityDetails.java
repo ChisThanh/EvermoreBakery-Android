@@ -19,9 +19,9 @@ public class ActivityDetails extends AppCompatActivity
     ImageView vImage_aDetails_Share;
     FrameLayout lFrame_aDetails_Layout;
 
-    protected void onCreate(Bundle savedInstanceState)
+    protected void onCreate(Bundle saved_instance_state)
     {
-        super.onCreate(savedInstanceState);
+        super.onCreate(saved_instance_state);
         setContentView(R.layout.activity_details);
 
         addControls();

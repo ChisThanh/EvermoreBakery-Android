@@ -23,9 +23,9 @@ public class ActivityStart extends AppCompatActivity implements Runnable
 
 
     @Override
-    protected void onCreate(Bundle savedInstanceState)
+    protected void onCreate(Bundle saved_instance_state)
     {
-        super.onCreate(savedInstanceState);
+        super.onCreate(saved_instance_state);
         setContentView(R.layout.activity_start);
 
         addControls();
