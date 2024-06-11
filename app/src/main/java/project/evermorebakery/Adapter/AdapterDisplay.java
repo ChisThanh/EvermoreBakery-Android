@@ -21,13 +21,13 @@ import project.evermorebakery.Custom.CustomOnClickListener;
 import project.evermorebakery.Model.ModelProduct;
 import project.evermorebakery.R;
 
-public class AdapterHome extends RecyclerView.Adapter<AdapterHome.HomeViewHolder>
+public class AdapterDisplay extends RecyclerView.Adapter<AdapterDisplay.DisplayViewHolder>
 {
     Context context;
     ArrayList<ModelProduct> product_list;
     CustomOnClickListener listener;
 
-    public AdapterHome(Context context, ArrayList<ModelProduct> product_list)
+    public AdapterDisplay(Context context, ArrayList<ModelProduct> product_list)
     {
         this.context = context;
         this.product_list = product_list;
@@ -35,29 +35,32 @@ public class AdapterHome extends RecyclerView.Adapter<AdapterHome.HomeViewHolder
 
     @NonNull
     @Override
-    public HomeViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int view_type)
+    public AdapterDisplay.DisplayViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int view_type)
     {
-        return new AdapterHome.HomeViewHolder(LayoutInflater.from(context).inflate(R.layout.adapter_home, parent, false));
+        return new AdapterDisplay.DisplayViewHolder(LayoutInflater
+                .from(context).inflate(R.layout.adapter_display, parent, false));
     }
 
-    @SuppressLint("DiscouragedApi, SetTextI18n")
+    @SuppressLint({"DiscouragedApi", "SetTextI18n"})
     @Override
-    public void onBindViewHolder(@NonNull HomeViewHolder holder, int position)
+    public void onBindViewHolder(@NonNull AdapterDisplay.DisplayViewHolder holder, int position)
     {
-        int drawable_id = context.getResources().getIdentifier(product_list.get(position).getImage(),
+        ModelProduct product = product_list.get(position);
+
+        int drawable_id = context.getResources().getIdentifier(product.getImage(),
                 "drawable", context.getPackageName());
 
         if(drawable_id != 0)
             Picasso.get()
                     .load(drawable_id)
                     .placeholder(R.drawable.square_placeholder)
-                    .error(R.drawable.square_error).into(holder.vImage_dHome_Image);
-        else holder.vImage_dHome_Image.setImageResource(R.drawable.square_placeholder);
+                    .error(R.drawable.square_error).into(holder.vImage_dDisplay_Image);
+        else holder.vImage_dDisplay_Image.setImageResource(R.drawable.square_placeholder);
 
-        holder.vText_dHome_Name.setText(product_list.get(position).getName());
+        holder.vText_dDisplay_Name.setText(product.getName());
 
         NumberFormat vnd_currency = NumberFormat.getCurrencyInstance(new Locale("vi", "VN"));
-        holder.vText_dHome_Price.setText("Price: " + vnd_currency.format(product_list.get(position).getPrice()));
+        holder.vText_dDisplay_Price.setText("Price: " + vnd_currency.format(product_list.get(position).getPrice()));
     }
 
     @Override
@@ -71,19 +74,18 @@ public class AdapterHome extends RecyclerView.Adapter<AdapterHome.HomeViewHolder
         this.listener = listener;
     }
 
-    public class HomeViewHolder extends RecyclerView.ViewHolder
+    public class DisplayViewHolder extends RecyclerView.ViewHolder
     {
-        ImageView vImage_dHome_Image;
-        TextView vText_dHome_Name;
-        TextView vText_dHome_Price;
+        ImageView vImage_dDisplay_Image;
+        TextView vText_dDisplay_Name;
+        TextView vText_dDisplay_Price;
 
-        public HomeViewHolder(View item_view)
+        public DisplayViewHolder(@NonNull View item_view)
         {
             super(item_view);
-
-            vImage_dHome_Image = item_view.findViewById(R.id.vImage_dHome_Image);
-            vText_dHome_Name = item_view.findViewById(R.id.vText_dHome_Name);
-            vText_dHome_Price = item_view.findViewById(R.id.vText_dHome_Price);
+            vImage_dDisplay_Image = item_view.findViewById(R.id.vImage_dDisplay_Image);
+            vText_dDisplay_Name = item_view.findViewById(R.id.vText_dDisplay_Name);
+            vText_dDisplay_Price = item_view.findViewById(R.id.vText_dDisplay_Price);
 
             item_view.setOnClickListener(view ->
             {

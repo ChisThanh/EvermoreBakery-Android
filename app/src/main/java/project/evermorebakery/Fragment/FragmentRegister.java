@@ -35,7 +35,8 @@ public class FragmentRegister extends Fragment
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater,
                              @Nullable ViewGroup container,
-                             @Nullable Bundle savedInstanceState) //Extends: Extends from Fragment
+                             @Nullable Bundle saved_instance_state)
+
     {
         //View: Get the View of The Fragment
         view = inflater.inflate(R.layout.fragment_register, container, false);

@@ -19,9 +19,9 @@ public class ActivityContinue extends AppCompatActivity
     Button uButton_aContinue_Continue; //Button: Open Activity Main
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) //Extends: Extends from AppCompatActivity
+    protected void onCreate(Bundle saved_instance_state)
     {
-        super.onCreate(savedInstanceState);
+        super.onCreate(saved_instance_state);
         setContentView(R.layout.activity_continue);
 
         addControls();

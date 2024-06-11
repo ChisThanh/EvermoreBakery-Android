@@ -1,5 +1,6 @@
 package project.evermorebakery.Fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,6 +15,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import project.evermorebakery.Activity.ActivityStart;
 import project.evermorebakery.Adapter.AdapterGender;
 import project.evermorebakery.Helper.HelperInterface;
 import project.evermorebakery.R;
@@ -39,7 +41,7 @@ public class FragmentProfile extends Fragment
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater,
                              @Nullable ViewGroup container,
-                             @Nullable Bundle savedInstanceState)
+                             @Nullable Bundle saved_instance_state)
     {
         view = inflater.inflate(R.layout.fragment_profile, container, false);
 
@@ -109,6 +111,10 @@ public class FragmentProfile extends Fragment
             }
         });
 
-        uButton_fProfile_Logout.setOnClickListener(view -> {});
+        uButton_fProfile_Logout.setOnClickListener(view ->
+        {
+            Intent intent = new Intent(requireContext(), ActivityStart.class);
+            startActivity(intent);
+        });
     }
 }

@@ -1,6 +1,7 @@
 package project.evermorebakery.Fragment;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -18,7 +19,8 @@ import com.google.android.material.tabs.TabLayout;
 
 import java.util.ArrayList;
 
-import project.evermorebakery.Adapter.AdapterMenu;
+import project.evermorebakery.Activity.ActivityDetails;
+import project.evermorebakery.Adapter.AdapterDisplay;
 import project.evermorebakery.Model.ModelCategory;
 import project.evermorebakery.Model.ModelProduct;
 import project.evermorebakery.R;
@@ -35,7 +37,7 @@ public class FragmentMenu extends Fragment
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater,
                              @Nullable ViewGroup container,
-                             @Nullable Bundle savedInstanceState)
+                             @Nullable Bundle saved_instance_state)
     {
         view = inflater.inflate(R.layout.fragment_menu, container, false);
 
@@ -85,9 +87,15 @@ public class FragmentMenu extends Fragment
     void addAdapter()
     {
         LinearLayoutManager layout_manager = new LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false);
-        AdapterMenu menu_adapter = new AdapterMenu(requireContext(), product_list);
+        AdapterDisplay menu_adapter = new AdapterDisplay(requireContext(), product_list);
         vRecycler_fMenu_Item.setLayoutManager(layout_manager);
         vRecycler_fMenu_Item.setAdapter(menu_adapter);
+
+        menu_adapter.setOnItemClickListener(product ->
+        {
+            Intent intent = new Intent(requireContext(), ActivityDetails.class);
+            startActivity(intent);
+        });
     }
 
     @SuppressLint("InflateParams")
@@ -95,11 +103,11 @@ public class FragmentMenu extends Fragment
     {
         View view = getLayoutInflater().inflate(R.layout.adapter_category, null, false);
 
-        ImageView vImage_aCategory_Image = view.findViewById(R.id.vImage_aCategory_Image);
-        vImage_aCategory_Image.setImageResource(item.getImage());
+        ImageView vImage_dCategory_Image = view.findViewById(R.id.vImage_dCategory_Image);
+        vImage_dCategory_Image.setImageResource(item.getImage());
 
-        TextView vText_aCategory_Name = view.findViewById(R.id.vText_aCategory_Name);
-        vText_aCategory_Name.setText(item.getName());
+        TextView vText_dCategory_Name = view.findViewById(R.id.vText_dCategory_Name);
+        vText_dCategory_Name.setText(item.getName());
 
         return view;
     }

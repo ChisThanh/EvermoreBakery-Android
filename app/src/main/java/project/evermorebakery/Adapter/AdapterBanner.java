@@ -33,7 +33,7 @@ public class AdapterBanner extends RecyclerView.Adapter<AdapterBanner.BannerView
     @Override
     public void onBindViewHolder(@NonNull BannerViewHolder holder, int position)
     {
-        holder.vImage_aBanner_Banner.setImageResource(banner_list[position]);
+        holder.vImage_dBanner_Banner.setImageResource(banner_list[position]);
     }
 
     @Override
@@ -44,12 +44,12 @@ public class AdapterBanner extends RecyclerView.Adapter<AdapterBanner.BannerView
 
     public static class BannerViewHolder extends RecyclerView.ViewHolder
     {
-        ImageView vImage_aBanner_Banner;
+        ImageView vImage_dBanner_Banner;
 
         public BannerViewHolder(@NonNull View item_view)
         {
             super(item_view);
-            vImage_aBanner_Banner = item_view.findViewById(R.id.vImage_aBanner_Banner);
+            vImage_dBanner_Banner = item_view.findViewById(R.id.vImage_dBanner_Banner);
         }
     }
 }

@@ -29,7 +29,8 @@ public class ActivityStart extends AppCompatActivity implements Runnable
     final static int INTERVAL = 100;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) //Extends: Extends from AppCompatActivity
+
+    protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_start);

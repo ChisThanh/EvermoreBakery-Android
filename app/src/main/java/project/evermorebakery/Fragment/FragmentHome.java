@@ -1,6 +1,7 @@
 package project.evermorebakery.Fragment;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -17,9 +18,11 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 
+import project.evermorebakery.Activity.ActivityDetails;
 import project.evermorebakery.Adapter.AdapterBanner;
 import project.evermorebakery.Adapter.AdapterHome;
 import project.evermorebakery.Custom.CustomGridSpacingItemDecoration;
+import project.evermorebakery.Custom.CustomOnClickListener;
 import project.evermorebakery.Model.ModelProduct;
 import project.evermorebakery.R;
 
@@ -39,7 +42,7 @@ public class FragmentHome extends Fragment
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater,
                              @Nullable ViewGroup container,
-                             @Nullable Bundle savedInstanceState)
+                             @Nullable Bundle saved_instance_state)
     {
         view = inflater.inflate(R.layout.fragment_home, container, false);
 
@@ -101,6 +104,12 @@ public class FragmentHome extends Fragment
         AdapterHome home_adapter = new AdapterHome(requireContext(), product_list);
         recycler_view.setLayoutManager(layout_manager);
         recycler_view.setAdapter(home_adapter);
+
+        home_adapter.setOnItemClickListener(product ->
+        {
+            Intent intent = new Intent(requireContext(), ActivityDetails.class);
+            startActivity(intent);
+        });
     }
 
     @SuppressLint("ClickableViewAccessibility")
@@ -111,6 +120,12 @@ public class FragmentHome extends Fragment
         recycler_view.setLayoutManager(layout_manager);
         recycler_view.addItemDecoration(new CustomGridSpacingItemDecoration(2, 10, true));
         recycler_view.setAdapter(home_adapter);
+
+        home_adapter.setOnItemClickListener(product ->
+        {
+            Intent intent = new Intent(requireContext(), ActivityDetails.class);
+            startActivity(intent);
+        });
     }
 
     void addEvents()

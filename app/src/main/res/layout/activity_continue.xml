@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:tools="http://schemas.android.com/tools"
-    android:background="@drawable/potrait_donut"
+    android:background="@drawable/portrait_donut"
     android:orientation="vertical"
     tools:context=".Activity.ActivityContinue"
 >

@@ -1,6 +1,7 @@
 package project.evermorebakery.Activity;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.ContextThemeWrapper;
@@ -23,6 +24,7 @@ import java.lang.reflect.Method;
 import project.evermorebakery.Fragment.FragmentHome;
 import project.evermorebakery.Fragment.FragmentMenu;
 import project.evermorebakery.Fragment.FragmentProfile;
+import project.evermorebakery.Fragment.FragmentSearch;
 import project.evermorebakery.R;
 
 public class ActivityMain extends AppCompatActivity
@@ -34,9 +36,9 @@ public class ActivityMain extends AppCompatActivity
     BottomNavigationView vBottom_aMain_Navigate;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState)
+    protected void onCreate(Bundle saved_instance_state)
     {
-        super.onCreate(savedInstanceState);
+        super.onCreate(saved_instance_state);
         setContentView(R.layout.activity_main);
 
         addControls();
@@ -76,6 +78,22 @@ public class ActivityMain extends AppCompatActivity
         vImage_aMain_Action.setOnClickListener(view -> showPopupMenu());
 
         vSearch_aMain_Search.setOnClickListener(view -> vSearch_aMain_Search.setIconified(false));
+
+        vSearch_aMain_Search.setOnQueryTextListener(new SearchView.OnQueryTextListener()
+        {
+            @Override
+            public boolean onQueryTextSubmit(String query)
+            {
+                loadFragment(new FragmentSearch());
+                return true;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String query)
+            {
+                return false;
+            }
+        });
 
         vBottom_aMain_Navigate.setOnItemSelectedListener(item ->
         {
@@ -151,6 +169,8 @@ public class ActivityMain extends AppCompatActivity
             }
             else if(id == R.id.iMenu_mAction_Logout)
             {
+                Intent intent = new Intent(ActivityMain.this, ActivityStart.class);
+                startActivity(intent);
                 return true;
             }
 
