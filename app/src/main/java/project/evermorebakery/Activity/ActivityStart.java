@@ -2,6 +2,7 @@ package project.evermorebakery.Activity;
 
 import android.os.Bundle;
 import android.os.Handler;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.FrameLayout;
@@ -11,7 +12,13 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
+import com.android.volley.toolbox.Volley;
+
+import org.json.JSONArray;
+
 import project.evermorebakery.Fragment.FragmentLogin;
+import project.evermorebakery.Handler.HandlerRESTAPI;
+import project.evermorebakery.Interface.VolleyResponseListener;
 import project.evermorebakery.R;
 
 public class ActivityStart extends AppCompatActivity implements Runnable
@@ -21,16 +28,42 @@ public class ActivityStart extends AppCompatActivity implements Runnable
     FrameLayout lFrame_aStart_Layout;
     final static int INTERVAL = 100;
 
-
     @Override
-    protected void onCreate(Bundle saved_instance_state)
+    protected void onCreate(Bundle savedInstanceState) //Extends: Extends from AppCompatActivity
     {
-        super.onCreate(saved_instance_state);
+        super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_start);
-
         addControls();
         setProgressBar();
         addEvents();
+
+//        HandlerRESTAPI handlerRESTAPI = new HandlerRESTAPI(Volley.newRequestQueue(this));
+//        String select = "SELECT * FROM account";
+//        handlerRESTAPI.fetchData(select,
+//                new VolleyResponseListener() {
+//                    @Override
+//                    public void onResponse(JSONArray response) {
+//                        Log.e("Response", response.toString());
+//                    }
+//
+//                    @Override
+//                    public void onError(String errorMessage) {
+//                    }
+//                });
+//
+//        String query = "UPDATE account SET USERNAME = 2711231 WHERE ACCOUNT_ID = 'TK0015'";
+//        handlerRESTAPI.updateData(query,
+//                new VolleyResponseListener() {
+//                    @Override
+//                    public void onResponse(JSONArray response) {
+//                        Log.e("Response", response.toString());
+//                    }
+//
+//                    @Override
+//                    public void onError(String errorMessage) {
+//                    }
+//                });
+
     }
 
     @Override

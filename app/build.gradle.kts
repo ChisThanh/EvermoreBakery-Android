@@ -40,5 +40,4 @@ dependencies {
     androidTestImplementation(libs.espresso.core)
     implementation(libs.picasso)
     implementation(libs.volley)
-
 }
