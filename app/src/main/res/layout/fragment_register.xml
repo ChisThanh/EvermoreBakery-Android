@@ -12,6 +12,7 @@
     android:scrollbars="none"
     android:scrollbarSize="0dp"
     android:orientation="vertical"
+    tools:context=".Fragment.FragmentRegister"
 >
 
     <LinearLayout
@@ -110,7 +111,7 @@
             style="@style/ButtonSecondary"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="10dp"
             android:text="@string/register"
             tools:ignore="TextContrastCheck,VisualLintButtonSize"
         />

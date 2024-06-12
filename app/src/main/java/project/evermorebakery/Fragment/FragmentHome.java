@@ -9,7 +9,6 @@ import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.core.widget.NestedScrollView;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -28,7 +27,6 @@ import project.evermorebakery.R;
 public class FragmentHome extends Fragment
 {
     View view;
-    NestedScrollView vNested_fHome_Nested;
     RecyclerView vRecycler_fHome_Banner;
     RecyclerView vRecycler_fHome_Revisit;
     RecyclerView vRecycler_fHome_Recommendation;
@@ -58,7 +56,6 @@ public class FragmentHome extends Fragment
 
     void addControls()
     {
-        vNested_fHome_Nested = view.findViewById(R.id.vNested_fHome_Nested);
         vRecycler_fHome_Banner = view.findViewById(R.id.vRecycler_fHome_Banner);
         vRecycler_fHome_Revisit = view.findViewById(R.id.vRecycler_fHome_Revisit);
         vRecycler_fHome_Recommendation = view.findViewById(R.id.vRecycler_fHome_Recommendation);

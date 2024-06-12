@@ -10,7 +10,9 @@
     android:paddingEnd="20dp"
     android:background="@color/light_apricot"
     android:orientation="vertical"
+    android:scrollbars="none"
     android:overScrollMode="never"
+    tools:context=".Fragment.FragmentProfile"
 >
 
     <LinearLayout

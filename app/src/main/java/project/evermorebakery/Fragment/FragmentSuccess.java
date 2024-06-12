@@ -1,4 +1,8 @@
 package project.evermorebakery.Fragment;
 
-public class FragmentSuccess {
+import androidx.fragment.app.Fragment;
+
+public class FragmentSuccess extends Fragment
+{
+
 }

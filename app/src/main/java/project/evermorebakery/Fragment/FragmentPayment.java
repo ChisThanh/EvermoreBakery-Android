@@ -2,47 +2,62 @@ package project.evermorebakery.Fragment;
 
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 
+import project.evermorebakery.Helper.HelperInterface;
 import project.evermorebakery.R;
 
-public class FragmentPayment extends Fragment {
+public class FragmentPayment extends Fragment
+{
+    View view;
+    Button uButton_fPayment_Momo;
+    Button uButton_fPayment_DebitCards;
+    Button uButton_fPayment_Cash;
+    Button uButton_fPayment_Payment;
 
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
-
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
-
-    public FragmentPayment() {
-    }
-
-    public static FragmentPayment newInstance(String param1, String param2) {
-        FragmentPayment fragment = new FragmentPayment();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
-    }
-
+    @Nullable
     @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
+    public View onCreateView(@NonNull LayoutInflater inflater,
+                             @Nullable ViewGroup container,
+                             @Nullable Bundle saved_instance_state)
+    {
+
+        view = inflater.inflate(R.layout.fragment_payment, container, false);
+
+        addControls();
+        addEvents();
+
+        return view;
     }
 
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_payment, container, false);
+    void addControls()
+    {
+        uButton_fPayment_Momo = view.findViewById(R.id.uButton_fPayment_Momo);
+        uButton_fPayment_DebitCards = view.findViewById(R.id.uButton_fPayment_DebitCards);
+        uButton_fPayment_Cash = view.findViewById(R.id.uButton_fPayment_Cash);
+        uButton_fPayment_Payment = view.findViewById(R.id.uButton_fPayment_Payment);
+    }
+
+    void addEvents()
+    {
+        uButton_fPayment_Momo.setOnClickListener(view -> {});
+        uButton_fPayment_DebitCards.setOnClickListener(view -> {});
+        uButton_fPayment_Cash.setOnClickListener(view -> {});
+        uButton_fPayment_Payment.setOnClickListener(view -> {});
+    }
+
+    void loadFragment(Fragment fragment)
+    {
+        FragmentTransaction fragment_transaction = getParentFragmentManager().beginTransaction();
+        fragment_transaction.replace(R.id.lFrame_aMain_Layout, fragment);
+        fragment_transaction.commit();
     }
 }

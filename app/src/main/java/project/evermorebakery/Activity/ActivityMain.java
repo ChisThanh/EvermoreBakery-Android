@@ -22,6 +22,7 @@ import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 
 import project.evermorebakery.Fragment.FragmentCart;
+import project.evermorebakery.Fragment.FragmentCheckout;
 import project.evermorebakery.Fragment.FragmentHome;
 import project.evermorebakery.Fragment.FragmentMenu;
 import project.evermorebakery.Fragment.FragmentNotification;
@@ -112,7 +113,7 @@ public class ActivityMain extends AppCompatActivity
             }
             else if(id == R.id.iMenu_mMain_Cart)
             {
-                loadFragment(new FragmentCart());
+                loadFragment(new FragmentCheckout());
                 return true;
             }
             else if(id == R.id.iMenu_mMain_Notification)

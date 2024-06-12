@@ -1,4 +1,8 @@
 package project.evermorebakery.Fragment;
 
-public class FragmentDelivery {
+import androidx.fragment.app.Fragment;
+
+public class FragmentDelivery extends Fragment
+{
+
 }

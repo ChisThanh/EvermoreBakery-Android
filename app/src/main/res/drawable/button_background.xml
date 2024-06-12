@@ -1,8 +1,0 @@
-<!-- res/drawable/button_background.xml -->
-<selector xmlns:android="http://schemas.android.com/apk/res/android">
-    <item android:state_pressed="true" android:drawable="@color/cedar_wood"/>
-    <item android:state_focused="true" android:drawable="@color/cedar_wood"/>
-    <item android:drawable="@drawable/rounded_bg"/>
-
-</selector>
-

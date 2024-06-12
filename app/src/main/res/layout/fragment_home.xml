@@ -10,8 +10,10 @@
     android:paddingStart="20dp"
     android:paddingEnd="20dp"
     android:background="@color/light_apricot"
+    android:scrollbars="none"
     android:overScrollMode="never"
     android:orientation="vertical"
+    tools:context=".Fragment.FragmentHome"
 >
 
     <LinearLayout
@@ -26,6 +28,7 @@
             android:layout_height="200dp"
             android:nestedScrollingEnabled="true"
             android:scrollbars="none"
+            android:overScrollMode="never"
             tools:ignore="TextSizeCheck"
         />
 
@@ -34,7 +37,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:contentDescription="@string/image"
-            app:srcCompat="@drawable/custom_line"
+            app:srcCompat="@drawable/custom_line_three_potters_clay"
             tools:ignore="ImageContrastCheck"
         />
 
@@ -62,7 +65,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:contentDescription="@string/image"
-            app:srcCompat="@drawable/custom_line"
+            app:srcCompat="@drawable/custom_line_three_potters_clay"
             tools:ignore="ImageContrastCheck"
         />
 
@@ -89,7 +92,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:contentDescription="@string/image"
-            app:srcCompat="@drawable/custom_line"
+            app:srcCompat="@drawable/custom_line_three_potters_clay"
         />
 
         <TextView

@@ -74,10 +74,23 @@
     <string name="account" >Account</string>
     <string name="product_comments" >Product Comments</string>
     <string name="write_comment" >Write Comment</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="back_button_description">Trở về</string>
-    <string name="title_order">Checking Out</string>
 
+    <!--Checkout Strings-->
+    <string name="checkout">Checkout</string>
+    <string name="offer">Offer</string>
+    <string name="offer_code">Offer Code</string>
+    <string name="order_summary">Order Summary</string>
+    <string name="order">Order</string>
+    <string name="order_money">450.000 VNĐ</string>
+    <string name="delivery">Delivery</string>
+    <string name="total">Total</string>
+    <string name="address_details">Evermore Street</string>
+
+    <!--Payment Strings-->
+    <string name="payment">Payment</string>
+    <string name="momo">Momo</string>
+    <string name="debit_cards">Debit Cards</string>
+    <string name="cash">Cash</string>
+    <string name="pay_now">Pay Now</string>
 
 </resources>

@@ -14,7 +14,7 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@drawable/custom_home"
+        android:background="@drawable/custom_background_gradient_floral_white_to_faded_orange"
         android:padding="10dp"
     >
 

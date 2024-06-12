@@ -3,17 +3,12 @@
 <resources>
     <!--FrameLayout-->
     <style name="FrameLayout">
-        <item name="android:background">@drawable/custom_frame_layout</item>
+        <item name="android:background">@drawable/custom_radius_top_thirty_background_white</item>
         <item name="android:backgroundTint">@color/white</item>
         <item name="android:paddingTop">35dp</item>
         <item name="android:paddingBottom">5dp</item>
     </style>
-    <style name="CheckoutLayout">
-        <item name="android:background">@drawable/custom_checkout_layout</item>
-        <item name="android:backgroundTint">@color/white</item>
-        <item name="android:paddingTop">35dp</item>
-        <item name="android:paddingBottom">5dp</item>
-    </style>
+
     <!--Header Title Text View-->
     <style name="TextViewHeaderTitle">
         <item name="android:textSize">30sp</item>
@@ -105,9 +100,22 @@
         <item name="android:textColor">@color/cedar_wood</item>
     </style>
 
+    <!--Checkout Text View-->
+    <style name="TextViewCheckout">
+        <item name="android:textSize">20sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/cedar_wood</item>
+    </style>
+
+    <!--Small Checkout Text View-->
+    <style name="TextViewCheckoutSmall">
+        <item name="android:textSize">18sp</item>
+        <item name="android:textColor">@color/cedar_wood</item>
+    </style>
+
     <!--Edit Text-->
     <style name="EditText">
-        <item name="android:background">@drawable/custom_edit_text</item>
+        <item name="android:background">@drawable/custom_radius_ten_stroke_two_gray_background_white</item>
         <item name="android:padding">10dp</item>
         <item name="android:drawablePadding">10dp</item>
         <item name="android:drawableTint">@color/gray</item>
@@ -118,7 +126,7 @@
 
     <!--Square Edit Text-->
     <style name="EditTextSquare">
-        <item name="android:background">@drawable/custom_edit_text_square</item>
+        <item name="android:background">@drawable/custom_stroke_two_gray_background_white</item>
         <item name="android:padding">10dp</item>
         <item name="android:drawablePadding">10dp</item>
         <item name="android:drawableTint">@color/gray</item>
@@ -129,7 +137,7 @@
 
     <!--Spinner-->
     <style name="Spinner">
-        <item name="android:background">@drawable/custom_spinner</item>
+        <item name="android:background">@drawable/custom_radius_ten_stroke_two_gray_background_white</item>
         <item name="android:padding">10dp</item>
         <item name="android:textSize">24sp</item>
     </style>
@@ -144,7 +152,7 @@
 
     <!--Primary Button-->
     <style name="ButtonPrimary">
-        <item name="android:background">@drawable/custom_button</item>
+        <item name="android:background">@drawable/custom_radius_five_background_white</item>
         <item name="android:backgroundTint">@color/cedar_wood</item>
         <item name="android:padding">10dp</item>
         <item name="android:textColor">@color/floral_white</item>
@@ -154,7 +162,7 @@
 
     <!--Secondary Button-->
     <style name="ButtonSecondary">
-        <item name="android:background">@drawable/custom_button</item>
+        <item name="android:background">@drawable/custom_radius_five_background_white</item>
         <item name="android:backgroundTint">@color/faded_orange</item>
         <item name="android:padding">10dp</item>
         <item name="android:textColor">@color/white</item>
@@ -164,7 +172,7 @@
 
     <!--Open Button-->
     <style name="ButtonOpen">
-        <item name="android:background">@drawable/custom_progress_bar</item>
+        <item name="android:background">@drawable/state_progress_to_progress</item>
         <item name="android:backgroundTint">@color/sandstorm</item>
         <item name="android:padding">10dp</item>
         <item name="android:textColor">@color/white</item>
@@ -175,21 +183,34 @@
 
     <!--Icon Button-->
     <style name="ButtonIcon">
-        <item name="android:background">@drawable/custom_button_icon</item>
-        <item name="android:padding">10dp</item>
+        <item name="android:background">@drawable/custom_radius_ten_stroke_three_cedar_wood_background_white</item>
+        <item name="android:paddingStart">50dp</item>
+        <item name="android:paddingEnd">50dp</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:drawablePadding">40dp</item>
+        <item name="android:drawableTint">@color/cedar_wood</item>
         <item name="android:textColor">@color/cedar_wood</item>
         <item name="android:textSize">24sp</item>
         <item name="android:textStyle">bold</item>
+    </style>
+
+    <!--Payment Button-->
+    <style name="ButtonPayment">
+        <item name="android:background">@drawable/custom_radius_fifteen_background_white</item>
+        <item name="android:padding">10dp</item>
+        <item name="android:paddingStart">20dp</item>
+        <item name="android:paddingEnd">20dp</item>
         <item name="android:gravity">center_vertical</item>
-        <item name="android:paddingStart">50dp</item>
-        <item name="android:paddingEnd">50dp</item>
-        <item name="android:drawablePadding">40dp</item>
         <item name="android:drawableTint">@color/cedar_wood</item>
+        <item name="android:textColor">@color/cedar_wood</item>
+        <item name="android:textSize">24sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textAllCaps">false</item>
     </style>
 
     <!--Value Button-->
     <style name="ButtonValue">
-        <item name="android:background">@drawable/custom_button</item>
+        <item name="android:background">@drawable/custom_radius_five_background_white</item>
         <item name="android:backgroundTint">@color/cedar_wood</item>
         <item name="android:textColor">@color/white</item>
         <item name="android:textSize">30sp</item>
@@ -197,16 +218,16 @@
         <item name="android:gravity">center</item>
     </style>
 
-    <!--CheckBox Bar-->
+    <!--CheckBox-->
     <style name="CheckBox" parent="Widget.AppCompat.CompoundButton.CheckBox">
-        <item name="android:button">@drawable/custom_checkbox</item>
+        <item name="android:button">@drawable/state_icon_to_icon</item>
         <item name="android:textColor">@color/black</item>
         <item name="android:textSize">14sp</item>
     </style>
 
     <!--Progress Bar-->
     <style name="ProgressBar" parent="Widget.AppCompat.ProgressBar.Horizontal">
-        <item name="android:progressDrawable">@drawable/custom_progress_bar</item>
+        <item name="android:progressDrawable">@drawable/state_progress_to_progress</item>
         <item name="android:progressTint">@color/sandstorm</item>
         <item name="android:progressBackgroundTint">@color/white</item>
         <item name="android:minHeight">50dp</item>
@@ -229,7 +250,7 @@
 
     <!--Popup Menu-->
     <style name="PopupMenu" parent="Widget.AppCompat.PopupMenu">
-        <item name="android:itemBackground">@drawable/custom_popup_menu_item</item>
+        <item name="android:itemBackground">@drawable/custom_background_indian_yellow</item>
         <item name="android:textColor">@color/rust_brown</item>
         <item name="android:textStyle">bold</item>
     </style>

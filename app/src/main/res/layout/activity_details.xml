@@ -11,52 +11,31 @@
     tools:context=".Activity.ActivityDetails"
 >
 
-    <androidx.cardview.widget.CardView
-        android:id="@+id/vCard_aDetails_Return"
+    <ImageView
+        android:id="@+id/vImage_aDetails_Return"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="10dp"
-        app:cardCornerRadius="20dp"
-        app:cardElevation="4dp"
-        app:cardUseCompatPadding="true"
-    >
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="20dp"
+        android:padding="10dp"
+        android:contentDescription="@string/image"
+        app:srcCompat="@drawable/icon_return"
+        android:background="@drawable/custom_circle_background_white"
+    />
 
-        <ImageView
-            android:id="@+id/vImage_aDetails_Return"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:padding="10dp"
-            android:contentDescription="@string/image"
-            app:srcCompat="@drawable/icon_return"
-            android:background="@color/white"
-        />
-
-    </androidx.cardview.widget.CardView>
-
-    <androidx.cardview.widget.CardView
-        android:id="@+id/vCard_aDetails_Share"
+    <ImageView
+        android:id="@+id/vImage_aDetails_Share"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
-        android:layout_marginTop="10dp"
-        app:cardCornerRadius="20dp"
-        app:cardElevation="4dp"
-        app:cardUseCompatPadding="true"
-    >
-
-        <ImageView
-            android:id="@+id/vImage_aDetails_Share"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:padding="10dp"
-            android:layout_gravity="center"
-            android:contentDescription="@string/image"
-            app:srcCompat="@drawable/icon_share"
-            android:background="@color/white"
-        />
-
-    </androidx.cardview.widget.CardView>
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="20dp"
+        android:padding="10dp"
+        android:layout_gravity="center"
+        android:contentDescription="@string/image"
+        app:srcCompat="@drawable/icon_share"
+        android:background="@drawable/custom_circle_background_white"
+    />
 
     <FrameLayout
         android:id="@+id/lFrame_aDetails_Layout"

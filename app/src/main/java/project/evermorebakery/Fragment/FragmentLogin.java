@@ -19,7 +19,6 @@ import project.evermorebakery.Activity.ActivityContinue;
 import project.evermorebakery.Helper.HelperInterface;
 import project.evermorebakery.R;
 
-
 public class FragmentLogin extends Fragment {
     View view;
     EditText uText_fLogin_Email;
@@ -62,19 +61,14 @@ public class FragmentLogin extends Fragment {
         uButton_fLogin_Login = view.findViewById(R.id.uButton_fLogin_Login);
     }
 
-    void addEvents() // Function: Add Events for User to Interact
+    void addEvents()
     {
-        // TextView: Click to Open Fragment Recover
         vText_fLogin_Recover.setOnClickListener(view -> loadFragment(new FragmentRecover()));
 
-        // TextView: Click to Open Fragment Register
         vText_fLogin_Register.setOnClickListener(view -> loadFragment(new FragmentRegister()));
 
-        // Button: Click to Login
-        uButton_fLogin_Login.setOnClickListener(view -> {
-            // Code: Check Login Details
-            // Code: Show Annotation if Wrong
-            // Code: Login (Save User Details and Open Activity Continue) If Right
+        uButton_fLogin_Login.setOnClickListener(view ->
+        {
             Intent intent = new Intent(getActivity(), ActivityContinue.class);
             startActivity(intent);
         });

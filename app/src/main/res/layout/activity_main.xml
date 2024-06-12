@@ -65,7 +65,7 @@
         android:elevation="1dp"
         android:searchIcon="@drawable/icon_search"
         android:closeIcon="@drawable/icon_close"
-        android:background="@drawable/custom_search_view"
+        android:background="@drawable/custom_radius_one_rust_brown_radius_ten_background_white"
     />
 
     <FrameLayout
