@@ -17,8 +17,9 @@ import com.android.volley.toolbox.Volley;
 import org.json.JSONArray;
 
 import project.evermorebakery.Fragment.FragmentLogin;
-import project.evermorebakery.Handler.HandlerRESTAPI;
-import project.evermorebakery.Interface.VolleyResponseListener;
+
+import project.evermorebakery.Handler.HandlerRestAPI;
+import project.evermorebakery.Interface.InterfaceVolleyResponseListener;
 import project.evermorebakery.R;
 
 public class ActivityStart extends AppCompatActivity implements Runnable
@@ -38,33 +39,7 @@ public class ActivityStart extends AppCompatActivity implements Runnable
         setProgressBar();
         addEvents();
 
-//        HandlerRESTAPI handlerRESTAPI = new HandlerRESTAPI(Volley.newRequestQueue(this));
-//        String select = "SELECT * FROM account";
-//        handlerRESTAPI.fetchData(select,
-//                new VolleyResponseListener() {
-//                    @Override
-//                    public void onResponse(JSONArray response) {
-//                        Log.e("Response", response.toString());
-//                    }
-//
-//                    @Override
-//                    public void onError(String errorMessage) {
-//                    }
-//                });
-//
-//        String query = "UPDATE account SET USERNAME = 2711231 WHERE ACCOUNT_ID = 'TK0015'";
-//        handlerRESTAPI.updateData(query,
-//                new VolleyResponseListener() {
-//                    @Override
-//                    public void onResponse(JSONArray response) {
-//                        Log.e("Response", response.toString());
-//                    }
-//
-//                    @Override
-//                    public void onError(String errorMessage) {
-//                    }
-//                });
-
+        addAPI();
     }
 
     @Override
@@ -112,5 +87,42 @@ public class ActivityStart extends AppCompatActivity implements Runnable
         FragmentTransaction fragment_transaction = getSupportFragmentManager().beginTransaction();
         fragment_transaction.replace(R.id.lFrame_aStart_Layout, fragment);
         fragment_transaction.commit();
+    }
+
+    void addAPI()
+    {
+        HandlerRestAPI handlerRESTAPI = new HandlerRestAPI(Volley.newRequestQueue(this));
+        String select = "SELECT * FROM account";
+        handlerRESTAPI.fetchData(select,
+                new InterfaceVolleyResponseListener()
+                {
+                    @Override
+                    public void onResponse(JSONArray response)
+                    {
+                        Log.e("Response", response.toString());
+                    }
+
+                    @Override
+                    public void onError(String errorMessage)
+                    {
+
+                    }
+                });
+
+        String query = "UPDATE account SET USERNAME = 2711231 WHERE ACCOUNT_ID = 'TK0015'";
+        handlerRESTAPI.updateData(query,
+                new InterfaceVolleyResponseListener()
+                {
+                    @Override
+                    public void onResponse(JSONArray response)
+                    {
+                        Log.e("Response", response.toString());
+                    }
+
+                    @Override
+                    public void onError(String errorMessage)
+                    {
+                    }
+                });
     }
 }

@@ -22,7 +22,6 @@ import project.evermorebakery.Activity.ActivityDetails;
 import project.evermorebakery.Adapter.AdapterBanner;
 import project.evermorebakery.Adapter.AdapterHome;
 import project.evermorebakery.Custom.CustomGridSpacingItemDecoration;
-import project.evermorebakery.Custom.CustomOnClickListener;
 import project.evermorebakery.Model.ModelProduct;
 import project.evermorebakery.R;
 

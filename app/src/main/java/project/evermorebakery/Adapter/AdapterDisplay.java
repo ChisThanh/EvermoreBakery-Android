@@ -17,7 +17,7 @@ import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.Locale;
 
-import project.evermorebakery.Custom.CustomOnClickListener;
+import project.evermorebakery.Interface.InterfaceOnClickListener;
 import project.evermorebakery.Model.ModelProduct;
 import project.evermorebakery.R;
 
@@ -25,7 +25,7 @@ public class AdapterDisplay extends RecyclerView.Adapter<AdapterDisplay.DisplayV
 {
     Context context;
     ArrayList<ModelProduct> product_list;
-    CustomOnClickListener listener;
+    InterfaceOnClickListener listener;
 
     public AdapterDisplay(Context context, ArrayList<ModelProduct> product_list)
     {
@@ -69,7 +69,7 @@ public class AdapterDisplay extends RecyclerView.Adapter<AdapterDisplay.DisplayV
         return product_list.size();
     }
 
-    public void setOnItemClickListener(CustomOnClickListener listener)
+    public void setOnItemClickListener(InterfaceOnClickListener listener)
     {
         this.listener = listener;
     }
