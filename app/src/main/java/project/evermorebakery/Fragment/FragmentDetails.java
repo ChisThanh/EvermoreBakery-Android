@@ -61,7 +61,7 @@ public class FragmentDetails extends Fragment
 
     void addEvents()
     {
-
+        vImage_fDetails_Comment.setOnClickListener(view -> loadFragment(new FragmentComment()));
     }
 
     void loadFragment(Fragment fragment)

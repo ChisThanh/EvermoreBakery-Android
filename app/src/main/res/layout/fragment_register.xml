@@ -7,7 +7,7 @@
     android:layout_height="wrap_content"
     android:paddingStart="20dp"
     android:paddingEnd="20dp"
-    android:background="@color/desert_sand"
+    android:background="@color/white"
     android:overScrollMode="never"
     android:scrollbars="none"
     android:scrollbarSize="0dp"

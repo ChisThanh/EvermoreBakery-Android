@@ -1,5 +1,6 @@
 package project.evermorebakery.Activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
@@ -40,7 +41,12 @@ public class ActivityDetails extends AppCompatActivity
 
     void addEvents()
     {
-        vImage_aDetails_Return.setOnClickListener(view -> {});
+        vImage_aDetails_Return.setOnClickListener(view ->
+        {
+            Intent intent = new Intent(ActivityDetails.this, ActivityMain.class);
+            startActivity(intent);
+        });
+
         vImage_aDetails_Share.setOnClickListener(view -> {});
     }
 

@@ -21,8 +21,10 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 
+import project.evermorebakery.Fragment.FragmentCart;
 import project.evermorebakery.Fragment.FragmentHome;
 import project.evermorebakery.Fragment.FragmentMenu;
+import project.evermorebakery.Fragment.FragmentNotification;
 import project.evermorebakery.Fragment.FragmentProfile;
 import project.evermorebakery.Fragment.FragmentSearch;
 import project.evermorebakery.R;
@@ -110,10 +112,12 @@ public class ActivityMain extends AppCompatActivity
             }
             else if(id == R.id.iMenu_mMain_Cart)
             {
+                loadFragment(new FragmentCart());
                 return true;
             }
             else if(id == R.id.iMenu_mMain_Notification)
             {
+                loadFragment(new FragmentNotification());
                 return true;
             }
             else if(id == R.id.iMenu_mMain_Profile)

@@ -1,4 +1,7 @@
 package project.evermorebakery.Fragment;
 
-public class FragmentNotification {
+import androidx.fragment.app.Fragment;
+
+public class FragmentNotification extends Fragment
+{
 }

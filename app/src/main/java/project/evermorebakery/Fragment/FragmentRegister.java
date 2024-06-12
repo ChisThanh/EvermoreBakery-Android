@@ -20,16 +20,15 @@ import project.evermorebakery.R;
 
 public class FragmentRegister extends Fragment
 {
-    View view; //View: Fragment Register Layout
-    EditText uText_fRegister_Email; //EditText: Input Email
-    EditText uText_fRegister_Password; //EditText: Input Password
-    EditText uText_fRegister_Confirm; //EditText: Input Confirm Password
-    TextView vText_fRegister_EmailAnnotation; //TextView: Show Annotation when Input Email
-    TextView vText_fRegister_PasswordAnnotation; //TextView: Show Annotation when Input Password
-    TextView vText_fRegister_ConfirmAnnotation; //TextView: Show Annotation when Input Confirm Password
-    TextView vText_fRegister_Recover; //TextView: Go to Fragment Recover
-    TextView vText_fRegister_Login; //TextView: Go to Fragment Login
-    Button uButton_fRegister_Register; //Button: Register
+    View view;
+    EditText uText_fRegister_Email;
+    EditText uText_fRegister_Password;
+    EditText uText_fRegister_Confirm;
+    TextView vText_fRegister_EmailAnnotation;
+    TextView vText_fRegister_PasswordAnnotation;
+    TextView vText_fRegister_ConfirmAnnotation;
+    TextView vText_fRegister_Login;
+    Button uButton_fRegister_Register;
 
     @Nullable
     @Override
@@ -38,7 +37,6 @@ public class FragmentRegister extends Fragment
                              @Nullable Bundle saved_instance_state)
 
     {
-        //View: Get the View of The Fragment
         view = inflater.inflate(R.layout.fragment_register, container, false);
 
         addControls();
@@ -54,7 +52,7 @@ public class FragmentRegister extends Fragment
         return view;
     }
 
-    void addControls() //Function: Add Controls for Easy Access
+    void addControls()
     {
         uText_fRegister_Email = view.findViewById(R.id.uText_fRegister_Email);
         uText_fRegister_Password = view.findViewById(R.id.uText_fRegister_Password);
@@ -66,26 +64,18 @@ public class FragmentRegister extends Fragment
         uButton_fRegister_Register = view.findViewById(R.id.uButton_fRegister_Register);
     }
 
-    void addEvents() //Function: Add Events for User to Interact
+    void addEvents()
     {
-        //TextView: Click to Open Fragment Recover
-        vText_fRegister_Recover.setOnClickListener(view -> loadFragment(new FragmentRecover()));
-
-        //TextView: Click to Open Fragment Login
         vText_fRegister_Login.setOnClickListener(view -> loadFragment(new FragmentLogin()));
 
-        //Button: Click to Register
         uButton_fRegister_Register.setOnClickListener(view ->
         {
-            //Code: Check Register Details
-            //Code: Show Annotation if Wrong
-            //Code: Register (Save User Details and Open Activity Continue) If Right
             Intent intent = new Intent(getActivity(), ActivityContinue.class);
             startActivity(intent);
         });
     }
 
-    void loadFragment(Fragment fragment) //Function: Load Fragment from Input Fragment into Activity Start's Frame Layout
+    void loadFragment(Fragment fragment)
     {
         FragmentTransaction fragment_transaction = getParentFragmentManager().beginTransaction();
         fragment_transaction.replace(R.id.lFrame_aStart_Layout, fragment);

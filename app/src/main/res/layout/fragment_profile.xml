@@ -8,7 +8,7 @@
     android:layout_height="wrap_content"
     android:paddingStart="20dp"
     android:paddingEnd="20dp"
-    android:background="@color/desert_sand"
+    android:background="@color/light_apricot"
     android:orientation="vertical"
     android:overScrollMode="never"
 >

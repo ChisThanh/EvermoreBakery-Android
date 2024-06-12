@@ -39,7 +39,7 @@ public class ActivityStart extends AppCompatActivity implements Runnable
         setProgressBar();
         addEvents();
 
-        addAPI();
+        //addAPI();
     }
 
     @Override

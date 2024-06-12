@@ -1,4 +1,8 @@
 package project.evermorebakery.Fragment;
 
-public class FragmentCart {
+import androidx.fragment.app.Fragment;
+
+public class FragmentCart extends Fragment
+{
+
 }
