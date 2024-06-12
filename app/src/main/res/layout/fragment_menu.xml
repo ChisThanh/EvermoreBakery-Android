@@ -15,7 +15,7 @@
         android:id="@+id/lTab_fMenu_Category"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/desert_sand"
+        android:background="@color/light_apricot"
         app:tabIndicatorHeight="0dp"
         app:tabMode="scrollable"
         app:tabPaddingStart="0dp"
