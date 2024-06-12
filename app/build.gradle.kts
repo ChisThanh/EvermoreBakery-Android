@@ -1,3 +1,4 @@
+
 plugins {
     alias(libs.plugins.android.application)
 }
@@ -40,4 +41,5 @@ dependencies {
     androidTestImplementation(libs.espresso.core)
     implementation(libs.picasso)
     implementation(libs.volley)
+    implementation ("com.github.momo-wallet:mobile-sdk:1.0.7")
 }

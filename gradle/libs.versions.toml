@@ -10,6 +10,7 @@ constraintlayout = "2.1.4"
 coordinatorlayout = "1.2.0"
 picasso = "2.8"
 volley = "1.2.1"
+roomCompilerProcessingTesting = "2.6.1"
 
 [libraries]
 junit = { group = "junit", name = "junit", version.ref = "junit" }
