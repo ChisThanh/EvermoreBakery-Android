@@ -8,7 +8,12 @@
         <item name="android:paddingTop">35dp</item>
         <item name="android:paddingBottom">5dp</item>
     </style>
-
+    <style name="CheckoutLayout">
+        <item name="android:background">@drawable/custom_checkout_layout</item>
+        <item name="android:backgroundTint">@color/white</item>
+        <item name="android:paddingTop">35dp</item>
+        <item name="android:paddingBottom">5dp</item>
+    </style>
     <!--Header Title Text View-->
     <style name="TextViewHeaderTitle">
         <item name="android:textSize">30sp</item>

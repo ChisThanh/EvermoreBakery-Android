@@ -25,15 +25,15 @@
     <string name="s_continue">Continue</string>
 
     <!--Navigation Strings-->
-    <string name="home" >Home</string>
-    <string name="menu" >Menu</string>
-    <string name="cart" >Cart</string>
-    <string name="notification" >Notification</string>
-    <string name="profile" >Profile</string>
-    <string name="search" >Search</string>
-    <string name="settings" >Settings</string>
-    <string name="help" >Help</string>
-    <string name="logout" >Logout</string>
+    <string name="home">Home</string>
+    <string name="menu">Menu</string>
+    <string name="cart">Cart</string>
+    <string name="notification">Notification</string>
+    <string name="profile">Profile</string>
+    <string name="search">Search</string>
+    <string name="settings">Settings</string>
+    <string name="help">Help</string>
+    <string name="logout">Logout</string>
 
     <!--Main Strings-->
     <string name="subtitle">Subtitle</string>
@@ -44,19 +44,19 @@
     <string name="chef_delights">Chef\'s delights</string>
 
     <!--Menu Strings-->
-    <string name="name" >Name</string>
-    <string name="price" >Price</string>
-    <string name="rating" >Rating</string>
-    <string name="category" >Category</string>
+    <string name="name">Name</string>
+    <string name="price">Price</string>
+    <string name="rating">Rating</string>
+    <string name="category">Category</string>
 
     <!--Profile Strings-->
-    <string name="edit_avatar" >Edit Avatar</string>
-    <string name="dob" >Date of Birth</string>
-    <string name="gender" >Gender</string>
-    <string name="phone" >Phone</string>
-    <string name="address" >Address</string>
-    <string name="update_account" >Update Account</string>
-    <string name="confirm_update" >Confirm Update</string>
+    <string name="edit_avatar">Edit Avatar</string>
+    <string name="dob">Date of Birth</string>
+    <string name="gender">Gender</string>
+    <string name="phone">Phone</string>
+    <string name="address">Address</string>
+    <string name="update_account">Update Account</string>
+    <string name="confirm_update">Confirm Update</string>
 
     <!--Details Strings-->
     <string name="flavor" >Flavor</string>
@@ -74,5 +74,10 @@
     <string name="account" >Account</string>
     <string name="product_comments" >Product Comments</string>
     <string name="write_comment" >Write Comment</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="back_button_description">Trở về</string>
+    <string name="title_order">Checking Out</string>
+
 
 </resources>
