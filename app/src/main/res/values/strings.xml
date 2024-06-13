@@ -87,9 +87,15 @@
     <!--Payment Strings-->
     <string name="payment">Payment</string>
     <string name="payment_method">Payment Method</string>
-    <string name="momo">Momo</string>
+    <string name="vnpay">VnPay</string>
     <string name="debit_cards">Debit Cards</string>
     <string name="cash">Cash</string>
     <string name="pay_now">Pay Now</string>
+
+    <!--Notification Strings-->
+    <string name="title">Title</string>
+    <string name="content">Content</string>
+    <string name="clear_all">Clear All</string>
+    <string name="time">Time</string>
 
 </resources>

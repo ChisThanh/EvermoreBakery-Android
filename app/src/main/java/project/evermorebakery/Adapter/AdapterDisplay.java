@@ -21,7 +21,7 @@ import project.evermorebakery.Interface.InterfaceOnClickListener;
 import project.evermorebakery.Model.ModelProduct;
 import project.evermorebakery.R;
 
-public class AdapterDisplay extends RecyclerView.Adapter<AdapterDisplay.DisplayViewHolder>
+public class AdapterDisplay extends RecyclerView.Adapter<AdapterDisplay.ViewHolderDisplay>
 {
     Context context;
     ArrayList<ModelProduct> product_list;
@@ -35,15 +35,15 @@ public class AdapterDisplay extends RecyclerView.Adapter<AdapterDisplay.DisplayV
 
     @NonNull
     @Override
-    public AdapterDisplay.DisplayViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int view_type)
+    public AdapterDisplay.ViewHolderDisplay onCreateViewHolder(@NonNull ViewGroup parent, int view_type)
     {
-        return new AdapterDisplay.DisplayViewHolder(LayoutInflater
+        return new AdapterDisplay.ViewHolderDisplay(LayoutInflater
                 .from(context).inflate(R.layout.adapter_display, parent, false));
     }
 
     @SuppressLint({"DiscouragedApi", "SetTextI18n"})
     @Override
-    public void onBindViewHolder(@NonNull AdapterDisplay.DisplayViewHolder holder, int position)
+    public void onBindViewHolder(@NonNull AdapterDisplay.ViewHolderDisplay holder, int position)
     {
         ModelProduct product = product_list.get(position);
 
@@ -74,13 +74,13 @@ public class AdapterDisplay extends RecyclerView.Adapter<AdapterDisplay.DisplayV
         this.listener = listener;
     }
 
-    public class DisplayViewHolder extends RecyclerView.ViewHolder
+    public class ViewHolderDisplay extends RecyclerView.ViewHolder
     {
         ImageView vImage_dDisplay_Image;
         TextView vText_dDisplay_Name;
         TextView vText_dDisplay_Price;
 
-        public DisplayViewHolder(@NonNull View item_view)
+        public ViewHolderDisplay(@NonNull View item_view)
         {
             super(item_view);
             vImage_dDisplay_Image = item_view.findViewById(R.id.vImage_dDisplay_Image);

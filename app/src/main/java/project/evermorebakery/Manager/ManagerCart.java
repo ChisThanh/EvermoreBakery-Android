@@ -32,6 +32,11 @@ public class ManagerCart
         return total;
     }
 
+    public void clearCart()
+    {
+        cart_list.clear();
+    }
+
     public int getQuantity()
     {
         return cart_list.size();

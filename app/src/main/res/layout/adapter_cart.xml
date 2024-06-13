@@ -7,7 +7,7 @@
     android:layout_width="match_parent"
     android:layout_height="150dp"
     android:padding="10dp"
-    android:background="@color/light_apricot"
+    android:background="@drawable/custom_radius_fifteen_background_white"
 >
 
     <androidx.cardview.widget.CardView

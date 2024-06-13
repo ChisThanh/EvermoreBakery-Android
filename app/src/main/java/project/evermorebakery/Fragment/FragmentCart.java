@@ -22,6 +22,7 @@ import java.util.ArrayList;
 import java.util.Locale;
 
 import project.evermorebakery.Activity.ActivityDetails;
+import project.evermorebakery.Activity.ActivityMain;
 import project.evermorebakery.Adapter.AdapterCart;
 import project.evermorebakery.Custom.CustomVerticalSpacingItemDecoration;
 import project.evermorebakery.Manager.ManagerCart;
@@ -92,7 +93,10 @@ public class FragmentCart extends Fragment
                 cart_adapter.removeItem(position);
 
                 updateTotal(ManagerCart.getInstance().getTotal());
-                if(ManagerCart.getInstance().isCartEmpty()) loadFragment(new FragmentEmpty());
+                if(ManagerCart.getInstance().isCartEmpty())
+                {
+                    loadFragment(new FragmentEmpty());
+                }
             }
         });
 

@@ -120,6 +120,8 @@ public class FragmentHome extends Fragment
         home_adapter.setOnItemClickListener(product ->
         {
             Intent intent = new Intent(requireContext(), ActivityDetails.class);
+            intent.putExtra("product", product);
+            intent.putExtra("location", "home");
             startActivity(intent);
         });
     }

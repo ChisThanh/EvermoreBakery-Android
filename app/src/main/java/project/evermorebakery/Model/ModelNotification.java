@@ -5,6 +5,7 @@ import java.io.Serializable;
 public class ModelNotification implements Serializable
 {
     private String type;
+    private String title;
     private String content;
 
     public ModelNotification()
@@ -12,9 +13,10 @@ public class ModelNotification implements Serializable
 
     }
 
-    public ModelNotification(String type, String content)
+    public ModelNotification(String type, String title, String content)
     {
         this.type = type;
+        this.title = title;
         this.content = content;
     }
 
@@ -36,5 +38,15 @@ public class ModelNotification implements Serializable
     public void setContent(String content)
     {
         this.content = content;
+    }
+
+    public String getTitle()
+    {
+        return title;
+    }
+
+    public void setTitle(String title)
+    {
+        this.title = title;
     }
 }

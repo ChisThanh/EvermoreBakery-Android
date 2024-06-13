@@ -17,7 +17,7 @@ import java.util.ArrayList;
 import project.evermorebakery.Model.ModelComment;
 import project.evermorebakery.R;
 
-public class AdapterComment extends RecyclerView.Adapter<AdapterComment.CommentViewHolder>
+public class AdapterComment extends RecyclerView.Adapter<AdapterComment.ViewHolderComment>
 {
     Context context;
     ArrayList<ModelComment> comment_list;
@@ -30,15 +30,15 @@ public class AdapterComment extends RecyclerView.Adapter<AdapterComment.CommentV
 
     @NonNull
     @Override
-    public AdapterComment.CommentViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int view_type)
+    public AdapterComment.ViewHolderComment onCreateViewHolder(@NonNull ViewGroup parent, int view_type)
     {
-        return new CommentViewHolder(LayoutInflater
+        return new ViewHolderComment(LayoutInflater
                 .from(context).inflate(R.layout.adapter_comment, parent, false));
     }
 
     @SuppressLint({"DiscouragedApi", "SetTextI18n"})
     @Override
-    public void onBindViewHolder(@NonNull AdapterComment.CommentViewHolder holder, int position)
+    public void onBindViewHolder(@NonNull AdapterComment.ViewHolderComment holder, int position)
     {
         ModelComment comment = comment_list.get(position);
 
@@ -53,16 +53,17 @@ public class AdapterComment extends RecyclerView.Adapter<AdapterComment.CommentV
         return comment_list.size();
     }
 
-    public static class CommentViewHolder extends RecyclerView.ViewHolder
+    public static class ViewHolderComment extends RecyclerView.ViewHolder
     {
         ImageView vImage_dComment_Avatar;
         TextView vText_dComment_Name;
         RatingBar uRating_dComment_Rating;
         TextView vText_dComment_Comment;
 
-        public CommentViewHolder(@NonNull View item_view)
+        public ViewHolderComment(@NonNull View item_view)
         {
             super(item_view);
+
             vImage_dComment_Avatar = item_view.findViewById(R.id.vImage_dComment_Avatar);
             vText_dComment_Name = item_view.findViewById(R.id.vText_dComment_Name);
             vText_dComment_Comment = item_view.findViewById(R.id.vText_dComment_Comment);

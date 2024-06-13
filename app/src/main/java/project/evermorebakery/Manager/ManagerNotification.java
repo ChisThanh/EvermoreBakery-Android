@@ -26,6 +26,11 @@ public class ManagerNotification
         notification_list.add(notification);
     }
 
+    public void clearNotification()
+    {
+        notification_list.clear();
+    }
+
     public int getQuantity()
     {
         return notification_list.size();

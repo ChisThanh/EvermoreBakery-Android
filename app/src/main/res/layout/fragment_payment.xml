@@ -21,14 +21,14 @@
     />
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/uButton_fPayment_Momo"
+        android:id="@+id/uButton_fPayment_VnPay"
         style="@style/ButtonPayment"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/vText_fPayment_Title"
         android:layout_marginTop="20dp"
         android:drawableEnd="@drawable/icon_next"
-        android:text="@string/momo"
+        android:text="@string/vnpay"
         tools:ignore="VisualLintButtonSize"
     />
 
@@ -37,7 +37,7 @@
         style="@style/ButtonPayment"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/uButton_fPayment_Momo"
+        android:layout_below="@id/uButton_fPayment_VnPay"
         android:layout_marginTop="10dp"
         android:drawableEnd="@drawable/icon_next"
         android:text="@string/debit_cards"

@@ -21,7 +21,7 @@ import project.evermorebakery.Interface.InterfaceOnClickListener;
 import project.evermorebakery.Model.ModelProduct;
 import project.evermorebakery.R;
 
-public class AdapterHome extends RecyclerView.Adapter<AdapterHome.HomeViewHolder>
+public class AdapterHome extends RecyclerView.Adapter<AdapterHome.ViewHolderHome>
 {
     Context context;
     ArrayList<ModelProduct> product_list;
@@ -35,14 +35,14 @@ public class AdapterHome extends RecyclerView.Adapter<AdapterHome.HomeViewHolder
 
     @NonNull
     @Override
-    public HomeViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int view_type)
+    public ViewHolderHome onCreateViewHolder(@NonNull ViewGroup parent, int view_type)
     {
-        return new AdapterHome.HomeViewHolder(LayoutInflater.from(context).inflate(R.layout.adapter_home, parent, false));
+        return new AdapterHome.ViewHolderHome(LayoutInflater.from(context).inflate(R.layout.adapter_home, parent, false));
     }
 
     @SuppressLint("DiscouragedApi, SetTextI18n")
     @Override
-    public void onBindViewHolder(@NonNull HomeViewHolder holder, int position)
+    public void onBindViewHolder(@NonNull ViewHolderHome holder, int position)
     {
         int drawable_id = context.getResources().getIdentifier(product_list.get(position).getImage(),
                 "drawable", context.getPackageName());
@@ -71,13 +71,13 @@ public class AdapterHome extends RecyclerView.Adapter<AdapterHome.HomeViewHolder
         this.listener = listener;
     }
 
-    public class HomeViewHolder extends RecyclerView.ViewHolder
+    public class ViewHolderHome extends RecyclerView.ViewHolder
     {
         ImageView vImage_dHome_Image;
         TextView vText_dHome_Name;
         TextView vText_dHome_Price;
 
-        public HomeViewHolder(View item_view)
+        public ViewHolderHome(View item_view)
         {
             super(item_view);
 

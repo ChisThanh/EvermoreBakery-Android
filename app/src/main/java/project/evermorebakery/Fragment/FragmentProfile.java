@@ -49,7 +49,7 @@ public class FragmentProfile extends Fragment
         addSpinner();
         addEvents();
 
-        vImage_fProfile_Avatar.setImageResource(R.drawable.square_logo);
+        vImage_fProfile_Avatar.setImageResource(R.drawable.square_cat);
 
         HelperInterface.toggleVisibility(uText_fProfile_Password);
         HelperInterface.toggleVisibility(uText_fProfile_Confirm);

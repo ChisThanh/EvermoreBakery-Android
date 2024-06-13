@@ -18,6 +18,7 @@ import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.Locale;
 
+import project.evermorebakery.Activity.ActivityMain;
 import project.evermorebakery.Fragment.FragmentCart;
 import project.evermorebakery.Fragment.FragmentEmpty;
 import project.evermorebakery.Interface.InterfaceOnClickListener;
@@ -26,7 +27,7 @@ import project.evermorebakery.Model.ModelCart;
 import project.evermorebakery.Model.ModelProduct;
 import project.evermorebakery.R;
 
-public class AdapterCart extends RecyclerView.Adapter<AdapterCart.CartViewHolder>
+public class AdapterCart extends RecyclerView.Adapter<AdapterCart.ViewHolderCart>
 {
     Context context;
     ArrayList<ModelCart> cart_list;
@@ -42,15 +43,15 @@ public class AdapterCart extends RecyclerView.Adapter<AdapterCart.CartViewHolder
 
     @NonNull
     @Override
-    public AdapterCart.CartViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int view_type)
+    public AdapterCart.ViewHolderCart onCreateViewHolder(@NonNull ViewGroup parent, int view_type)
     {
-        return new AdapterCart.CartViewHolder(LayoutInflater
+        return new AdapterCart.ViewHolderCart(LayoutInflater
                 .from(context).inflate(R.layout.adapter_cart, parent, false));
     }
 
     @SuppressLint({"DiscouragedApi", "SetTextI18n"})
     @Override
-    public void onBindViewHolder(@NonNull AdapterCart.CartViewHolder holder, int position)
+    public void onBindViewHolder(@NonNull AdapterCart.ViewHolderCart holder, int position)
     {
         ModelCart cart = cart_list.get(position);
         ModelProduct product = cart.getProduct();
@@ -81,7 +82,10 @@ public class AdapterCart extends RecyclerView.Adapter<AdapterCart.CartViewHolder
             }
             else cart_list.remove(cart);
 
-            if(ManagerCart.getInstance().isCartEmpty()) fragment.loadFragment(new FragmentEmpty());
+            if(ManagerCart.getInstance().isCartEmpty())
+            {
+                fragment.loadFragment(new FragmentEmpty());
+            }
 
             fragment.updateTotal(ManagerCart.getInstance().getTotal());
             notifyItemChanged(position);
@@ -114,7 +118,7 @@ public class AdapterCart extends RecyclerView.Adapter<AdapterCart.CartViewHolder
         notifyItemRemoved(position);
     }
 
-    public class CartViewHolder extends RecyclerView.ViewHolder
+    public class ViewHolderCart extends RecyclerView.ViewHolder
     {
         ImageView vImage_dCart_Image;
         TextView vText_dCart_Name;
@@ -123,9 +127,10 @@ public class AdapterCart extends RecyclerView.Adapter<AdapterCart.CartViewHolder
         AppCompatButton uButton_dCart_Decrease;
         AppCompatButton uButton_dCart_Increase;
 
-        public CartViewHolder(@NonNull View item_view)
+        public ViewHolderCart(@NonNull View item_view)
         {
             super(item_view);
+
             vImage_dCart_Image = item_view.findViewById(R.id.vImage_dCart_Image);
             vText_dCart_Name = item_view.findViewById(R.id.vText_dCart_Name);
             vText_dCart_Price = item_view.findViewById(R.id.vText_dCart_Price);

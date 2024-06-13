@@ -22,67 +22,13 @@
         tools:context=".Fragment.FragmentCheckout"
     >
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-        >
-
-            <TextView
-                style="@style/TextViewNormal"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/total_price"
-            />
-
-            <TextView
-                android:id="@+id/vText_fCheckout_Total"
-                style="@style/TextViewTitle"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textAlignment="textEnd"
-                android:text="@string/total_price_number"
-            />
-
-        </LinearLayout>
-
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/vRecycler_fCheckout_Item"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
             android:overScrollMode="never"
             android:scrollbars="none"
         />
-
-        <LinearLayout
-            android:id="@+id/lLinear_fPayment_Offer"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@drawable/custom_radius_fifteen_background_white"
-            android:layout_marginTop="10dp"
-            android:padding="10dp"
-            android:orientation="horizontal"
-        >
-
-            <TextView
-                style="@style/TextViewCheckout"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/offer"
-            />
-
-            <TextView
-                android:id="@+id/vText_fCheckout_Offer"
-                style="@style/TextViewCheckout"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
-                android:textAlignment="textEnd"
-                android:text="@string/offer_code"
-            />
-
-        </LinearLayout>
 
         <TableLayout
             android:layout_width="match_parent"
@@ -200,7 +146,7 @@
                 />
 
                 <TextView
-                    android:id="@+id/vText_fCheckout_Checkout"
+                    android:id="@+id/vText_fCheckout_Total"
                     style="@style/TextViewCheckoutSmall"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -213,7 +159,6 @@
         </TableLayout>
 
         <LinearLayout
-            android:id="@+id/lLinear_fPayment_Address"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/custom_radius_fifteen_background_white"
@@ -248,6 +193,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
             android:text="@string/checkout"
+            tools:ignore="VisualLintButtonSize"
         />
 
     </LinearLayout>

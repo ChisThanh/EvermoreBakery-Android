@@ -13,7 +13,6 @@ import android.widget.SearchView;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
@@ -165,28 +164,24 @@ public class ActivityMain extends AppCompatActivity
     void addBadge()
     {
         BadgeDrawable cart_badge = vBottom_aMain_Navigate.getOrCreateBadge(R.id.iMenu_mMain_Cart);
-
-        if(!ManagerCart.getInstance().isCartEmpty())
-        {
-            cart_badge.setVisible(true);
-            cart_badge.setNumber(Math.min(ManagerCart.getInstance().getQuantity(), 99));
-        }
-        else cart_badge.setVisible(false);
-
         cart_badge.setBackgroundColor(getResources().getColor(R.color.sandstorm));
         cart_badge.setBadgeTextColor(getResources().getColor(R.color.black));
+        updateBadge(cart_badge, ManagerCart.getInstance().getQuantity());
 
         BadgeDrawable notification_badge = vBottom_aMain_Navigate.getOrCreateBadge(R.id.iMenu_mMain_Notification);
-
-        if(!ManagerNotification.getInstance().isNotificationEmpty())
-        {
-            notification_badge.setVisible(true);
-            notification_badge.setNumber(Math.min(ManagerNotification.getInstance().getQuantity(), 99));
-        }
-        else notification_badge.setVisible(false);
-
         notification_badge.setBackgroundColor(getResources().getColor(R.color.sandstorm));
         notification_badge.setBadgeTextColor(getResources().getColor(R.color.black));
+        updateBadge(notification_badge, ManagerNotification.getInstance().getQuantity());
+    }
+
+    void updateBadge(BadgeDrawable badge, int count)
+    {
+        if(count > 0)
+        {
+            badge.setVisible(true);
+            badge.setNumber(Math.min(count, 99));
+        }
+        else badge.setVisible(false);
     }
 
     @SuppressLint("DiscouragedPrivateApi")
@@ -248,5 +243,13 @@ public class ActivityMain extends AppCompatActivity
         FragmentTransaction fragment_transaction = getSupportFragmentManager().beginTransaction();
         fragment_transaction.replace(R.id.lFrame_aMain_Layout, fragment);
         fragment_transaction.commit();
+    }
+
+    public void refreshActivity()
+    {
+        @SuppressLint("UnsafeIntentLaunch")
+        Intent intent = getIntent();
+        finish();
+        startActivity(intent);
     }
 }

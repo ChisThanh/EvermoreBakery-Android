@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingStart="20dp"
+    android:paddingEnd="20dp"
+    android:background="@color/light_apricot"
+    android:orientation="vertical"
+    tools:context=".Fragment.FragmentNotification"
+>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/vRecycler_fNotification_Notification"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_above="@+id/uButton_fNotification_Clear"
+        android:overScrollMode="never"
+        android:scrollbars="none"
+    />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/uButton_fNotification_Clear"
+        style="@style/ButtonPrimary"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_alignParentBottom="true"
+        android:text="@string/clear_all"
+        tools:ignore="VisualLintButtonSize"
+    />
+
+</RelativeLayout>

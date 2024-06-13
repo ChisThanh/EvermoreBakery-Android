@@ -11,7 +11,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import project.evermorebakery.R;
 
-public class AdapterBanner extends RecyclerView.Adapter<AdapterBanner.BannerViewHolder>
+public class AdapterBanner extends RecyclerView.Adapter<AdapterBanner.ViewHolderBanner>
 {
     Context context;
     int[] banner_list;
@@ -24,14 +24,14 @@ public class AdapterBanner extends RecyclerView.Adapter<AdapterBanner.BannerView
 
     @NonNull
     @Override
-    public BannerViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int view_type)
+    public ViewHolderBanner onCreateViewHolder(@NonNull ViewGroup parent, int view_type)
     {
-        return new BannerViewHolder(LayoutInflater
+        return new ViewHolderBanner(LayoutInflater
                 .from(context).inflate(R.layout.adapter_banner, parent, false));
     }
 
     @Override
-    public void onBindViewHolder(@NonNull BannerViewHolder holder, int position)
+    public void onBindViewHolder(@NonNull ViewHolderBanner holder, int position)
     {
         holder.vImage_dBanner_Banner.setImageResource(banner_list[position]);
     }
@@ -42,13 +42,14 @@ public class AdapterBanner extends RecyclerView.Adapter<AdapterBanner.BannerView
         return banner_list.length;
     }
 
-    public static class BannerViewHolder extends RecyclerView.ViewHolder
+    public static class ViewHolderBanner extends RecyclerView.ViewHolder
     {
         ImageView vImage_dBanner_Banner;
 
-        public BannerViewHolder(@NonNull View item_view)
+        public ViewHolderBanner(@NonNull View item_view)
         {
             super(item_view);
+
             vImage_dBanner_Banner = item_view.findViewById(R.id.vImage_dBanner_Banner);
         }
     }

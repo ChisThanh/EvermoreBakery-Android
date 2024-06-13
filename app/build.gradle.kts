@@ -41,4 +41,7 @@ dependencies {
     androidTestImplementation(libs.espresso.core)
     implementation(libs.picasso)
     implementation(libs.volley)
+    implementation (libs.gson)
+    implementation(libs.okhttpMockwebserver)
+    implementation(files("libs/merchant-1.0.25.aar"))
 }
