@@ -22,18 +22,9 @@
         tools:context=".Fragment.FragmentCheckout"
     >
 
-        <TextView
-            style="@style/TextViewTitle"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/checkout"
-            android:gravity="center"
-        />
-
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
             android:orientation="horizontal"
         >
 
@@ -250,7 +241,7 @@
 
         </LinearLayout>
 
-        <Button
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/uButton_fCheckout_Payment"
             style="@style/ButtonPrimary"
             android:layout_width="match_parent"

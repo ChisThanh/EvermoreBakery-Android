@@ -1,6 +1,6 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!--Base Theme-->
-    <style name="Base.Theme.EvermoreBakery" parent="Theme.AppCompat.NoActionBar">
+    <style name="Base.Theme.EvermoreBakery" parent="Theme.MaterialComponents.NoActionBar">
         <item name="colorPrimary">@color/cedar_wood</item>
     </style>
     <style name="Theme.EvermoreBakery" parent="Base.Theme.EvermoreBakery" />

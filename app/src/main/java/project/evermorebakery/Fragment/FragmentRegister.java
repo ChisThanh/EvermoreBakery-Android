@@ -11,6 +11,7 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.widget.AppCompatButton;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
@@ -28,13 +29,11 @@ public class FragmentRegister extends Fragment
     TextView vText_fRegister_PasswordAnnotation;
     TextView vText_fRegister_ConfirmAnnotation;
     TextView vText_fRegister_Login;
-    Button uButton_fRegister_Register;
+    AppCompatButton uButton_fRegister_Register;
 
     @Nullable
     @Override
-    public View onCreateView(@NonNull LayoutInflater inflater,
-                             @Nullable ViewGroup container,
-                             @Nullable Bundle saved_instance_state)
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle saved_instance_state)
 
     {
         view = inflater.inflate(R.layout.fragment_register, container, false);

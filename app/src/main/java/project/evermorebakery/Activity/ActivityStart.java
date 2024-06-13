@@ -4,11 +4,11 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
 import android.view.View;
-import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.ProgressBar;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.AppCompatButton;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
@@ -25,7 +25,7 @@ import project.evermorebakery.R;
 public class ActivityStart extends AppCompatActivity implements Runnable
 {
     ProgressBar uProgress_aStart_ProgressBar;
-    Button uButton_aStart_Continue;
+    AppCompatButton uButton_aStart_Continue;
     FrameLayout lFrame_aStart_Layout;
     final static int INTERVAL = 100;
 

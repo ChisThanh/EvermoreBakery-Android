@@ -124,7 +124,7 @@
             tools:ignore="LabelFor,VisualLintTextFieldSize,DuplicateSpeakableTextCheck"
         />
 
-        <Button
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/uButton_fComment_New"
             style="@style/ButtonIcon"
             android:layout_width="match_parent"

@@ -50,7 +50,7 @@
             android:visibility="visible"
         />
 
-        <Button
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/uButton_aStart_Continue"
             style="@style/ButtonOpen"
             android:visibility="gone"

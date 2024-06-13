@@ -3,9 +3,6 @@
     <string name="app_name">Evermore Bakery</string>
     <string name="image">Image</string>
 
-    <!--Database Strings-->
-    <string name="connection_string">sqlite:evermore.db</string>
-
     <!--Start Strings-->
     <string name="login">Login</string>
     <string name="email">Email</string>
@@ -36,7 +33,7 @@
     <string name="logout">Logout</string>
 
     <!--Main Strings-->
-    <string name="subtitle">Subtitle</string>
+    <string name="main_subtitle">I Had A Feeling</string>
 
     <!--Home Strings-->
     <string name="revisit_orders">Revisit your orders</string>
@@ -85,9 +82,11 @@
     <string name="delivery">Delivery</string>
     <string name="total">Total</string>
     <string name="address_details">Evermore Street</string>
+    <string name="proceed_to_checkout">Proceed to Checkout</string>
 
     <!--Payment Strings-->
     <string name="payment">Payment</string>
+    <string name="payment_method">Payment Method</string>
     <string name="momo">Momo</string>
     <string name="debit_cards">Debit Cards</string>
     <string name="cash">Cash</string>

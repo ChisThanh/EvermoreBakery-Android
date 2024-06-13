@@ -1,6 +1,8 @@
 package project.evermorebakery.Model;
 
-public class ModelProduct
+import java.io.Serializable;
+
+public class ModelProduct implements Serializable
 {
     private String id;
     private String name;

@@ -13,21 +13,24 @@ import android.widget.SearchView;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
+import com.google.android.material.badge.BadgeDrawable;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 
 import project.evermorebakery.Fragment.FragmentCart;
-import project.evermorebakery.Fragment.FragmentCheckout;
 import project.evermorebakery.Fragment.FragmentHome;
 import project.evermorebakery.Fragment.FragmentMenu;
 import project.evermorebakery.Fragment.FragmentNotification;
 import project.evermorebakery.Fragment.FragmentProfile;
 import project.evermorebakery.Fragment.FragmentSearch;
+import project.evermorebakery.Manager.ManagerCart;
+import project.evermorebakery.Manager.ManagerNotification;
 import project.evermorebakery.R;
 
 public class ActivityMain extends AppCompatActivity
@@ -46,9 +49,10 @@ public class ActivityMain extends AppCompatActivity
 
         addControls();
         setSearchView();
+        addBadge();
         addEvents();
 
-        loadFragment(new FragmentHome());
+        checkReturn();
     }
 
     void addControls()
@@ -58,6 +62,32 @@ public class ActivityMain extends AppCompatActivity
         vSearch_aMain_Search = findViewById(R.id.vSearch_aMain_Search);
         lFrame_aMain_Layout = findViewById(R.id.lFrame_aMain_Layout);
         vBottom_aMain_Navigate = findViewById(R.id.vBottom_aMain_Navigate);
+    }
+
+    void checkReturn()
+    {
+        String location = getIntent().getStringExtra("location");
+        if(location == null)
+        {
+            loadFragment(new FragmentHome());
+            return;
+        }
+
+        switch (location)
+        {
+            case "menu":
+                loadFragment(new FragmentMenu());
+                break;
+            case "cart":
+                loadFragment(new FragmentCart());
+                break;
+            case "search":
+                loadFragment(new FragmentSearch());
+                break;
+            default:
+                loadFragment(new FragmentHome());
+                break;
+        }
     }
 
     void setSearchView()
@@ -113,7 +143,7 @@ public class ActivityMain extends AppCompatActivity
             }
             else if(id == R.id.iMenu_mMain_Cart)
             {
-                loadFragment(new FragmentCheckout());
+                loadFragment(new FragmentCart());
                 return true;
             }
             else if(id == R.id.iMenu_mMain_Notification)
@@ -131,7 +161,35 @@ public class ActivityMain extends AppCompatActivity
         });
     }
 
-    @SuppressLint("RestrictedApi")
+    /** @noinspection deprecation*/
+    void addBadge()
+    {
+        BadgeDrawable cart_badge = vBottom_aMain_Navigate.getOrCreateBadge(R.id.iMenu_mMain_Cart);
+
+        if(!ManagerCart.getInstance().isCartEmpty())
+        {
+            cart_badge.setVisible(true);
+            cart_badge.setNumber(Math.min(ManagerCart.getInstance().getQuantity(), 99));
+        }
+        else cart_badge.setVisible(false);
+
+        cart_badge.setBackgroundColor(getResources().getColor(R.color.sandstorm));
+        cart_badge.setBadgeTextColor(getResources().getColor(R.color.black));
+
+        BadgeDrawable notification_badge = vBottom_aMain_Navigate.getOrCreateBadge(R.id.iMenu_mMain_Notification);
+
+        if(!ManagerNotification.getInstance().isNotificationEmpty())
+        {
+            notification_badge.setVisible(true);
+            notification_badge.setNumber(Math.min(ManagerNotification.getInstance().getQuantity(), 99));
+        }
+        else notification_badge.setVisible(false);
+
+        notification_badge.setBackgroundColor(getResources().getColor(R.color.sandstorm));
+        notification_badge.setBadgeTextColor(getResources().getColor(R.color.black));
+    }
+
+    @SuppressLint("DiscouragedPrivateApi")
     void showPopupMenu()
     {
         ContextThemeWrapper wrapper = new ContextThemeWrapper(ActivityMain.this, R.style.PopupMenu);
@@ -141,7 +199,7 @@ public class ActivityMain extends AppCompatActivity
         try
         {
             //noinspection JavaReflectionMemberAccess
-            @SuppressLint("DiscouragedPrivateApi") Field field = PopupMenu.class.getDeclaredField("mPopup");
+            Field field = PopupMenu.class.getDeclaredField("mPopup");
             field.setAccessible(true);
             Object menu_popup_helper = field.get(popup_menu);
             assert menu_popup_helper != null;

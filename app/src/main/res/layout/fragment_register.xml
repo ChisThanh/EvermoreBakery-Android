@@ -106,7 +106,7 @@
             tools:ignore="RtlHardcoded,TextContrastCheck"
         />
 
-        <Button
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/uButton_fRegister_Register"
             style="@style/ButtonSecondary"
             android:layout_width="match_parent"

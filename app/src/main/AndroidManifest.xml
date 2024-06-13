@@ -21,7 +21,7 @@
     >
 
         <activity
-            android:name=".Activity.ActivityStart"
+            android:name=".Activity.ActivityMain"
             android:windowSoftInputMode="adjustNothing"
             android:exported="true"
         >
@@ -35,7 +35,7 @@
 
         <activity android:name=".Activity.ActivityContinue" android:windowSoftInputMode="adjustNothing" />
         <activity android:name=".Activity.ActivityDetails" android:windowSoftInputMode="adjustNothing" />
-        <activity android:name=".Activity.ActivityMain" android:windowSoftInputMode="adjustNothing" />
+        <activity android:name=".Activity.ActivityStart" android:windowSoftInputMode="adjustNothing" />
 
     </application>
 

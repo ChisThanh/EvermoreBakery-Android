@@ -172,7 +172,7 @@
             tools:ignore="LabelFor,VisualLintTextFieldSize"
         />
 
-        <Button
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/uButton_fProfile_Update"
             style="@style/ButtonPrimary"
             android:layout_width="match_parent"
@@ -182,7 +182,7 @@
             tools:ignore="TextContrastCheck,VisualLintButtonSize"
         />
 
-        <Button
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/uButton_fProfile_Logout"
             style="@style/ButtonSecondary"
             android:layout_width="match_parent"

@@ -28,9 +28,7 @@ public class FragmentSearch extends Fragment
 
     @Nullable
     @Override
-    public View onCreateView(@NonNull LayoutInflater inflater,
-                             @Nullable ViewGroup container,
-                             @Nullable Bundle saved_instance_state)
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle saved_instance_state)
     {
         view = inflater.inflate(R.layout.fragment_search, container, false);
 
@@ -68,6 +66,8 @@ public class FragmentSearch extends Fragment
         menu_adapter.setOnItemClickListener(product ->
         {
             Intent intent = new Intent(requireContext(), ActivityDetails.class);
+            intent.putExtra("product", product);
+            intent.putExtra("location", "search");
             startActivity(intent);
         });
     }

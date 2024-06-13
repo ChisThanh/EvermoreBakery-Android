@@ -88,11 +88,22 @@
         />
 
         <TextView
-            android:id="@+id/vText_fDetails_DescriptionTitle"
+            android:id="@+id/vText_fDetails_Price"
             style="@style/TextViewMedium"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/vImage_fDetails_Star"
+            android:layout_marginTop="20dp"
+            android:text="@string/price"
+            tools:ignore="TextContrastCheck"
+        />
+
+        <TextView
+            android:id="@+id/vText_fDetails_DescriptionTitle"
+            style="@style/TextViewMedium"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/vText_fDetails_Price"
             android:layout_marginTop="20dp"
             android:text="@string/description"
         />
@@ -129,7 +140,7 @@
             android:text="@string/total_price_number"
         />
 
-        <Button
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/uButton_fDetails_Decrease"
             style="@style/ButtonValue"
             android:layout_width="40dp"
@@ -154,7 +165,7 @@
             tools:ignore="TextSizeCheck"
         />
 
-        <Button
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/uButton_fDetails_Increase"
             style="@style/ButtonValue"
             android:layout_width="40dp"
@@ -166,7 +177,7 @@
             tools:ignore="TouchTargetSizeCheck,TextSizeCheck"
         />
 
-        <Button
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/uButton_fDetails_Cart"
             style="@style/ButtonIcon"
             android:layout_width="match_parent"

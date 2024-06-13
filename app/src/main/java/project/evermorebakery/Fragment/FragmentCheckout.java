@@ -1,10 +1,10 @@
 package project.evermorebakery.Fragment;
 
-
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.widget.AppCompatButton;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -13,7 +13,6 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -36,14 +35,12 @@ public class FragmentCheckout extends Fragment
     RecyclerView vRecycler_fCheckout_Item;
     LinearLayout lLinear_fPayment_Offer;
     LinearLayout lLinear_fPayment_Address;
-    Button uButton_fCheckout_Payment;
+    AppCompatButton uButton_fCheckout_Payment;
     ArrayList<ModelProduct> product_list;
 
     @Nullable
     @Override
-    public View onCreateView(@NonNull LayoutInflater inflater,
-                             @Nullable ViewGroup container,
-                             @Nullable Bundle saved_instance_state)
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle saved_instance_state)
     {
 
         view = inflater.inflate(R.layout.fragment_checkout, container, false);

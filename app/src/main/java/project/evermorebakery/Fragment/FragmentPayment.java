@@ -4,6 +4,7 @@ import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.widget.AppCompatButton;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
@@ -18,18 +19,15 @@ import project.evermorebakery.R;
 public class FragmentPayment extends Fragment
 {
     View view;
-    Button uButton_fPayment_Momo;
-    Button uButton_fPayment_DebitCards;
-    Button uButton_fPayment_Cash;
-    Button uButton_fPayment_Payment;
+    AppCompatButton uButton_fPayment_Momo;
+    AppCompatButton uButton_fPayment_DebitCards;
+    AppCompatButton uButton_fPayment_Cash;
+    AppCompatButton uButton_fPayment_Payment;
 
     @Nullable
     @Override
-    public View onCreateView(@NonNull LayoutInflater inflater,
-                             @Nullable ViewGroup container,
-                             @Nullable Bundle saved_instance_state)
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle saved_instance_state)
     {
-
         view = inflater.inflate(R.layout.fragment_payment, container, false);
 
         addControls();

@@ -4,13 +4,13 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.RatingBar;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.widget.AppCompatButton;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -21,6 +21,7 @@ import java.util.ArrayList;
 import project.evermorebakery.Adapter.AdapterComment;
 import project.evermorebakery.Custom.CustomVerticalSpacingItemDecoration;
 import project.evermorebakery.Model.ModelComment;
+import project.evermorebakery.Model.ModelProduct;
 import project.evermorebakery.R;
 
 public class FragmentComment extends Fragment
@@ -32,20 +33,20 @@ public class FragmentComment extends Fragment
     TextView vText_fComment_Comment;
     ImageView vImage_fComment_Details;
     RatingBar uRating_dComment_New;
-    Button uButton_fComment_New;
+    AppCompatButton uButton_fComment_New;
     RecyclerView vRecycler_fComment_Comment;
     ArrayList<ModelComment> comment_list;
+    ModelProduct product;
 
     @Nullable
     @Override
-    public View onCreateView(@NonNull LayoutInflater inflater,
-                             @Nullable ViewGroup container,
-                             @Nullable Bundle saved_instance_state)
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle saved_instance_state)
     {
         view = inflater.inflate(R.layout.fragment_comment, container, false);
 
         addControls();
-        addData();
+        getData();
+        addComment();
         addAdapter();
         addEvents();
 
@@ -64,7 +65,18 @@ public class FragmentComment extends Fragment
         vRecycler_fComment_Comment = view.findViewById(R.id.vRecycler_fComment_Comment);
     }
 
-    void addData()
+    void getData()
+    {
+        if(getArguments() != null) product = (ModelProduct) getArguments().getSerializable("product");
+
+        if(product != null)
+        {
+            vText_fComment_Name.setText(product.getName());
+            vText_fComment_Rating.setText(String.valueOf(product.getRating()));
+        }
+    }
+
+    void addComment()
     {
         comment_list = new ArrayList<>();
 
@@ -85,7 +97,16 @@ public class FragmentComment extends Fragment
 
     void addEvents()
     {
-        vImage_fComment_Details.setOnClickListener(view -> loadFragment(new FragmentDetails()));
+        vImage_fComment_Details.setOnClickListener(view -> sendData());
+    }
+
+    void sendData()
+    {
+        FragmentDetails fragment = new FragmentDetails();
+        Bundle bundle = new Bundle();
+        bundle.putSerializable("product", product);
+        fragment.setArguments(bundle);
+        loadFragment(fragment);
     }
 
     void loadFragment(Fragment fragment)

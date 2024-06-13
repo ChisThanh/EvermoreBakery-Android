@@ -2,16 +2,17 @@ package project.evermorebakery.Activity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.AppCompatButton;
 
 import project.evermorebakery.R;
 
-public class ActivityContinue extends AppCompatActivity {
+public class ActivityContinue extends AppCompatActivity
+{
     TextView vText_aContinue_Quote;
-    Button uButton_aContinue_Continue;
+    AppCompatButton uButton_aContinue_Continue;
 
     @Override
     protected void onCreate(Bundle saved_instance_state)

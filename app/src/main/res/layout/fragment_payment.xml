@@ -16,11 +16,11 @@
         style="@style/TextViewTitle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/payment"
+        android:text="@string/payment_method"
         android:gravity="center"
     />
 
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/uButton_fPayment_Momo"
         style="@style/ButtonPayment"
         android:layout_width="match_parent"
@@ -32,7 +32,7 @@
         tools:ignore="VisualLintButtonSize"
     />
 
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/uButton_fPayment_DebitCards"
         style="@style/ButtonPayment"
         android:layout_width="match_parent"
@@ -44,7 +44,7 @@
         tools:ignore="VisualLintButtonSize"
         />
 
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/uButton_fPayment_Cash"
         style="@style/ButtonPayment"
         android:layout_width="match_parent"
@@ -55,7 +55,7 @@
         tools:ignore="VisualLintButtonSize"
     />
 
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/uButton_fPayment_Payment"
         style="@style/ButtonPrimary"
         android:layout_width="match_parent"

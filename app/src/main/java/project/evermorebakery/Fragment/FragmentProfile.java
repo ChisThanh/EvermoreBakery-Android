@@ -13,6 +13,7 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.widget.AppCompatButton;
 import androidx.fragment.app.Fragment;
 
 import project.evermorebakery.Activity.ActivityStart;
@@ -34,14 +35,12 @@ public class FragmentProfile extends Fragment
     EditText uText_fProfile_Phone;
     EditText uText_fProfile_Address;
     Spinner uSpinner_fProfile_Gender;
-    Button uButton_fProfile_Update;
-    Button uButton_fProfile_Logout;
+    AppCompatButton uButton_fProfile_Update;
+    AppCompatButton uButton_fProfile_Logout;
 
     @Nullable
     @Override
-    public View onCreateView(@NonNull LayoutInflater inflater,
-                             @Nullable ViewGroup container,
-                             @Nullable Bundle saved_instance_state)
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle saved_instance_state)
     {
         view = inflater.inflate(R.layout.fragment_profile, container, false);
 

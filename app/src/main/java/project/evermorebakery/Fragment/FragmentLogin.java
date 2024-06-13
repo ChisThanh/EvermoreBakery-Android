@@ -12,6 +12,7 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.widget.AppCompatButton;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
@@ -27,15 +28,12 @@ public class FragmentLogin extends Fragment {
     TextView vText_fLogin_PasswordAnnotation;
     TextView vText_fLogin_Recover;
     TextView vText_fLogin_Register;
-    Button uButton_fLogin_Login;
+    AppCompatButton uButton_fLogin_Login;
 
     @Nullable
     @Override
-    public View onCreateView(@NonNull LayoutInflater inflater,
-                             @Nullable ViewGroup container,
-                             @Nullable Bundle saved_instance_state)
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle saved_instance_state)
     {
-
         view = inflater.inflate(R.layout.fragment_login, container, false);
 
         addControls();
