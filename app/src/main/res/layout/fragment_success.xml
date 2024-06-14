@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingStart="20dp"
+    android:paddingEnd="20dp"
+    android:background="@color/light_apricot"
+    tools:context=".Fragment.FragmentSuccess"
+>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+    >
+
+        <RelativeLayout
+            android:id="@+id/lLinear_fSuccess_Icon"
+            android:layout_width="250dp"
+            android:layout_height="250dp"
+            android:layout_centerHorizontal="true"
+            android:background="@drawable/custom_circle_background_white"
+        >
+
+            <ImageView
+                android:layout_width="200dp"
+                android:layout_height="200dp"
+                android:layout_centerInParent="true"
+                android:contentDescription="@string/image"
+                app:srcCompat="@drawable/icon_check"
+                tools:ignore="ImageContrastCheck"
+            />
+
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/vText_fSuccess_Success"
+            style="@style/TextViewTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/lLinear_fSuccess_Icon"
+            android:layout_marginTop="20dp"
+            android:gravity="center"
+            android:text="@string/success"
+        />
+
+        <TextView
+            android:id="@+id/vText_fSuccess_Message"
+            style="@style/TextViewNormal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/vText_fSuccess_Success"
+            android:layout_marginTop="20dp"
+            android:gravity="center"
+            android:text="@string/success_message"
+        />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/uButton_fSuccess_Track"
+            style="@style/ButtonPrimary"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/vText_fSuccess_Message"
+            android:layout_marginTop="20dp"
+            android:text="@string/track_order"
+            tools:ignore="VisualLintButtonSize"
+        />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/uButton_fSuccess_Continue"
+            style="@style/ButtonSecondary"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/uButton_fSuccess_Track"
+            android:layout_marginTop="20dp"
+            android:text="@string/continue_shopping"
+            tools:ignore="TextContrastCheck,VisualLintButtonSize"
+        />
+
+    </RelativeLayout>
+
+</ScrollView>

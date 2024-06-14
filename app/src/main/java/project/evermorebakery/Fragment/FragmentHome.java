@@ -70,34 +70,24 @@ public class FragmentHome extends Fragment
     void addData()
     {
         revisit_list = new ArrayList<>();
-        revisit_list.add(new ModelProduct("1", "Testing", "HAHA", 10000, 3, ""));
-        addLinearAdapter(vRecycler_fHome_Revisit, revisit_list);
 
         recommendation_list = new ArrayList<>();
-        getRecommendation();
+        fetchRecommendation();
 
         delight_list = new ArrayList<>();
     }
 
     /** @noinspection SpellCheckingInspection*/
-    void getRecommendation()
+    void fetchRecommendation()
     {
         RequestQueue requestQueue = Volley.newRequestQueue(requireContext());
         handler_api = new HandlerAPI(requestQueue);
         String query =
-                "select fm.item_id, " +
-                "       fm.item_name, " +
-                "       fm.price, " +
-                "       fm.rating, fm.description," +
-                "       min(fi.image_filename) as image_filename " +
+                "select fm.item_id, fm.item_name, fm.price, fm.rating, fm.description, min(fi.image_filename) as image_filename " +
                 "from foodmenu fm " +
                 "left join foodimage fi on fm.item_id = fi.item_id " +
-                "group by fm.item_id, " +
-                "         fm.item_name, " +
-                "         fm.price, " +
-                "         fm.rating " +
-                "order by fm.rating desc, " +
-                "         fm.item_id asc " +
+                "group by fm.item_id, fm.item_name, fm.price, fm.rating, fm.description " +
+                "order by fm.rating desc, fm.item_id asc " +
                 "limit 6";
 
         handler_api.fetchData(query, new InterfaceVolleyResponseListener()
@@ -128,6 +118,7 @@ public class FragmentHome extends Fragment
                 {
                     //noinspection DataFlowIssue
                     Log.e("ERROR", exception.getMessage());
+                    failsafe();
                 }
             }
 
@@ -141,7 +132,7 @@ public class FragmentHome extends Fragment
 
     void addBanners()
     {
-        int[] banner_list = {R.drawable.landscape_banner_opening, R.drawable.landscape_banner_opening, R.drawable.landscape_banner_opening};
+        int[] banner_list = {R.drawable.landscape_banner_one, R.drawable.landscape_banner_two, R.drawable.landscape_banner_three};
         LinearLayoutManager layout_manager = new LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false);
         LinearSnapHelper snap_helper = new LinearSnapHelper();
         AdapterBanner banner_adapter = new AdapterBanner(requireContext(), banner_list);
@@ -188,5 +179,20 @@ public class FragmentHome extends Fragment
     void addEvents()
     {
 
+    }
+
+    void failsafe()
+    {
+        ArrayList<ModelProduct> product_list = new ArrayList<>();
+
+        product_list.add(new ModelProduct("1", "Testing #1", "HAHA", 10000, 3, "square_cake"));
+        product_list.add(new ModelProduct("2", "Testing #2", "HAHA", 10000, 3, "square_cupcake"));
+        product_list.add(new ModelProduct("3", "Testing #3", "HAHA", 10000, 3, "square_mousse"));
+        product_list.add(new ModelProduct("4", "Testing #4", "HAHA", 10000, 3, "square_tiramisu"));
+        product_list.add(new ModelProduct("5", "Testing #4", "HAHA", 10000, 3, "square_cheesecake"));
+
+        addLinearAdapter(vRecycler_fHome_Revisit, product_list);
+        addGridAdapter(vRecycler_fHome_Recommendation, product_list);
+        addGridAdapter(vRecycler_fHome_Delights, product_list);
     }
 }

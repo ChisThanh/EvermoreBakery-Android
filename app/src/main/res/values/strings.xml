@@ -97,10 +97,26 @@
     <string name="cvv">CVV</string>
     <string name="annotation">Annotation</string>
 
+    <!--Success Strings-->
+    <string name="success">Success</string>
+    <string name="track_order">Track Order</string>
+    <string name="continue_shopping">Continue Shopping</string>
+    <string name="success_message">Your Order Has Been Placed!\nThanks For Shopping With Us</string>
+
     <!--Notification Strings-->
     <string name="title">Title</string>
     <string name="content">Content</string>
     <string name="clear_all">Clear All</string>
+    <string name="check_delivery">Check Delivery</string>
     <string name="time">Time</string>
+
+    <!--Delivery Strings-->
+    <string name="order_id">OR123</string>
+    <string name="date">Date</string>
+    <string name="date_sample">June 17th, 2024</string>
+    <string name="order_received">Order Received</string>
+    <string name="order_baked">Order Baked</string>
+    <string name="order_delivered">Order Delivered</string>
+    <string name="order_arrived">Order Arrived</string>
 
 </resources>

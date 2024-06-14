@@ -17,9 +17,20 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
-        android:layout_above="@+id/uButton_fNotification_Clear"
+        android:layout_above="@+id/uButton_fNotification_Delivery"
         android:overScrollMode="never"
         android:scrollbars="none"
+    />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/uButton_fNotification_Delivery"
+        style="@style/ButtonPrimary"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_above="@+id/uButton_fNotification_Clear"
+        android:text="@string/check_delivery"
+        tools:ignore="VisualLintButtonSize"
     />
 
     <androidx.appcompat.widget.AppCompatButton
@@ -27,7 +38,7 @@
         style="@style/ButtonPrimary"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="10dp"
         android:layout_alignParentBottom="true"
         android:text="@string/clear_all"
         tools:ignore="VisualLintButtonSize"

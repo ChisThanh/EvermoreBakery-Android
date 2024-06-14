@@ -28,10 +28,11 @@ public class ModelProduct implements Serializable
 
     public String getShortName()
     {
-        String[] nameArray = name.split(" ");
-        if(nameArray.length > 2)
-            return "..." + nameArray[nameArray.length - 2] + " " + nameArray[nameArray.length - 1];
-        return name;
+        if(name.contains("Mousse")) return "Mousse";
+        else if(name.contains("Cheesecake")) return "Cheesecake";
+        else if(name.contains("Tiramisu")) return "Tiramisu";
+        else if(name.contains("Cupcake ")) return "Cupcake";
+        else return "Cake";
     }
 
     public void setName(String name)

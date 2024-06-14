@@ -1,6 +1,5 @@
 package project.evermorebakery.Interface;
 
-import project.evermorebakery.Model.ModelCart;
 import project.evermorebakery.Model.ModelProduct;
 
 public interface InterfaceOnClickListener

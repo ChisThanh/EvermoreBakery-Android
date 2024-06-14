@@ -17,10 +17,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 
-import project.evermorebakery.Adapter.AdapterCart;
 import project.evermorebakery.Adapter.AdapterNotification;
 import project.evermorebakery.Custom.CustomVerticalSpacingItemDecoration;
-import project.evermorebakery.Manager.ManagerCart;
 import project.evermorebakery.Manager.ManagerNotification;
 import project.evermorebakery.Model.ModelNotification;
 import project.evermorebakery.R;
@@ -30,6 +28,7 @@ public class FragmentNotification extends Fragment
     View view;
     RecyclerView vRecycler_fNotification_Notification;
     AppCompatButton uButton_fNotification_Clear;
+    AppCompatButton uButton_fNotification_Delivery;
     ArrayList<ModelNotification> notification_list;
 
     @Nullable
@@ -44,15 +43,22 @@ public class FragmentNotification extends Fragment
         }
         else view = inflater.inflate(R.layout.fragment_notification, container, false);
 
-        vRecycler_fNotification_Notification = view.findViewById(R.id.vRecycler_fNotification_Notification);
-        uButton_fNotification_Clear = view.findViewById(R.id.uButton_fNotification_Clear);
-
+        addControls();
         addAdapter();
+
+        uButton_fNotification_Delivery.setOnClickListener(view -> loadFragment(new FragmentDelivery()));
 
         return view;
     }
 
-    public void addAdapter()
+    void addControls()
+    {
+        vRecycler_fNotification_Notification = view.findViewById(R.id.vRecycler_fNotification_Notification);
+        uButton_fNotification_Delivery = view.findViewById(R.id.uButton_fNotification_Delivery);
+        uButton_fNotification_Clear = view.findViewById(R.id.uButton_fNotification_Clear);
+    }
+
+    void addAdapter()
     {
         LinearLayoutManager layout_manager = new LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false);
         AdapterNotification notification_adapter = new AdapterNotification(requireContext(), notification_list);
@@ -82,7 +88,7 @@ public class FragmentNotification extends Fragment
         item_touch_helper.attachToRecyclerView(vRecycler_fNotification_Notification);
     }
 
-    public void loadFragment(Fragment fragment)
+    void loadFragment(Fragment fragment)
     {
         FragmentTransaction fragment_transaction = getParentFragmentManager().beginTransaction();
         fragment_transaction.replace(R.id.lFrame_aMain_Layout, fragment);

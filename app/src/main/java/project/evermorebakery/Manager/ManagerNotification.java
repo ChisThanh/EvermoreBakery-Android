@@ -2,7 +2,6 @@ package project.evermorebakery.Manager;
 
 import java.util.ArrayList;
 
-import project.evermorebakery.Model.ModelCart;
 import project.evermorebakery.Model.ModelNotification;
 
 public class ManagerNotification

@@ -8,18 +8,6 @@ public class ModelNotification implements Serializable
     private String title;
     private String content;
 
-    public ModelNotification()
-    {
-
-    }
-
-    public ModelNotification(String type, String title, String content)
-    {
-        this.type = type;
-        this.title = title;
-        this.content = content;
-    }
-
     public String getType()
     {
         return type;
@@ -48,5 +36,12 @@ public class ModelNotification implements Serializable
     public void setTitle(String title)
     {
         this.title = title;
+    }
+
+    public ModelNotification(String type, String title, String content)
+    {
+        this.type = type;
+        this.title = title;
+        this.content = content;
     }
 }

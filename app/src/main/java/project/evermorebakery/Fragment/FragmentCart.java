@@ -22,7 +22,6 @@ import java.util.ArrayList;
 import java.util.Locale;
 
 import project.evermorebakery.Activity.ActivityDetails;
-import project.evermorebakery.Activity.ActivityMain;
 import project.evermorebakery.Adapter.AdapterCart;
 import project.evermorebakery.Custom.CustomVerticalSpacingItemDecoration;
 import project.evermorebakery.Manager.ManagerCart;

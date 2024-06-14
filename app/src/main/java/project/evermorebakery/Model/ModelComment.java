@@ -6,13 +6,6 @@ public class ModelComment
     private String comment;
     private Integer rating;
 
-    public ModelComment(String account, String comment, Integer rating)
-    {
-        this.account = account;
-        this.comment = comment;
-        this.rating = rating;
-    }
-
     public String getAccount()
     {
         return account;
@@ -40,6 +33,13 @@ public class ModelComment
 
     public void setRating(Integer rating)
     {
+        this.rating = rating;
+    }
+
+    public ModelComment(String account, String comment, Integer rating)
+    {
+        this.account = account;
+        this.comment = comment;
         this.rating = rating;
     }
 }

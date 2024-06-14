@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -117,6 +118,7 @@ public class FragmentDetails extends Fragment
             cart.setPrice(price);
 
             ManagerCart.getInstance().addCart(cart);
+            Toast.makeText(requireContext(), "Added to Cart", Toast.LENGTH_SHORT).show();
         });
     }
 

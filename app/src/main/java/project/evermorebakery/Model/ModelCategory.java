@@ -6,13 +6,6 @@ public class ModelCategory
     private String name;
     private int image;
 
-    public ModelCategory(String id, String name, int image)
-    {
-        this.id = id;
-        this.name = name;
-        this.image = image;
-    }
-
     public String getId()
     {
         return id;
@@ -39,6 +32,13 @@ public class ModelCategory
 
     public void setImage(int image)
     {
+        this.image = image;
+    }
+
+    public ModelCategory(String id, String name, int image)
+    {
+        this.id = id;
+        this.name = name;
         this.image = image;
     }
 }

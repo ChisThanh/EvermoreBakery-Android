@@ -18,7 +18,6 @@ import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.Locale;
 
-import project.evermorebakery.Activity.ActivityMain;
 import project.evermorebakery.Fragment.FragmentCart;
 import project.evermorebakery.Fragment.FragmentEmpty;
 import project.evermorebakery.Interface.InterfaceOnClickListener;

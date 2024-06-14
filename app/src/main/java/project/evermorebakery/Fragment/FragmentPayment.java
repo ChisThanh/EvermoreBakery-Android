@@ -111,7 +111,7 @@ public class FragmentPayment extends Fragment
 
         uButton_fPayment_Payment.setOnClickListener(view ->
         {
-            if(annotation()) payment();
+            if(!annotation()) payment();
         });
     }
 

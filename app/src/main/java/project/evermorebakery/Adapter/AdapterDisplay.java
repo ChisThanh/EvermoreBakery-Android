@@ -53,6 +53,7 @@ public class AdapterDisplay extends RecyclerView.Adapter<AdapterDisplay.ViewHold
         if(drawable_id != 0)
             Picasso.get()
                     .load(drawable_id)
+                    .resize(130, 130)
                     .placeholder(R.drawable.square_placeholder)
                     .error(R.drawable.square_error).into(holder.vImage_dDisplay_Image);
         else holder.vImage_dDisplay_Image.setImageResource(R.drawable.square_placeholder);

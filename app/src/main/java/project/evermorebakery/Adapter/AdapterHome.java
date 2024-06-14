@@ -13,9 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.squareup.picasso.Picasso;
 
-import java.text.NumberFormat;
 import java.util.ArrayList;
-import java.util.Locale;
 
 import project.evermorebakery.Interface.InterfaceOnClickListener;
 import project.evermorebakery.Model.ModelProduct;
@@ -58,9 +56,6 @@ public class AdapterHome extends RecyclerView.Adapter<AdapterHome.ViewHolderHome
         else holder.vImage_dHome_Image.setImageResource(R.drawable.square_placeholder);
 
         holder.vText_dHome_Name.setText(product.getShortName());
-
-        NumberFormat vnd_currency = NumberFormat.getCurrencyInstance(new Locale("vi", "VN"));
-        holder.vText_dHome_Price.setText("Price: " + vnd_currency.format(product.getPrice()));
     }
 
     @Override
@@ -78,7 +73,6 @@ public class AdapterHome extends RecyclerView.Adapter<AdapterHome.ViewHolderHome
     {
         ImageView vImage_dHome_Image;
         TextView vText_dHome_Name;
-        TextView vText_dHome_Price;
 
         public ViewHolderHome(View item_view)
         {
@@ -86,7 +80,6 @@ public class AdapterHome extends RecyclerView.Adapter<AdapterHome.ViewHolderHome
 
             vImage_dHome_Image = item_view.findViewById(R.id.vImage_dHome_Image);
             vText_dHome_Name = item_view.findViewById(R.id.vText_dHome_Name);
-            vText_dHome_Price = item_view.findViewById(R.id.vText_dHome_Price);
 
             item_view.setOnClickListener(view ->
             {

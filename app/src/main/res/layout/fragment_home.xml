@@ -93,6 +93,7 @@
             android:layout_marginTop="10dp"
             android:contentDescription="@string/image"
             app:srcCompat="@drawable/custom_line_three_potters_clay"
+            tools:ignore="ImageContrastCheck"
         />
 
         <TextView

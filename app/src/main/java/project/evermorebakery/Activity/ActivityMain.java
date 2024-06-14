@@ -116,7 +116,12 @@ public class ActivityMain extends AppCompatActivity
             @Override
             public boolean onQueryTextSubmit(String query)
             {
-                loadFragment(new FragmentSearch());
+                FragmentSearch fragment = new FragmentSearch();
+                Bundle bundle = new Bundle();
+                bundle.putString("search", vSearch_aMain_Search.getQuery().toString());
+                fragment.setArguments(bundle);
+
+                loadFragment(fragment);
                 return true;
             }
 
