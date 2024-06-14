@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Spinner;
@@ -17,7 +16,7 @@ import androidx.appcompat.widget.AppCompatButton;
 import androidx.fragment.app.Fragment;
 
 import project.evermorebakery.Activity.ActivityStart;
-import project.evermorebakery.Adapter.AdapterGender;
+import project.evermorebakery.Adapter.AdapterSpinner;
 import project.evermorebakery.Helper.HelperInterface;
 import project.evermorebakery.R;
 
@@ -77,7 +76,7 @@ public class FragmentProfile extends Fragment
     void addSpinner()
     {
         String[] gender = {"Male", "Female", "Other"};
-        AdapterGender gender_adapter = new AdapterGender(requireContext(), gender);
+        AdapterSpinner gender_adapter = new AdapterSpinner(requireContext(), gender);
         uSpinner_fProfile_Gender.setAdapter(gender_adapter);
     }
 

@@ -28,7 +28,6 @@ public class FragmentComment extends Fragment
 {
     View view;
     TextView vText_fComment_Name;
-    TextView vText_fComment_Flavor;
     TextView vText_fComment_Rating;
     TextView vText_fComment_Comment;
     ImageView vImage_fComment_Details;
@@ -56,7 +55,6 @@ public class FragmentComment extends Fragment
     void addControls()
     {
         vText_fComment_Name = view.findViewById(R.id.vText_fComment_Name);
-        vText_fComment_Flavor = view.findViewById(R.id.vText_fComment_Flavor);
         vText_fComment_Rating = view.findViewById(R.id.vText_fComment_Rating);
         vText_fComment_Comment = view.findViewById(R.id.vText_fComment_Comment);
         vImage_fComment_Details = view.findViewById(R.id.vImage_fComment_Details);
@@ -80,10 +78,10 @@ public class FragmentComment extends Fragment
     {
         comment_list = new ArrayList<>();
 
-        comment_list.add(new ModelComment("Account 1", "Very Good!", 4.5F));
-        comment_list.add(new ModelComment("Account 2", "Delicious!", 2.5F));
-        comment_list.add(new ModelComment("Account 3", "Very Bad!", 1F));
-        comment_list.add(new ModelComment("Account 4", "Taste Like Heaven!", 5F));
+        comment_list.add(new ModelComment("Account 1", "Very Good!", 4));
+        comment_list.add(new ModelComment("Account 2", "Delicious!", 2));
+        comment_list.add(new ModelComment("Account 3", "Very Bad!", 1));
+        comment_list.add(new ModelComment("Account 4", "Taste Like Heaven!", 3));
     }
 
     void addAdapter()

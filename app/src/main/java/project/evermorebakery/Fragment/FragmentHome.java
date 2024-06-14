@@ -3,6 +3,7 @@ package project.evermorebakery.Fragment;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,12 +16,20 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.LinearSnapHelper;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.android.volley.RequestQueue;
+import com.android.volley.toolbox.Volley;
+
+import org.json.JSONArray;
+import org.json.JSONObject;
+
 import java.util.ArrayList;
 
 import project.evermorebakery.Activity.ActivityDetails;
 import project.evermorebakery.Adapter.AdapterBanner;
 import project.evermorebakery.Adapter.AdapterHome;
 import project.evermorebakery.Custom.CustomGridSpacingItemDecoration;
+import project.evermorebakery.Handler.HandlerAPI;
+import project.evermorebakery.Interface.InterfaceVolleyResponseListener;
 import project.evermorebakery.Model.ModelProduct;
 import project.evermorebakery.R;
 
@@ -34,6 +43,7 @@ public class FragmentHome extends Fragment
     ArrayList<ModelProduct> revisit_list;
     ArrayList<ModelProduct> recommendation_list;
     ArrayList<ModelProduct> delight_list;
+    HandlerAPI handler_api;
 
     @Nullable
     @Override
@@ -44,9 +54,6 @@ public class FragmentHome extends Fragment
         addControls();
         addData();
         addBanners();
-        addLinearAdapter(vRecycler_fHome_Revisit, revisit_list);
-        addGridAdapter(vRecycler_fHome_Recommendation, recommendation_list);
-        addGridAdapter(vRecycler_fHome_Delights, delight_list);
         addEvents();
 
         return view;
@@ -63,21 +70,73 @@ public class FragmentHome extends Fragment
     void addData()
     {
         revisit_list = new ArrayList<>();
-        revisit_list.add(new ModelProduct("square_placeholder", "Placeholder", 10000, 5));
-        revisit_list.add(new ModelProduct("square_error", "Error", 10000, 5));
-        revisit_list.add(new ModelProduct("square_placeholder", "Placeholder", 10000, 5));
-        revisit_list.add(new ModelProduct("square_error", "Error", 10000, 5));
+        revisit_list.add(new ModelProduct("1", "Testing", "HAHA", 10000, 3, ""));
+        addLinearAdapter(vRecycler_fHome_Revisit, revisit_list);
 
         recommendation_list = new ArrayList<>();
-        recommendation_list.add(new ModelProduct("square_placeholder", "Placeholder", 10000, 5));
-        recommendation_list.add(new ModelProduct("square_error", "Error", 10000, 5));
-        recommendation_list.add(new ModelProduct("square_placeholder", "Placeholder", 10000, 5));
-        recommendation_list.add(new ModelProduct("square_error", "Error", 10000, 5));
-        recommendation_list.add(new ModelProduct("square_placeholder", "Placeholder", 10000, 5));
-        recommendation_list.add(new ModelProduct("square_error", "Error", 10000, 5));
+        getRecommendation();
 
         delight_list = new ArrayList<>();
-        delight_list.add(new ModelProduct("square_placeholder", "Placeholder", 10000, 5));
+    }
+
+    /** @noinspection SpellCheckingInspection*/
+    void getRecommendation()
+    {
+        RequestQueue requestQueue = Volley.newRequestQueue(requireContext());
+        handler_api = new HandlerAPI(requestQueue);
+        String query =
+                "select fm.item_id, " +
+                "       fm.item_name, " +
+                "       fm.price, " +
+                "       fm.rating, fm.description," +
+                "       min(fi.image_filename) as image_filename " +
+                "from foodmenu fm " +
+                "left join foodimage fi on fm.item_id = fi.item_id " +
+                "group by fm.item_id, " +
+                "         fm.item_name, " +
+                "         fm.price, " +
+                "         fm.rating " +
+                "order by fm.rating desc, " +
+                "         fm.item_id asc " +
+                "limit 6";
+
+        handler_api.fetchData(query, new InterfaceVolleyResponseListener()
+        {
+            @Override
+            public void onResponse(JSONArray response)
+            {
+                try
+                {
+                    for (int index = 0; index < response.length(); index = index + 1)
+                    {
+                        JSONObject object = response.getJSONObject(index);
+                        ModelProduct product = new ModelProduct();
+
+                        product.setId(object.getString("item_id"));
+                        product.setName(object.getString("item_name"));
+                        product.setDescription(object.getString("description"));
+                        product.setPrice((int) Double.parseDouble(object.getString("price")));
+                        product.setRating(object.getInt("rating"));
+                        product.setImage(object.getString("image_filename"));
+
+                        recommendation_list.add(product);
+                    }
+
+                    addGridAdapter(vRecycler_fHome_Recommendation, recommendation_list);
+                }
+                catch (Exception exception)
+                {
+                    //noinspection DataFlowIssue
+                    Log.e("ERROR", exception.getMessage());
+                }
+            }
+
+            @Override
+            public void onError(String errorMessage)
+            {
+                Log.e("ERROR", errorMessage);
+            }
+        });
     }
 
     void addBanners()
@@ -114,7 +173,7 @@ public class FragmentHome extends Fragment
         GridLayoutManager layout_manager = new GridLayoutManager(requireContext(), 2);
         AdapterHome home_adapter = new AdapterHome(requireContext(), product_list);
         recycler_view.setLayoutManager(layout_manager);
-        recycler_view.addItemDecoration(new CustomGridSpacingItemDecoration(2, 10, true));
+        recycler_view.addItemDecoration(new CustomGridSpacingItemDecoration(2, 0, true));
         recycler_view.setAdapter(home_adapter);
 
         home_adapter.setOnItemClickListener(product ->

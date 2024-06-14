@@ -2,7 +2,6 @@ package project.evermorebakery.Activity;
 
 import android.os.Bundle;
 import android.os.Handler;
-import android.util.Log;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.ProgressBar;
@@ -12,14 +11,8 @@ import androidx.appcompat.widget.AppCompatButton;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
-import com.android.volley.toolbox.Volley;
-
-import org.json.JSONArray;
-
 import project.evermorebakery.Fragment.FragmentLogin;
 
-import project.evermorebakery.Handler.HandlerRestAPI;
-import project.evermorebakery.Interface.InterfaceVolleyResponseListener;
 import project.evermorebakery.R;
 
 public class ActivityStart extends AppCompatActivity implements Runnable
@@ -87,42 +80,5 @@ public class ActivityStart extends AppCompatActivity implements Runnable
         FragmentTransaction fragment_transaction = getSupportFragmentManager().beginTransaction();
         fragment_transaction.replace(R.id.lFrame_aStart_Layout, fragment);
         fragment_transaction.commit();
-    }
-
-    void addAPI()
-    {
-        HandlerRestAPI handlerRESTAPI = new HandlerRestAPI(Volley.newRequestQueue(this));
-        String select = "SELECT * FROM account";
-        handlerRESTAPI.fetchData(select,
-                new InterfaceVolleyResponseListener()
-                {
-                    @Override
-                    public void onResponse(JSONArray response)
-                    {
-                        Log.e("Response", response.toString());
-                    }
-
-                    @Override
-                    public void onError(String errorMessage)
-                    {
-
-                    }
-                });
-
-        String query = "UPDATE account SET USERNAME = 2711231 WHERE ACCOUNT_ID = 'TK0015'";
-        handlerRESTAPI.updateData(query,
-                new InterfaceVolleyResponseListener()
-                {
-                    @Override
-                    public void onResponse(JSONArray response)
-                    {
-                        Log.e("Response", response.toString());
-                    }
-
-                    @Override
-                    public void onError(String errorMessage)
-                    {
-                    }
-                });
     }
 }

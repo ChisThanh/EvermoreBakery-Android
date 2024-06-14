@@ -8,10 +8,12 @@ public class ManagerCart
 {
     private static ManagerCart instance;
     private final ArrayList<ModelCart> cart_list;
+    private final ArrayList<ListenerCart> listener_list;
 
     public ManagerCart()
     {
         cart_list = new ArrayList<>();
+        listener_list = new ArrayList<>();
     }
 
     public static synchronized ManagerCart getInstance()
@@ -20,9 +22,22 @@ public class ManagerCart
         return instance;
     }
 
+    public ArrayList<ModelCart> getCartList()
+    {
+        notifyListeners();
+        return cart_list;
+    }
+
     public void addCart(ModelCart cart)
     {
         cart_list.add(cart);
+        notifyListeners();
+    }
+
+    public void clearCart()
+    {
+        cart_list.clear();
+        notifyListeners();
     }
 
     public int getTotal()
@@ -32,11 +47,6 @@ public class ManagerCart
         return total;
     }
 
-    public void clearCart()
-    {
-        cart_list.clear();
-    }
-
     public int getQuantity()
     {
         return cart_list.size();
@@ -44,11 +54,22 @@ public class ManagerCart
 
     public boolean isCartEmpty()
     {
+        notifyListeners();
         return cart_list.isEmpty();
     }
 
-    public ArrayList<ModelCart> getCartList()
+    public void addListener(ListenerCart listener)
     {
-        return cart_list;
+        listener_list.add(listener);
+    }
+
+    private void notifyListeners()
+    {
+        for (ListenerCart listener : listener_list) listener.onCartUpdated(getQuantity());
+    }
+
+    public interface ListenerCart
+    {
+        void onCartUpdated(int count);
     }
 }

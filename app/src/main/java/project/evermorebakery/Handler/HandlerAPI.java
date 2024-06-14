@@ -12,12 +12,13 @@ import org.json.JSONObject;
 
 import project.evermorebakery.Interface.InterfaceVolleyResponseListener;
 
-public class HandlerRestAPI
+public class HandlerAPI
 {
     private final RequestQueue requestQueue;
     /** @noinspection SpellCheckingInspection*/
     private final String TOKEN = "3DGZ4XjitciAaD06GQHjOqOL7PVOxGlVpyd6evogBjGUJmMVJUUKlIglXuQi0Qt0Qx9ci4bipqSPWHkVBbclAhzQe2cxzjO0cUhZ";
-    public HandlerRestAPI(RequestQueue requestQueue)
+
+    public HandlerAPI(RequestQueue requestQueue)
     {
         this.requestQueue =  requestQueue;
     }
@@ -55,6 +56,7 @@ public class HandlerRestAPI
 
         requestQueue.add(stringRequest);
     }
+
     public void updateData(String select, InterfaceVolleyResponseListener listener)
     {
         String url = "https://android-nam3.000webhostapp.com/update.php";
@@ -81,7 +83,8 @@ public class HandlerRestAPI
                 {
                     throw new RuntimeException(e);
                 }
-            } else listener.onError("Empty response");
+            }
+            else listener.onError("Empty response");
         },
         error -> listener.onError("Volley error: " + error.getMessage()));
 

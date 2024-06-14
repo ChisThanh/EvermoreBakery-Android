@@ -26,7 +26,6 @@ public class FragmentDetails extends Fragment
 {
     View view;
     TextView vText_fDetails_Name;
-    TextView vText_fDetails_Flavor;
     TextView vText_fDetails_Rating;
     TextView vText_fDetails_Comment;
     TextView vText_fDetails_Price;
@@ -59,7 +58,6 @@ public class FragmentDetails extends Fragment
     void addControls()
     {
         vText_fDetails_Name = view.findViewById(R.id.vText_fDetails_Name);
-        vText_fDetails_Flavor = view.findViewById(R.id.vText_fDetails_Flavor);
         vText_fDetails_Rating = view.findViewById(R.id.vText_fDetails_Rating);
         vText_fDetails_Comment = view.findViewById(R.id.vText_fDetails_Comment);
         vText_fDetails_Price = view.findViewById(R.id.vText_fDetails_Price);
@@ -81,6 +79,7 @@ public class FragmentDetails extends Fragment
         {
             vText_fDetails_Name.setText(product.getName());
             vText_fDetails_Rating.setText(String.valueOf(product.getRating()));
+            vText_fDetails_Description.setText(product.getDescription());
             price = product.getPrice();
             vText_fDetails_Price.setText("Price: " + vnd_currency.format(price));
             vText_fDetails_TotalPrice.setText(vnd_currency.format(product.getPrice()));

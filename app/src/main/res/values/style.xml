@@ -258,8 +258,8 @@
     <!--Small Rating Bar-->
     <style name="RatingBarSmall" parent="Widget.AppCompat.RatingBar.Small">
         <item name="android:numStars">5</item>
-        <item name="android:rating">3.5</item>
-        <item name="android:stepSize">0.5</item>
+        <item name="android:rating">3</item>
+        <item name="android:stepSize">1</item>
         <item name="android:progressTint">@color/canary_yellow</item>
         <item name="android:progressBackgroundTint">@color/cedar_wood</item>
         <item name="android:secondaryProgressTint">@color/canary_yellow</item>
@@ -269,8 +269,8 @@
     <!--Rating Bar-->
     <style name="RatingBar">
         <item name="android:numStars">5</item>
-        <item name="android:rating">3.5</item>
-        <item name="android:stepSize">0.5</item>
+        <item name="android:rating">3</item>
+        <item name="android:stepSize">1</item>
         <item name="android:progressTint">@color/sandstorm</item>
         <item name="android:progressBackgroundTint">@color/cedar_wood</item>
         <item name="android:secondaryProgressTint">@color/sandstorm</item>

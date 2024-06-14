@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
@@ -15,7 +14,7 @@ import androidx.appcompat.widget.AppCompatButton;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
-import project.evermorebakery.Activity.ActivityContinue;
+import project.evermorebakery.Activity.ActivityMain;
 import project.evermorebakery.Helper.HelperInterface;
 import project.evermorebakery.R;
 
@@ -41,13 +40,6 @@ public class FragmentRegister extends Fragment
         addControls();
         addEvents();
 
-        vText_fRegister_EmailAnnotation.setText("");
-        vText_fRegister_PasswordAnnotation.setText("");
-        vText_fRegister_ConfirmAnnotation.setText("");
-
-        HelperInterface.toggleVisibility(uText_fRegister_Password);
-        HelperInterface.toggleVisibility(uText_fRegister_Confirm);
-
         return view;
     }
 
@@ -61,6 +53,13 @@ public class FragmentRegister extends Fragment
         vText_fRegister_ConfirmAnnotation = view.findViewById(R.id.vText_fRegister_ConfirmAnnotation);
         vText_fRegister_Login = view.findViewById(R.id.vText_fRegister_Login);
         uButton_fRegister_Register = view.findViewById(R.id.uButton_fRegister_Register);
+
+        vText_fRegister_EmailAnnotation.setText("");
+        vText_fRegister_PasswordAnnotation.setText("");
+        vText_fRegister_ConfirmAnnotation.setText("");
+
+        HelperInterface.toggleVisibility(uText_fRegister_Password);
+        HelperInterface.toggleVisibility(uText_fRegister_Confirm);
     }
 
     void addEvents()
@@ -69,7 +68,7 @@ public class FragmentRegister extends Fragment
 
         uButton_fRegister_Register.setOnClickListener(view ->
         {
-            Intent intent = new Intent(getActivity(), ActivityContinue.class);
+            Intent intent = new Intent(getActivity(), ActivityMain.class);
             startActivity(intent);
         });
     }

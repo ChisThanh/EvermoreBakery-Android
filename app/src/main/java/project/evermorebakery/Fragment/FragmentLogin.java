@@ -5,8 +5,6 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.TextView;
 
@@ -16,11 +14,12 @@ import androidx.appcompat.widget.AppCompatButton;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
-import project.evermorebakery.Activity.ActivityContinue;
+import project.evermorebakery.Activity.ActivityMain;
 import project.evermorebakery.Helper.HelperInterface;
 import project.evermorebakery.R;
 
-public class FragmentLogin extends Fragment {
+public class FragmentLogin extends Fragment
+{
     View view;
     EditText uText_fLogin_Email;
     EditText uText_fLogin_Password;
@@ -39,10 +38,7 @@ public class FragmentLogin extends Fragment {
         addControls();
         addEvents();
 
-        vText_fLogin_EmailAnnotation.setText("");
-        vText_fLogin_PasswordAnnotation.setText("");
 
-        HelperInterface.toggleVisibility(uText_fLogin_Password);
 
         return view;
     }
@@ -57,6 +53,11 @@ public class FragmentLogin extends Fragment {
         vText_fLogin_Recover = view.findViewById(R.id.vText_fLogin_Recover);
         vText_fLogin_Register = view.findViewById(R.id.vText_fLogin_Register);
         uButton_fLogin_Login = view.findViewById(R.id.uButton_fLogin_Login);
+
+        vText_fLogin_EmailAnnotation.setText("");
+        vText_fLogin_PasswordAnnotation.setText("");
+
+        HelperInterface.toggleVisibility(uText_fLogin_Password);
     }
 
     void addEvents()
@@ -67,7 +68,7 @@ public class FragmentLogin extends Fragment {
 
         uButton_fLogin_Login.setOnClickListener(view ->
         {
-            Intent intent = new Intent(getActivity(), ActivityContinue.class);
+            Intent intent = new Intent(getActivity(), ActivityMain.class);
             startActivity(intent);
         });
     }

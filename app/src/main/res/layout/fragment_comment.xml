@@ -29,22 +29,11 @@
             android:text="@string/name"
         />
 
-        <TextView
-            android:id="@+id/vText_fComment_Flavor"
-            style="@style/TextViewFaded"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/vText_fComment_Name"
-            android:layout_marginTop="2dp"
-            android:text="@string/flavor"
-            tools:ignore="TextContrastCheck"
-        />
-
         <ImageView
             android:id="@+id/vImage_fComment_Star"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/vText_fComment_Flavor"
+            android:layout_below="@+id/vText_fComment_Name"
             android:layout_marginTop="10dp"
             android:contentDescription="@string/image"
             app:srcCompat="@drawable/icon_star"
@@ -56,7 +45,7 @@
             style="@style/TextViewBasic"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/vText_fComment_Flavor"
+            android:layout_below="@+id/vText_fComment_Name"
             android:layout_marginStart="2dp"
             android:layout_marginTop="11dp"
             android:layout_toEndOf="@+id/vImage_fComment_Star"
@@ -68,7 +57,7 @@
             style="@style/TextViewFaded"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/vText_fComment_Flavor"
+            android:layout_below="@+id/vText_fComment_Name"
             android:layout_marginStart="5dp"
             android:layout_marginTop="11dp"
             android:layout_toEndOf="@+id/vText_fComment_Rating"
@@ -82,8 +71,6 @@
             android:layout_height="50dp"
             android:layout_below="@+id/vText_fComment_Name"
             android:layout_alignParentEnd="true"
-            android:layout_marginTop="20dp"
-            android:layout_marginEnd="0dp"
             android:contentDescription="@string/image"
             app:srcCompat="@drawable/icon_details"
         />

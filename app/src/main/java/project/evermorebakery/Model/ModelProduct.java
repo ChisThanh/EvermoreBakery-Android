@@ -6,9 +6,10 @@ public class ModelProduct implements Serializable
 {
     private String id;
     private String name;
-    private String image;
+    private String description;
     private Integer price;
     private Integer rating;
+    private String image;
 
     public String getId()
     {
@@ -30,14 +31,14 @@ public class ModelProduct implements Serializable
         this.name = name;
     }
 
-    public String getImage()
+    public String getDescription()
     {
-        return image;
+        return description;
     }
 
-    public void setImage(String image)
+    public void setDescription(String description)
     {
-        this.image = image;
+        this.description = description;
     }
 
     public Integer getPrice()
@@ -60,32 +61,28 @@ public class ModelProduct implements Serializable
         this.rating = rating;
     }
 
+    public String getImage()
+    {
+        return image;
+    }
+
+    public void setImage(String image)
+    {
+        this.image = image;
+    }
 
     public ModelProduct()
     {
-        this.id = "";
-        this.image = "";
-        this.name = "";
-        this.price = 0;
-        this.rating = 0;
+
     }
 
-    public ModelProduct(String id, String image, String name, Integer price, Integer rating)
+    public ModelProduct(String id, String name, String description, Integer price, Integer rating, String image)
     {
         this.id = id;
-        this.image = image;
         this.name = name;
+        this.description = description;
         this.price = price;
         this.rating = rating;
-    }
-
-    public ModelProduct(String image, String name, Integer price, Integer rating)
-    {
         this.image = image;
-        this.name = name;
-        this.price = price;
-        this.rating = rating;
     }
-
-
 }

@@ -44,7 +44,9 @@ public class AdapterHome extends RecyclerView.Adapter<AdapterHome.ViewHolderHome
     @Override
     public void onBindViewHolder(@NonNull ViewHolderHome holder, int position)
     {
-        int drawable_id = context.getResources().getIdentifier(product_list.get(position).getImage(),
+        ModelProduct product = product_list.get(position);
+
+        int drawable_id = context.getResources().getIdentifier(product.getImage(),
                 "drawable", context.getPackageName());
 
         if(drawable_id != 0)
@@ -54,10 +56,10 @@ public class AdapterHome extends RecyclerView.Adapter<AdapterHome.ViewHolderHome
                     .error(R.drawable.square_error).into(holder.vImage_dHome_Image);
         else holder.vImage_dHome_Image.setImageResource(R.drawable.square_placeholder);
 
-        holder.vText_dHome_Name.setText(product_list.get(position).getName());
+        holder.vText_dHome_Name.setText(product.getName());
 
         NumberFormat vnd_currency = NumberFormat.getCurrencyInstance(new Locale("vi", "VN"));
-        holder.vText_dHome_Price.setText("Price: " + vnd_currency.format(product_list.get(position).getPrice()));
+        holder.vText_dHome_Price.setText("Price: " + vnd_currency.format(product.getPrice()));
     }
 
     @Override

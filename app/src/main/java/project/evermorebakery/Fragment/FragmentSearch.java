@@ -48,12 +48,6 @@ public class FragmentSearch extends Fragment
     void addData()
     {
         product_list = new ArrayList<>();
-        product_list.add(new ModelProduct("square_error", "Product 1", 10000, 5));
-        product_list.add(new ModelProduct("square_error", "Product 1", 10000, 3));
-        product_list.add(new ModelProduct("square_error", "Product 1", 10000, 4));
-        product_list.add(new ModelProduct("square_error", "Product 1", 10000, 3));
-        product_list.add(new ModelProduct("square_error", "Product 1", 10000, 2));
-        product_list.add(new ModelProduct("square_error", "Product 1", 10000, 1));
     }
 
     void addAdapter()

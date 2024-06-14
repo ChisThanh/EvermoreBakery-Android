@@ -4,9 +4,9 @@ public class ModelComment
 {
     private String account;
     private String comment;
-    private Float rating;
+    private Integer rating;
 
-    public ModelComment(String account, String comment, Float rating)
+    public ModelComment(String account, String comment, Integer rating)
     {
         this.account = account;
         this.comment = comment;
@@ -33,12 +33,12 @@ public class ModelComment
         this.comment = comment;
     }
 
-    public Float getRating()
+    public Integer getRating()
     {
         return rating;
     }
 
-    public void setRating(Float rating)
+    public void setRating(Integer rating)
     {
         this.rating = rating;
     }

@@ -166,11 +166,13 @@ public class ActivityMain extends AppCompatActivity
         BadgeDrawable cart_badge = vBottom_aMain_Navigate.getOrCreateBadge(R.id.iMenu_mMain_Cart);
         cart_badge.setBackgroundColor(getResources().getColor(R.color.sandstorm));
         cart_badge.setBadgeTextColor(getResources().getColor(R.color.black));
+        ManagerCart.getInstance().addListener(count -> updateBadge(cart_badge, count));
         updateBadge(cart_badge, ManagerCart.getInstance().getQuantity());
 
         BadgeDrawable notification_badge = vBottom_aMain_Navigate.getOrCreateBadge(R.id.iMenu_mMain_Notification);
         notification_badge.setBackgroundColor(getResources().getColor(R.color.sandstorm));
         notification_badge.setBadgeTextColor(getResources().getColor(R.color.black));
+        ManagerNotification.getInstance().addListener(count -> updateBadge(notification_badge, count));
         updateBadge(notification_badge, ManagerNotification.getInstance().getQuantity());
     }
 
