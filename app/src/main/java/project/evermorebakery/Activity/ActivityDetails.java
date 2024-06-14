@@ -55,6 +55,7 @@ public class ActivityDetails extends AppCompatActivity
         if(drawable_id != 0)
             Picasso.get()
                     .load(drawable_id)
+                    .resize(500,500)
                     .placeholder(R.drawable.square_placeholder)
                     .error(R.drawable.square_error).into(vImage_aDetails_Background);
         else vImage_aDetails_Background.setImageResource(R.drawable.square_placeholder);

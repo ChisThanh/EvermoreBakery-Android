@@ -26,6 +26,14 @@ public class ModelProduct implements Serializable
         return name;
     }
 
+    public String getShortName()
+    {
+        String[] nameArray = name.split(" ");
+        if(nameArray.length > 2)
+            return "..." + nameArray[nameArray.length - 2] + " " + nameArray[nameArray.length - 1];
+        return name;
+    }
+
     public void setName(String name)
     {
         this.name = name;
@@ -63,7 +71,8 @@ public class ModelProduct implements Serializable
 
     public String getImage()
     {
-        return image;
+        String[] imageArray = image.split("\\.");
+        return imageArray[0];
     }
 
     public void setImage(String image)

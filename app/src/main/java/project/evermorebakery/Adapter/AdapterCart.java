@@ -62,11 +62,12 @@ public class AdapterCart extends RecyclerView.Adapter<AdapterCart.ViewHolderCart
         if(drawable_id != 0)
             Picasso.get()
                     .load(drawable_id)
+                    .resize(300, 300)
                     .placeholder(R.drawable.square_placeholder)
                     .error(R.drawable.square_error).into(holder.vImage_dCart_Image);
         else holder.vImage_dCart_Image.setImageResource(R.drawable.square_placeholder);
 
-        holder.vText_dCart_Name.setText(product.getName());
+        holder.vText_dCart_Name.setText(product.getShortName());
 
         NumberFormat vnd_currency = NumberFormat.getCurrencyInstance(new Locale("vi", "VN"));
         holder.vText_dCart_Price.setText("Price: " + vnd_currency.format(cart.getPrice()));

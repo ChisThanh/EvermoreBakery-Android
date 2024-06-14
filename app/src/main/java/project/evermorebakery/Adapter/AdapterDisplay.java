@@ -57,7 +57,7 @@ public class AdapterDisplay extends RecyclerView.Adapter<AdapterDisplay.ViewHold
                     .error(R.drawable.square_error).into(holder.vImage_dDisplay_Image);
         else holder.vImage_dDisplay_Image.setImageResource(R.drawable.square_placeholder);
 
-        holder.vText_dDisplay_Name.setText(product.getName());
+        holder.vText_dDisplay_Name.setText(product.getShortName());
 
         NumberFormat vnd_currency = NumberFormat.getCurrencyInstance(new Locale("vi", "VN"));
         holder.vText_dDisplay_Price.setText("Price: " + vnd_currency.format(product.getPrice()));
