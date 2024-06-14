@@ -40,9 +40,9 @@ public class FragmentHome extends Fragment
     RecyclerView vRecycler_fHome_Revisit;
     RecyclerView vRecycler_fHome_Recommendation;
     RecyclerView vRecycler_fHome_Delights;
-    ArrayList<ModelProduct> revisit_list;
-    ArrayList<ModelProduct> recommendation_list;
-    ArrayList<ModelProduct> delight_list;
+    static ArrayList<ModelProduct> revisit_list;
+    static ArrayList<ModelProduct> recommendation_list;
+    static ArrayList<ModelProduct> delight_list;
     HandlerAPI handler_api;
 
     @Nullable
@@ -132,48 +132,55 @@ public class FragmentHome extends Fragment
 
     void addBanners()
     {
-        int[] banner_list = {R.drawable.landscape_banner_one, R.drawable.landscape_banner_two, R.drawable.landscape_banner_three};
-        LinearLayoutManager layout_manager = new LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false);
-        LinearSnapHelper snap_helper = new LinearSnapHelper();
-        AdapterBanner banner_adapter = new AdapterBanner(requireContext(), banner_list);
-        vRecycler_fHome_Banner.setLayoutManager(layout_manager);
-        vRecycler_fHome_Banner.setAdapter(banner_adapter);
-        snap_helper.attachToRecyclerView(vRecycler_fHome_Banner);
+        if(isAdded()){
+            int[] banner_list = {R.drawable.landscape_banner_one, R.drawable.landscape_banner_two, R.drawable.landscape_banner_three};
+            LinearLayoutManager layout_manager = new LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false);
+            LinearSnapHelper snap_helper = new LinearSnapHelper();
+            AdapterBanner banner_adapter = new AdapterBanner(requireContext(), banner_list);
+            vRecycler_fHome_Banner.setLayoutManager(layout_manager);
+            vRecycler_fHome_Banner.setAdapter(banner_adapter);
+            snap_helper.attachToRecyclerView(vRecycler_fHome_Banner);
+        }
+
     }
 
     @SuppressLint("ClickableViewAccessibility")
     void addLinearAdapter(RecyclerView recycler_view, ArrayList<ModelProduct> product_list)
     {
-        LinearLayoutManager layout_manager = new LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false);
-        AdapterHome home_adapter = new AdapterHome(requireContext(), product_list);
-        recycler_view.setLayoutManager(layout_manager);
-        recycler_view.setAdapter(home_adapter);
+        if(isAdded()){
+            LinearLayoutManager layout_manager = new LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false);
+            AdapterHome home_adapter = new AdapterHome(requireContext(), product_list);
+            recycler_view.setLayoutManager(layout_manager);
+            recycler_view.setAdapter(home_adapter);
 
-        home_adapter.setOnItemClickListener(product ->
-        {
-            Intent intent = new Intent(requireContext(), ActivityDetails.class);
-            intent.putExtra("product", product);
-            intent.putExtra("location", "home");
-            startActivity(intent);
-        });
+            home_adapter.setOnItemClickListener(product ->
+            {
+                Intent intent = new Intent(requireContext(), ActivityDetails.class);
+                intent.putExtra("product", product);
+                intent.putExtra("location", "home");
+                startActivity(intent);
+            });
+        }
     }
 
     @SuppressLint("ClickableViewAccessibility")
     void addGridAdapter(RecyclerView recycler_view, ArrayList<ModelProduct> product_list)
     {
-        GridLayoutManager layout_manager = new GridLayoutManager(requireContext(), 2);
-        AdapterHome home_adapter = new AdapterHome(requireContext(), product_list);
-        recycler_view.setLayoutManager(layout_manager);
-        recycler_view.addItemDecoration(new CustomGridSpacingItemDecoration(2, 0, true));
-        recycler_view.setAdapter(home_adapter);
+        if(isAdded()) {
+            GridLayoutManager layout_manager = new GridLayoutManager(requireContext(), 2);
+            AdapterHome home_adapter = new AdapterHome(requireContext(), product_list);
+            recycler_view.setLayoutManager(layout_manager);
+            recycler_view.addItemDecoration(new CustomGridSpacingItemDecoration(2, 0, true));
+            recycler_view.setAdapter(home_adapter);
 
-        home_adapter.setOnItemClickListener(product ->
-        {
-            Intent intent = new Intent(requireContext(), ActivityDetails.class);
-            intent.putExtra("product", product);
-            intent.putExtra("location", "home");
-            startActivity(intent);
-        });
+            home_adapter.setOnItemClickListener(product ->
+            {
+                Intent intent = new Intent(requireContext(), ActivityDetails.class);
+                intent.putExtra("product", product);
+                intent.putExtra("location", "home");
+                startActivity(intent);
+            });
+        }
     }
 
     void addEvents()

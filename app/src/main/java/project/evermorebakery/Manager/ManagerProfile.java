@@ -5,7 +5,7 @@ import project.evermorebakery.Model.ModelProfile;
 public class ManagerProfile
 {
     private static ManagerProfile instance;
-    private final ModelProfile account;
+    private ModelProfile account;
 
     private ManagerProfile()
     {
@@ -21,5 +21,8 @@ public class ManagerProfile
     public ModelProfile getAccount()
     {
         return account;
+    }
+    public  void setProfile(ModelProfile account) {
+        this.account = account;
     }
 }
