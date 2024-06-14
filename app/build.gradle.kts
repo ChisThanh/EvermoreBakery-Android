@@ -44,4 +44,5 @@ dependencies {
     implementation (libs.gson)
     implementation(libs.okhttpMockwebserver)
     implementation(files("libs/merchant-1.0.25.aar"))
+    implementation("com.vnpay:vnpay-sdk-android:1.3.0") // Replace with the latest version
 }

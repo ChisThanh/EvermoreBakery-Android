@@ -55,6 +55,7 @@ public class FragmentCheckout extends Fragment
         return view;
     }
 
+
     void addControls()
     {
         vText_fCheckout_Order = view.findViewById(R.id.vText_fCheckout_Order);

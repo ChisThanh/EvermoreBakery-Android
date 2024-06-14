@@ -19,14 +19,28 @@ import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.android.volley.RequestQueue;
+import com.android.volley.toolbox.Volley;
 import com.vnpay.authentication.VNP_AuthenticationActivity;
 import com.vnpay.authentication.VNP_SdkCompletedCallback;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Date;
+
 import project.evermorebakery.Activity.ActivityMain;
 import project.evermorebakery.Adapter.AdapterSpinner;
+import project.evermorebakery.Handler.HandlerAPI;
+import project.evermorebakery.Interface.InterfaceVolleyResponseListener;
 import project.evermorebakery.Manager.ManagerCart;
 import project.evermorebakery.Manager.ManagerNotification;
+import project.evermorebakery.Model.ModelCart;
 import project.evermorebakery.Model.ModelNotification;
 import project.evermorebakery.R;
 
@@ -48,12 +62,12 @@ public class FragmentPayment extends Fragment
     TextView vText_fPayment_CardHolderAnnotation;
     TextView vText_fPayment_CVVAnnotation;
     TextView vText_fPayment_ExpiryDateAnnotation;
-
+    ArrayList<ModelCart> cart_list;
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle saved_instance_state)
     {
-
+        cart_list = ManagerCart.getInstance().getCartList();
         view = inflater.inflate(R.layout.fragment_payment, container, false);
 
         addControls();
@@ -92,22 +106,51 @@ public class FragmentPayment extends Fragment
 
     void addSpinner()
     {
-        String[] gender = {"MB Bank", "ABC Bank"};
+        String[] gender = {
+                "Ngân hàng MB Bank",
+                "Ngân hàng ACB",
+                "Ngân hàng Vietcombank",
+                "Ngân hàng VietinBank",
+                "Ngân hàng BIDV",
+                "Ngân hàng Techcombank",
+                "Ngân hàng VPBank",
+                "Ngân hàng Sacombank",
+                "Ngân hàng MSB",
+                "Ngân hàng TPBank",
+                "Ngân hàng SHB",
+                "Ngân hàng Eximbank",
+                "Ngân hàng VIB",
+                "Ngân hàng BacABank",
+                "Ngân hàng SeABank",
+                "Ngân hàng OCB",
+                "Ngân hàng Nam A Bank",
+                "Ngân hàng LienVietPostBank",
+                "Ngân hàng Shinhan Bank Vietnam",
+                "Ngân hàng Hong Leong Bank Vietnam"
+        };
         AdapterSpinner gender_adapter = new AdapterSpinner(requireContext(), gender);
         uSpinner_fPayment_Bank.setAdapter(gender_adapter);
     }
 
+    String paymentMethod = "";
     void addEvents()
     {
         uButton_fPayment_VnPay.setOnClickListener(v ->
         {
             openSdk();
             lLinear_fPayment_Payment.setVisibility(View.GONE);
+            paymentMethod = "Thanh toán qua ví VNPay";
         });
 
-        uButton_fPayment_Card.setOnClickListener(view -> lLinear_fPayment_Payment.setVisibility(View.VISIBLE));
+        uButton_fPayment_Card.setOnClickListener(view -> {
+            lLinear_fPayment_Payment.setVisibility(View.VISIBLE);
+            paymentMethod = "Thanh toán qua thẻ";
+        });
 
-        uButton_fPayment_Cash.setOnClickListener(view -> lLinear_fPayment_Payment.setVisibility(View.GONE));
+        uButton_fPayment_Cash.setOnClickListener(view -> {
+            lLinear_fPayment_Payment.setVisibility(View.GONE);
+            paymentMethod = "Thanh toán khi nhận hàng";
+        });
 
         uButton_fPayment_Payment.setOnClickListener(view ->
         {
@@ -179,9 +222,9 @@ public class FragmentPayment extends Fragment
     void openSdk()
     {
         Intent intent = new Intent(view.getContext(), VNP_AuthenticationActivity.class);
-        intent.putExtra("url", "https://sandbox.vnpayment.vn/testsdk/"); //bắt buộc, VNPAY cung cấp
-        intent.putExtra("tmn_code", "FAHASA03"); //bắt buộc, VNPAY cung cấp
-        intent.putExtra("scheme", "resultactivity"); //bắt buộc, scheme để mở lại app khi có kết quả thanh toán từ mobile banking
+        intent.putExtra("url", "https://sandbox.vnpayment.vn/paymentv2/vpcpay.html"); //bắt buộc, VNPAY cung cấp
+        intent.putExtra("tmn_code", "MSJAQ97J"); //bắt buộc, VNPAY cung cấp
+        intent.putExtra("scheme", "activitysuccess"); //bắt buộc, scheme để mở lại app khi có kết quả thanh toán từ mobile banking
         intent.putExtra("is_sandbox", false); //bắt buộc, true <=> môi trường test, true <=> môi trường live
         VNP_AuthenticationActivity.setSdkCompletedCallback(new VNP_SdkCompletedCallback()
         {
@@ -189,23 +232,92 @@ public class FragmentPayment extends Fragment
             public void sdkAction(String action)
             {
                 Log.wtf("SplashActivity", "action: " + action);
-                //action == AppBackAction
-                //Người dùng nhấn back từ sdk để quay lại
 
-                //action == CallMobileBankingApp
-                //Người dùng nhấn chọn thanh toán qua app thanh toán (Mobile Banking, Ví...)
-                //lúc này app tích hợp sẽ cần lưu lại cái PNR, khi nào người dùng mở lại app tích hợp thì sẽ gọi kiểm tra trạng thái thanh toán của PNR Đó xem đã thanh toán hay chưa.
-
-                //action == WebBackAction
-                //Người dùng nhấn back từ trang thanh toán thành công khi thanh toán qua thẻ khi url có chứa: cancel.sdk.merchantbackapp
-
-                //action == FaildBackAction
-                //giao dịch thanh toán bị failed
-
-                //action == SuccessBackAction
-                //thanh toán thành công trên webview
             }
         });
         startActivity(intent);
+    }
+    HandlerAPI handlerAPI ;
+
+    private void addOrder() {
+        RequestQueue requestQueue = Volley.newRequestQueue(requireContext());
+        if(paymentMethod.isEmpty()|| paymentMethod.compareTo("") == 0)
+        {
+            Toast.makeText(requireContext(), "Missing Payment Method", Toast.LENGTH_SHORT).show();
+            return;
+        }
+        Date today = new Date();
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        String orderDate = sdf.format(today);
+        String customerId = "KH00001";
+        double totalAmount = ManagerCart.getInstance().getTotal();
+        String status = "Đang xử lý";
+        double additionalCharges = ManagerCart.getInstance().getTotal() + 30000;
+        String query = "INSERT INTO ORDERTABLE (CUSTOMER_ID, ORDER_DATE, TOTAL_AMOUNT, STATUS, PAYMENT_METHOD, ADDITIONAL_CHARGES) VALUES " +
+                "('" + customerId + "', '" + orderDate + "', " + totalAmount + ", '" + status + "', '" + paymentMethod + "', " + additionalCharges + ");";
+        handlerAPI = new HandlerAPI(requestQueue);
+        handlerAPI.updateData(query, new InterfaceVolleyResponseListener() {
+            @Override
+            public void onResponse(JSONArray response) {
+                try {
+                    JSONObject object = response.getJSONObject(0);
+                    addOrderDetail(object);
+                } catch (JSONException e) {
+                    throw new RuntimeException(e);
+                }
+            }
+
+            @Override
+            public void onError(String errorMessage) {
+
+            }
+        });
+    }
+    void addOrderDetail(JSONObject object)
+    {
+        try {
+            boolean success = object.getBoolean("success");
+            if (success) {
+                RequestQueue requestQueue = Volley.newRequestQueue(requireContext());
+                for (ModelCart orderDetail : cart_list) {
+                    String query = "INSERT INTO ORDERDETAIL ( ORDER_ID, ITEM_ID, QUANTITY, PRICE) " +
+                            "VALUES ('" + //orderDetail.getOrderId() + "', '" +
+                            orderDetail.getProduct().getId() + "', '" + orderDetail.getQuantity() + "', '" + orderDetail.getPrice() + "')";
+
+                    handlerAPI = new HandlerAPI(requestQueue);
+                    handlerAPI.updateData(query, new InterfaceVolleyResponseListener() {
+                        @Override
+                        public void onResponse(JSONArray response) {
+                            try {
+                                JSONObject object = response.getJSONObject(0);
+                                boolean success = object.getBoolean("success");
+                                if (success) {
+                                    //loadFragment(); load fragment giao dịch thành công
+                                }
+                            } catch (JSONException e) {
+                                throw new RuntimeException(e);
+                            }
+                        }
+
+                        @Override
+                        public void onError(String errorMessage) {
+
+                        }
+                    });
+                }
+                String query = "https://api.example.com/orders";
+
+            } else {
+                String message = object.getString("message");
+                if (message.contains("Base table or view not found")) {
+                    Log.e("Error", "Table not found: " + message);
+                } else {
+                    Log.e("Error", "Query failed: " + message);
+                }
+            }
+        } catch (JSONException e) {
+            e.printStackTrace();
+            Log.e("Error", "JSON parsing error: " + e.getMessage());
+        }
     }
 }
