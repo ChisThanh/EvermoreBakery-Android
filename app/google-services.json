@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1037095872853",
+    "project_id": "evermorebakery-35ea1",
+    "storage_bucket": "evermorebakery-35ea1.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1037095872853:android:15c65d39000933ab6327dc",
+        "android_client_info": {
+          "package_name": "project.evermorebakery"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAbKTC7PdfFn38bFIVSVghaMXnotJLCHUA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
