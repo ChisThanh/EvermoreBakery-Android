@@ -1,9 +1,13 @@
 package project.evermorebakery.Activity;
 
+import android.Manifest;
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.graphics.Color;
+import android.os.Build;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.ContextThemeWrapper;
 import android.widget.EditText;
 import android.widget.FrameLayout;
@@ -12,7 +16,11 @@ import android.widget.PopupMenu;
 import android.widget.SearchView;
 import android.widget.TextView;
 
+import androidx.activity.result.ActivityResultCallback;
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
@@ -36,6 +44,15 @@ import project.evermorebakery.R;
 
 public class ActivityMain extends AppCompatActivity
 {
+    private final ActivityResultLauncher<String> activityResultLauncher =
+            registerForActivityResult(new ActivityResultContracts.RequestPermission(),
+                o -> {
+                    if (o)
+                        Log.d("TAG", "Post notification permission granted");
+                    else
+                        Log.d("TAG", "Post notification permission denied");
+                });
+
     TextView vText_aMain_Subtitle;
     ImageView vImage_aMain_Action;
     SearchView vSearch_aMain_Search;
@@ -47,6 +64,13 @@ public class ActivityMain extends AppCompatActivity
     {
         super.onCreate(saved_instance_state);
         setContentView(R.layout.activity_main);
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU &&
+                ActivityCompat.checkSelfPermission(ActivityMain.this,
+                        Manifest.permission.POST_NOTIFICATIONS) != PackageManager.PERMISSION_GRANTED) {
+            activityResultLauncher.launch(Manifest.permission.POST_NOTIFICATIONS);
+        }
+
 
         addControls();
         setSearchView();

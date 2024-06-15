@@ -1,50 +1,29 @@
 package project.evermorebakery.Manager;
 
-import java.util.Date;
+import project.evermorebakery.Model.ModelDelivery;
 
-public class  ManagerDelivery
+public class ManagerDelivery
 {
-    static  String _id;
-    static String _total;
-    static String _status;
-    static Date _date;
+    private static ModelDelivery instance;
 
-    public ManagerDelivery(String id, String total, String status, Date date) {
-        _id = id;
-        _total = total;
-        _status = status;
-        _date = date;
+    public ManagerDelivery()
+    {
+        instance = new ModelDelivery();
     }
 
-    public static String get_id() {
-        return _id;
+    public static synchronized ModelDelivery getInstance()
+    {
+        if(instance == null) instance = new ModelDelivery();
+        return instance;
     }
 
-    public static void set_id(String _id) {
-        ManagerDelivery._id = _id;
+    public ModelDelivery getDeliveryData()
+    {
+        return instance;
+    }
+    public static void setDeliveryData(ModelDelivery delivery)
+    {
+        instance = delivery;
     }
 
-    public static String get_total() {
-        return _total;
-    }
-
-    public static void set_total(String _total) {
-        ManagerDelivery._total = _total;
-    }
-
-    public static String get_status() {
-        return _status;
-    }
-
-    public static void set_status(String _status) {
-        ManagerDelivery._status = _status;
-    }
-
-    public static Date get_date() {
-        return _date;
-    }
-
-    public static void set_date(Date _date) {
-        ManagerDelivery._date = _date;
-    }
 }

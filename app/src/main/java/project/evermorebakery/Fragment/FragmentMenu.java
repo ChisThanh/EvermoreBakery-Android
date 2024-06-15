@@ -86,6 +86,7 @@ public class FragmentMenu extends Fragment
 
     void addAdapter()
     {
+        if (!isAdded()) return;
         LinearLayoutManager layout_manager = new LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false);
         AdapterDisplay menu_adapter = new AdapterDisplay(requireContext(), product_list);
         vRecycler_fMenu_Item.setLayoutManager(layout_manager);

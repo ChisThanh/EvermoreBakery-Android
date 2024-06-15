@@ -37,9 +37,11 @@ import project.evermorebakery.Adapter.AdapterSpinner;
 import project.evermorebakery.Handler.HandlerAPI;
 import project.evermorebakery.Interface.InterfaceVolleyResponseListener;
 import project.evermorebakery.Manager.ManagerCart;
+import project.evermorebakery.Manager.ManagerDelivery;
 import project.evermorebakery.Manager.ManagerNotification;
 import project.evermorebakery.Manager.ManagerAccount;
 import project.evermorebakery.Model.ModelCart;
+import project.evermorebakery.Model.ModelDelivery;
 import project.evermorebakery.Model.ModelNotification;
 import project.evermorebakery.Model.ModelAccount;
 import project.evermorebakery.R;
@@ -66,7 +68,6 @@ public class FragmentPayment extends Fragment
     ArrayList<ModelCart> cart_list;
     ModelAccount account;
 
-    String idOrder, totalAmount, status, dataOrder;
 
     @Nullable
     @Override
@@ -291,6 +292,7 @@ public class FragmentPayment extends Fragment
         String query = String.format("INSERT INTO ordertable (`CUSTOMER_ID`, `ORDER_DATE`, `TOTAL_AMOUNT`, `STATUS`, `PAYMENT_METHOD`, `ADDITIONAL_CHARGES`) VALUES ('%s', '%s', %f, '%s', '%s', %f);",
                 account.getCustomer(), orderDate, totalAmount, status, paymentMethod, additionalCharges);
 
+        ManagerDelivery.setDeliveryData(new ModelDelivery(null, additionalCharges, today));
 
         handlerAPI = new HandlerAPI(requestQueue);
         handlerAPI.updateData(query, new InterfaceVolleyResponseListener()
@@ -317,11 +319,15 @@ public class FragmentPayment extends Fragment
         });
     }
 
+
     @SuppressLint("DefaultLocale")
     void addOrderDetail(JSONObject object) throws JSONException
     {
         boolean success = object.getBoolean("success");
         JSONObject data = object.getJSONObject("data");
+        String orderID = data.getString("ORDER_ID");
+
+        ManagerDelivery.getInstance().setId(orderID);
 
         if (success)
         {
@@ -330,7 +336,7 @@ public class FragmentPayment extends Fragment
             for (ModelCart orderDetail : cart_list)
             {
                 query.append(String.format(" ('%s', '%s', %s, %s),",
-                        data.getString("ORDER_ID"),
+                        orderID,
                         orderDetail.getProduct().getId(),
                         orderDetail.getQuantity(),
                         orderDetail.getPrice()));

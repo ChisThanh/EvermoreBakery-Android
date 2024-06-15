@@ -1,5 +1,6 @@
 package project.evermorebakery.Fragment;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.LayoutInflater;
@@ -11,8 +12,13 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 import project.evermorebakery.Activity.ActivityStart;
+import project.evermorebakery.Manager.ManagerDelivery;
 import project.evermorebakery.R;
 
 public class FragmentDelivery extends Fragment implements Runnable
@@ -35,8 +41,37 @@ public class FragmentDelivery extends Fragment implements Runnable
         time = 1;
 
         addControls();
+        addData();
 
         return view;
+    }
+
+    private void addData() {
+
+        String id = ManagerDelivery.getInstance().getId();
+
+        if(id == null){
+            loadFragment(new FragmentEmpty());
+            return;
+        }
+        double total = ManagerDelivery.getInstance().getTotal();
+        Date date = ManagerDelivery.getInstance().getDate();
+        @SuppressLint("SimpleDateFormat")
+        SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
+        String orderDate = sdf.format(date);
+
+        vText_fDelivery_Order.setText(id);
+        vText_fDelivery_Total.setText(String.valueOf(total));
+        vText_fDelivery_Date.setText(orderDate);
+
+        Handler handler = new Handler();
+        handler.postDelayed(this, 5000);
+    }
+    void loadFragment(Fragment fragment)
+    {
+        FragmentTransaction fragment_transaction = getParentFragmentManager().beginTransaction();
+        fragment_transaction.replace(R.id.lFrame_aMain_Layout, fragment);
+        fragment_transaction.commit();
     }
 
     void addControls()
