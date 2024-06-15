@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <uses-permission android:name="android.permission.INTERNET" />
-
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -16,10 +16,13 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
+            android:name=".Activity.ActivityLoginGoogle"
+            android:exported="false" />
+        <activity
             android:name=".Activity.ActivitySuccess"
             android:exported="false" />
         <activity
-            android:name=".Activity.ActivityMain"
+            android:name=".Activity.ActivityStart"
             android:exported="true"
             android:windowSoftInputMode="adjustNothing">
             <intent-filter>
@@ -32,7 +35,7 @@
             android:name=".Activity.ActivityDetails"
             android:windowSoftInputMode="adjustNothing" />
         <activity
-            android:name=".Activity.ActivityStart"
+            android:name=".Activity.ActivityMain"
             android:windowSoftInputMode="adjustNothing" />
     </application>
 

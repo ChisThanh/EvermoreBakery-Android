@@ -119,4 +119,6 @@
     <string name="order_delivered">Order Delivered</string>
     <string name="order_arrived">Order Arrived</string>
 
+    <string name="default_web_client_id">286234752290-ii6ur6vcssma2a2o49as1m2t2tqtnlnl.apps.googleusercontent.com</string>
+
 </resources>

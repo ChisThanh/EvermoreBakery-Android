@@ -9,12 +9,21 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.widget.AppCompatButton;
 import androidx.fragment.app.Fragment;
 
+import com.bumptech.glide.Glide;
+import com.google.android.gms.auth.api.signin.GoogleSignInClient;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.auth.FirebaseAuth;
+
+import java.util.Objects;
+
+import project.evermorebakery.Activity.ActivityLoginGoogle;
 import project.evermorebakery.Activity.ActivityStart;
 import project.evermorebakery.Adapter.AdapterSpinner;
 import project.evermorebakery.Helper.HelperInterface;
@@ -37,6 +46,9 @@ public class FragmentProfile extends Fragment
     AppCompatButton uButton_fProfile_Update;
     AppCompatButton uButton_fProfile_Logout;
 
+    FirebaseAuth auth ;
+    GoogleSignInClient googleSignInClient ;
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle saved_instance_state)
@@ -47,12 +59,21 @@ public class FragmentProfile extends Fragment
         changeEnabled();
         addSpinner();
         addEvents();
+//        if (auth.getCurrentUser() != null) {
+//                Glide.with(getContext()).load(Objects.requireNonNull(auth.getCurrentUser()).getPhotoUrl()).into(vImage_fProfile_Avatar);
+//                uText_fProfile_Name.setText(auth.getCurrentUser().getDisplayName());
+//                uText_fProfile_Email.setText(auth.getCurrentUser().getEmail());
+//            }else {
+//                vImage_fProfile_Avatar.setImageResource(R.drawable.square_cat);
+//
+//                HelperInterface.toggleVisibility(uText_fProfile_Password);
+//                HelperInterface.toggleVisibility(uText_fProfile_Confirm);
+//        }
 
         vImage_fProfile_Avatar.setImageResource(R.drawable.square_cat);
 
         HelperInterface.toggleVisibility(uText_fProfile_Password);
         HelperInterface.toggleVisibility(uText_fProfile_Confirm);
-
         return view;
     }
 
@@ -111,6 +132,27 @@ public class FragmentProfile extends Fragment
 
         uButton_fProfile_Logout.setOnClickListener(view ->
         {
+//            if(auth.getCurrentUser()!= null)
+//            {
+//                FirebaseAuth.getInstance().addAuthStateListener(new FirebaseAuth.AuthStateListener() {
+//                    @Override
+//                    public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
+//                        if (firebaseAuth.getCurrentUser() == null) {
+//                            googleSignInClient.signOut().addOnSuccessListener(new OnSuccessListener<Void>() {
+//                                @Override
+//                                public void onSuccess(Void unused) {
+//                                    Intent intent = new Intent(requireContext(), ActivityStart.class);
+//                                    startActivity(intent);
+//                                }
+//                            });
+//                        }
+//                    }
+//                });
+//                FirebaseAuth.getInstance().signOut();
+//            }else {
+//                Intent intent = new Intent(requireContext(), ActivityStart.class);
+//                startActivity(intent);
+//            }
             Intent intent = new Intent(requireContext(), ActivityStart.class);
             startActivity(intent);
         });

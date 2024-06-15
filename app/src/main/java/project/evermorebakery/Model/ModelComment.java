@@ -2,44 +2,100 @@ package project.evermorebakery.Model;
 
 public class ModelComment
 {
-    private String account;
-    private String comment;
-    private Integer rating;
+    private String reviewId;
+    private String customerId;
+    private String customerName;
+    private String itemId;
+    private String content;
+    private int reviewRating;
+    private String itemName;
 
-    public String getAccount()
-    {
-        return account;
+    // Constructor
+    public ModelComment(String reviewId, String customerId, String customerName, String itemId, String content, int reviewRating, String itemName) {
+        this.reviewId = reviewId;
+        this.customerId = customerId;
+        this.customerName = customerName;
+        this.itemId = itemId;
+        this.content = content;
+        this.reviewRating = reviewRating;
+        this.itemName = itemName;
+    }
+    public ModelComment( String customerName, String content, int reviewRating) {
+        this.customerName = customerName;
+        this.content = content;
+        this.reviewRating = reviewRating;
     }
 
-    public void setAccount(String account)
-    {
-        this.account = account;
+    public ModelComment() {
     }
 
-    public String getComment()
-    {
-        return comment;
+    // Getters and Setters
+    public String getReviewId() {
+        return reviewId;
     }
 
-    public void setComment(String comment)
-    {
-        this.comment = comment;
+    public void setReviewId(String reviewId) {
+        this.reviewId = reviewId;
     }
 
-    public Integer getRating()
-    {
-        return rating;
+    public String getCustomerId() {
+        return customerId;
     }
 
-    public void setRating(Integer rating)
-    {
-        this.rating = rating;
+    public void setCustomerId(String customerId) {
+        this.customerId = customerId;
     }
 
-    public ModelComment(String account, String comment, Integer rating)
-    {
-        this.account = account;
-        this.comment = comment;
-        this.rating = rating;
+    public String getCustomerName() {
+        return customerName;
+    }
+
+    public void setCustomerName(String customerName) {
+        this.customerName = customerName;
+    }
+
+    public String getItemId() {
+        return itemId;
+    }
+
+    public void setItemId(String itemId) {
+        this.itemId = itemId;
+    }
+
+    public String getContent() {
+        return content;
+    }
+
+    public void setContent(String content) {
+        this.content = content;
+    }
+
+    public int getReviewRating() {
+        return reviewRating;
+    }
+
+    public void setReviewRating(int reviewRating) {
+        this.reviewRating = reviewRating;
+    }
+
+    public String getItemName() {
+        return itemName;
+    }
+
+    public void setItemName(String itemName) {
+        this.itemName = itemName;
+    }
+
+    @Override
+    public String toString() {
+        return "Review{" +
+                "reviewId='" + reviewId + '\'' +
+                ", customerId='" + customerId + '\'' +
+                ", customerName='" + customerName + '\'' +
+                ", itemId='" + itemId + '\'' +
+                ", content='" + content + '\'' +
+                ", reviewRating=" + reviewRating +
+                ", itemName='" + itemName + '\'' +
+                '}';
     }
 }

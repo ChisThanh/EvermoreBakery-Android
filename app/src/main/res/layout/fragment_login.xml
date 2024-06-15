@@ -128,7 +128,15 @@
             android:gravity="center"
             android:text="@string/or"
         />
-
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/uButton_fLogin_Login_Google"
+            style="@style/ButtonSecondary"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="@string/login"
+            tools:ignore="TextContrastCheck,VisualLintButtonSize"
+            />
         <TextView
             android:id="@+id/vText_fLogin_Register"
             style="@style/TextViewHyperlink"
