@@ -11,7 +11,6 @@ import android.view.ViewGroup;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.TextView;
-
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.widget.AppCompatButton;
@@ -45,19 +44,15 @@ public class FragmentLogin extends Fragment
     CheckBox uCheck_fLogin_Remember;
     AppCompatButton uButton_fLogin_Login;
     HandlerAPI handler_api;
-
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle saved_instance_state)
     {
         view = inflater.inflate(R.layout.fragment_login, container, false);
-
         addControls();
         addEvents();
-
         return view;
     }
-
 
     void addControls()
     {
@@ -72,7 +67,6 @@ public class FragmentLogin extends Fragment
 
         vText_fLogin_UsernameAnnotation.setText("");
         vText_fLogin_PasswordAnnotation.setText("");
-
         HelperInterface.toggleVisibility(uText_fLogin_Password);
     }
 
@@ -87,6 +81,9 @@ public class FragmentLogin extends Fragment
             if(annotateMissing()) return;
 
             getAccount();
+
+            if(ManagerAccount.getInstance().getAccount().getId() == null) return;
+
             Intent intent = new Intent(getActivity(), ActivityMain.class);
             startActivity(intent);
         });
@@ -169,7 +166,6 @@ public class FragmentLogin extends Fragment
                     account.setGender(object.getString("gender"));
                     account.setEmail(object.getString("email"));
                     account.setAddress(object.getString("address"));
-                    //account.setAvatar(object.getString("image_filename"));
                     account.setAvatar("square_cat");
                     account.setAddress("Evermore City");
 
@@ -191,32 +187,8 @@ public class FragmentLogin extends Fragment
             public void onError(String errorMessage)
             {
                 Log.e("ERROR", errorMessage);
-                failsafe();
             }
         });
-    }
-
-    /** @noinspection SpellCheckingInspection*/
-    void failsafe()
-    {
-        ModelAccount account = new ModelAccount();
-        account.setId("TK0001");
-        account.setUsername("baolong");
-        account.setPassword("123");
-        account.setCustomer("KH0001");
-        account.setName("Nguyễn Bảo Long");
-        account.setPhone("0902782801");
-        account.setGender("Nam");
-        account.setEmail("baolong@gmail.com");
-        account.setAddress("Evermore City");
-        account.setAvatar("square_cat");
-
-        ManagerAccount.getInstance().setAccount(account);
-        if(uCheck_fLogin_Remember.isChecked())
-        {
-            HelperSharedPreferences shared_preferences = new HelperSharedPreferences(requireContext());
-            shared_preferences.saveAccount(ManagerAccount.getInstance().getAccount());
-        }
     }
 
 }

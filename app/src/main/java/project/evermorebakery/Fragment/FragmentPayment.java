@@ -66,6 +66,8 @@ public class FragmentPayment extends Fragment
     ArrayList<ModelCart> cart_list;
     ModelAccount account;
 
+    String idOrder, totalAmount, status, dataOrder;
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle saved_instance_state)
@@ -355,7 +357,7 @@ public class FragmentPayment extends Fragment
                 @Override
                 public void onError(String errorMessage)
                 {
-
+                    Log.e("ERROR", errorMessage);
                 }
             });
         }

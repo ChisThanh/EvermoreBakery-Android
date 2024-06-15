@@ -43,9 +43,9 @@ public class AdapterComment extends RecyclerView.Adapter<AdapterComment.ViewHold
         ModelComment comment = comment_list.get(position);
 
         holder.vImage_dComment_Avatar.setImageResource(R.drawable.square_cat);
-        holder.vText_dComment_Name.setText(comment.getAccount());
-        holder.vText_dComment_Comment.setText(comment.getComment());
-        holder.uRating_dComment_Rating.setRating(comment.getRating());
+        holder.vText_dComment_Name.setText(comment.getCustomerShortName());
+        holder.vText_dComment_Comment.setText(comment.getContent());
+        holder.uRating_dComment_Rating.setRating(comment.getReviewRating());
     }
 
     @Override

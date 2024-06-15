@@ -8,10 +8,10 @@
             <InsightsFilterSettings>
               <option name="connection">
                 <ConnectionSetting>
-                  <option name="appId" value="PLACEHOLDER" />
-                  <option name="mobileSdkAppId" value="" />
-                  <option name="projectId" value="" />
-                  <option name="projectNumber" value="" />
+                  <option name="appId" value="project.evermorebakery" />
+                  <option name="mobileSdkAppId" value="1:1037095872853:android:15c65d39000933ab6327dc" />
+                  <option name="projectId" value="evermorebakery-35ea1" />
+                  <option name="projectNumber" value="1037095872853" />
                 </ConnectionSetting>
               </option>
               <option name="signal" value="SIGNAL_UNSPECIFIED" />

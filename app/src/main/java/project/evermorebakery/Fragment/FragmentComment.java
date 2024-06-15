@@ -1,6 +1,8 @@
 package project.evermorebakery.Fragment;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,20 +18,29 @@ import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.android.volley.RequestQueue;
+import com.android.volley.toolbox.Volley;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.util.ArrayList;
 
 import project.evermorebakery.Adapter.AdapterComment;
 import project.evermorebakery.Custom.CustomVerticalSpacingItemDecoration;
+import project.evermorebakery.Handler.HandlerAPI;
+import project.evermorebakery.Interface.InterfaceVolleyResponseListener;
 import project.evermorebakery.Manager.ManagerAccount;
 import project.evermorebakery.Model.ModelAccount;
 import project.evermorebakery.Model.ModelComment;
 import project.evermorebakery.Model.ModelProduct;
 import project.evermorebakery.R;
 
-public class FragmentComment extends Fragment
-{
+public class FragmentComment extends Fragment {
     View view;
     TextView vText_fComment_Name;
+    TextView uEdit_fComment_New;
     TextView vText_fComment_Rating;
     TextView vText_fComment_Comment;
     ImageView vImage_fComment_Details;
@@ -39,11 +50,11 @@ public class FragmentComment extends Fragment
     ArrayList<ModelComment> comment_list;
     ModelProduct product;
     ModelAccount account;
+    HandlerAPI handler_api;
 
     @Nullable
     @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle saved_instance_state)
-    {
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle saved_instance_state) {
         view = inflater.inflate(R.layout.fragment_comment, container, false);
 
         account = ManagerAccount.getInstance().getAccount();
@@ -57,8 +68,8 @@ public class FragmentComment extends Fragment
         return view;
     }
 
-    void addControls()
-    {
+    void addControls() {
+        uEdit_fComment_New = view.findViewById(R.id.uEdit_fComment_New);
         vText_fComment_Name = view.findViewById(R.id.vText_fComment_Name);
         vText_fComment_Rating = view.findViewById(R.id.vText_fComment_Rating);
         vText_fComment_Comment = view.findViewById(R.id.vText_fComment_Comment);
@@ -68,29 +79,81 @@ public class FragmentComment extends Fragment
         vRecycler_fComment_Comment = view.findViewById(R.id.vRecycler_fComment_Comment);
     }
 
-    void getData()
-    {
-        if(getArguments() != null) product = (ModelProduct) getArguments().getSerializable("product");
+    void getData() {
+        if (getArguments() != null)
+            product = (ModelProduct) getArguments().getSerializable("product");
 
-        if(product != null)
-        {
+        if (product != null) {
             vText_fComment_Name.setText(product.getName());
             vText_fComment_Rating.setText(String.valueOf(product.getRating()));
         }
     }
 
-    void addComment()
-    {
-        comment_list = new ArrayList<>();
 
-        comment_list.add(new ModelComment("Account 1", "Very Good!", 4));
-        comment_list.add(new ModelComment("Account 2", "Delicious!", 2));
-        comment_list.add(new ModelComment("Account 3", "Very Bad!", 1));
-        comment_list.add(new ModelComment("Account 4", "Taste Like Heaven!", 3));
+    void addComment() {
+        comment_list = new ArrayList<>();
+        fetchComment();
     }
 
-    void addAdapter()
-    {
+    /** @noinspection SpellCheckingInspection*/
+    void fetchComment() {
+        RequestQueue requestQueue = Volley.newRequestQueue(requireContext());
+        handler_api = new HandlerAPI(requestQueue);
+        String query =
+                "select distinct " +
+                        "    r.review_id," +
+                        "    r.customer_id," +
+                        "    c.customer_name, " +
+                        "    r.item_id, " +
+                        "    r.content, " +
+                        "    r.rating as review_rating, " +
+                        "    f.item_name " +
+                        "from" +
+                        "    review r " +
+                        "join" +
+                        "    foodmenu f on r.item_id = f.item_id " +
+                        "join " +
+                        "    customer c on r.customer_id = c.customer_id where r.item_id = '" + product.getId() + "'";
+
+        handler_api.fetchData(query, new InterfaceVolleyResponseListener() {
+            @SuppressLint("SetTextI18n")
+            @Override
+            public void onResponse(JSONArray response) {
+                try {
+                    for (int index = 0; index < response.length(); index = index + 1) {
+                        JSONObject object = response.getJSONObject(index);
+                        ModelComment comment = new ModelComment(
+                                object.getString("review_id"),
+                                object.getString("customer_id"),
+                                object.getString("customer_name"),
+                                object.getString("item_id"),
+                                object.getString("content"),
+                                object.getInt("review_rating"),
+                                object.getString("item_name")
+                        );
+                        comment_list.add(comment);
+                    }
+
+                    addAdapter();
+
+                    int count = comment_list.size();
+                    vText_fComment_Comment.setText("- " + count + " Comments");
+                } catch (Exception exception) {
+                    //noinspection DataFlowIssue
+                    Log.e("ERROR", exception.getMessage());
+                    failsafe();
+                }
+            }
+
+            @Override
+            public void onError(String errorMessage) {
+                Log.e("ERROR", errorMessage);
+            }
+        });
+    }
+
+
+    void addAdapter() {
         LinearLayoutManager layout_manager = new LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false);
         AdapterComment comment_adapter = new AdapterComment(requireContext(), comment_list);
         vRecycler_fComment_Comment.setLayoutManager(layout_manager);
@@ -98,13 +161,50 @@ public class FragmentComment extends Fragment
         vRecycler_fComment_Comment.setAdapter(comment_adapter);
     }
 
-    void addEvents()
-    {
+    void addEvents() {
         vImage_fComment_Details.setOnClickListener(view -> sendData());
+
+        uButton_fComment_New.setOnClickListener(view -> {
+            if (uRating_dComment_New.getRating() > 0) {
+                addCommentNew();
+            }
+        });
     }
 
-    void sendData()
-    {
+    void addCommentNew() {
+        String customerId = account.getCustomer();
+        String itemId = product.getId();
+        String content = uEdit_fComment_New.getText().toString();
+        int reviewRating = (int) uRating_dComment_New.getRating();
+        RequestQueue requestQueue = Volley.newRequestQueue(requireContext());
+        handler_api = new HandlerAPI(requestQueue);
+        @SuppressLint("DefaultLocale")
+        String query = String.format("INSERT INTO `review` (`CUSTOMER_ID`, `ITEM_ID`, `CONTENT`, `RATING`) VALUES ('%s', '%s', '%s', %d);",
+                customerId, itemId, content, reviewRating);
+
+
+        handler_api.updateData(query, new InterfaceVolleyResponseListener() {
+            @Override
+            public void onResponse(JSONArray response) {
+                try {
+                    JSONObject object = response.getJSONObject(0);
+                    boolean success = object.getBoolean("success");
+                    if (success) {
+                        addComment();
+                    }
+                } catch (JSONException e) {
+                    throw new RuntimeException(e);
+                }
+            }
+
+            @Override
+            public void onError(String errorMessage) {
+                Log.e("ERROR", errorMessage);
+            }
+        });
+    }
+
+    void sendData() {
         FragmentDetails fragment = new FragmentDetails();
         Bundle bundle = new Bundle();
         bundle.putSerializable("product", product);
@@ -112,10 +212,20 @@ public class FragmentComment extends Fragment
         loadFragment(fragment);
     }
 
-    void loadFragment(Fragment fragment)
-    {
+    void loadFragment(Fragment fragment) {
         FragmentTransaction fragment_transaction = getParentFragmentManager().beginTransaction();
         fragment_transaction.replace(R.id.lFrame_aDetails_Layout, fragment);
         fragment_transaction.commit();
+    }
+
+    void failsafe() {
+        comment_list = new ArrayList<>();
+
+        comment_list.add(new ModelComment("Account 1", "Very Good!", 4));
+        comment_list.add(new ModelComment("Account 2", "Delicious!", 2));
+        comment_list.add(new ModelComment("Account 3", "Very Bad!", 1));
+        comment_list.add(new ModelComment("Account 4", "Taste Like Heaven!", 3));
+
+        addAdapter();
     }
 }

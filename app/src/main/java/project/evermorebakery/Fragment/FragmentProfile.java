@@ -62,7 +62,6 @@ public class FragmentProfile extends Fragment
 
         HelperInterface.toggleVisibility(uText_fProfile_Password);
         HelperInterface.toggleVisibility(uText_fProfile_Confirm);
-
         return view;
     }
 
