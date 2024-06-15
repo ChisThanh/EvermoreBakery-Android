@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools">
+
+<manifest
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+>
 
     <uses-permission android:name="android.permission.INTERNET" />
 
@@ -14,26 +17,19 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.EvermoreBakery"
         android:usesCleartextTraffic="true"
-        tools:targetApi="31">
-        <activity
-            android:name=".Activity.ActivitySuccess"
-            android:exported="false" />
-        <activity
-            android:name=".Activity.ActivityMain"
-            android:exported="true"
-            android:windowSoftInputMode="adjustNothing">
+        tools:targetApi="31"
+    >
+
+        <activity android:name=".Activity.ActivityStart" android:exported="true" android:windowSoftInputMode="adjustNothing">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".Activity.ActivityDetails"
-            android:windowSoftInputMode="adjustNothing" />
-        <activity
-            android:name=".Activity.ActivityStart"
-            android:windowSoftInputMode="adjustNothing" />
+
+        <activity android:name=".Activity.ActivityDetails" android:windowSoftInputMode="adjustNothing" />
+        <activity android:name=".Activity.ActivityMain" android:windowSoftInputMode="adjustNothing" />
+
     </application>
 
 </manifest>

@@ -20,6 +20,8 @@ import java.util.ArrayList;
 
 import project.evermorebakery.Adapter.AdapterComment;
 import project.evermorebakery.Custom.CustomVerticalSpacingItemDecoration;
+import project.evermorebakery.Manager.ManagerAccount;
+import project.evermorebakery.Model.ModelAccount;
 import project.evermorebakery.Model.ModelComment;
 import project.evermorebakery.Model.ModelProduct;
 import project.evermorebakery.R;
@@ -36,12 +38,15 @@ public class FragmentComment extends Fragment
     RecyclerView vRecycler_fComment_Comment;
     ArrayList<ModelComment> comment_list;
     ModelProduct product;
+    ModelAccount account;
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle saved_instance_state)
     {
         view = inflater.inflate(R.layout.fragment_comment, container, false);
+
+        account = ManagerAccount.getInstance().getAccount();
 
         addControls();
         getData();

@@ -30,27 +30,27 @@
         />
 
         <EditText
-            android:id="@+id/uText_fRegister_Email"
+            android:id="@+id/uText_fRegister_Username"
             style="@style/EditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
-            android:drawableStart="@drawable/icon_email"
-            android:hint="@string/email"
+            android:drawableStart="@drawable/icon_profile"
+            android:hint="@string/username"
             android:autofillHints=""
             android:ems="10"
-            android:inputType="textEmailAddress"
+            android:inputType="text"
             tools:ignore="LabelFor,VisualLintTextFieldSize"
         />
 
         <TextView
-            android:id="@+id/vText_fRegister_EmailAnnotation"
+            android:id="@+id/vText_fRegister_UsernameAnnotation"
             style="@style/TextViewAnnotation"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
             android:gravity="right"
-            android:text="@string/email_annotation"
+            android:text="@string/username_annotation"
             tools:ignore="RtlHardcoded,TextContrastCheck"
         />
 

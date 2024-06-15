@@ -4,7 +4,6 @@ import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.ContextThemeWrapper;
 import android.widget.EditText;
 import android.widget.FrameLayout;
@@ -29,10 +28,10 @@ import project.evermorebakery.Fragment.FragmentMenu;
 import project.evermorebakery.Fragment.FragmentNotification;
 import project.evermorebakery.Fragment.FragmentProfile;
 import project.evermorebakery.Fragment.FragmentSearch;
+import project.evermorebakery.Helper.HelperSharedPreferences;
 import project.evermorebakery.Manager.ManagerCart;
 import project.evermorebakery.Manager.ManagerNotification;
-import project.evermorebakery.Manager.ManagerProfile;
-import project.evermorebakery.Model.ModelProfile;
+import project.evermorebakery.Manager.ManagerAccount;
 import project.evermorebakery.R;
 
 public class ActivityMain extends AppCompatActivity
@@ -48,8 +47,6 @@ public class ActivityMain extends AppCompatActivity
     {
         super.onCreate(saved_instance_state);
         setContentView(R.layout.activity_main);
-        ManagerProfile manager_profile = ManagerProfile.getInstance();
-        manager_profile.setProfile(new ModelProfile("KH0010", "thanh"));
 
         addControls();
         setSearchView();
@@ -57,7 +54,6 @@ public class ActivityMain extends AppCompatActivity
         addEvents();
 
         checkReturn();
-        Log.e("Main",manager_profile.getAccount().getName() );
     }
 
     void addControls()
@@ -240,6 +236,9 @@ public class ActivityMain extends AppCompatActivity
             }
             else if(id == R.id.iMenu_mAction_Logout)
             {
+                ManagerAccount.getInstance().setAccount(null);
+                HelperSharedPreferences shared_preferences = new HelperSharedPreferences(ActivityMain.this);
+                shared_preferences.clearSavedAccount();
                 Intent intent = new Intent(ActivityMain.this, ActivityStart.class);
                 startActivity(intent);
                 return true;

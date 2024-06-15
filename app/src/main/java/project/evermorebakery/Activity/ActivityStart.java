@@ -1,5 +1,6 @@
 package project.evermorebakery.Activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
@@ -13,6 +14,8 @@ import androidx.fragment.app.FragmentTransaction;
 
 import project.evermorebakery.Fragment.FragmentLogin;
 
+import project.evermorebakery.Helper.HelperSharedPreferences;
+import project.evermorebakery.Manager.ManagerAccount;
 import project.evermorebakery.R;
 
 public class ActivityStart extends AppCompatActivity implements Runnable
@@ -23,16 +26,22 @@ public class ActivityStart extends AppCompatActivity implements Runnable
     final static int INTERVAL = 100;
 
     @Override
-
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
+
+        HelperSharedPreferences shared_preferences = new HelperSharedPreferences(ActivityStart.this);
+        if(shared_preferences.getSavedAccount() != null)
+        {
+            ManagerAccount.getInstance().setAccount(shared_preferences.getSavedAccount());
+            Intent intent = new Intent(ActivityStart.this, ActivityMain.class);
+            startActivity(intent);
+        }
+
         setContentView(R.layout.activity_start);
         addControls();
         setProgressBar();
         addEvents();
-
-        //addAPI();
     }
 
     @Override

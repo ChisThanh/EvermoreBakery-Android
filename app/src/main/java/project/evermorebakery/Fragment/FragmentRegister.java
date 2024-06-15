@@ -21,10 +21,10 @@ import project.evermorebakery.R;
 public class FragmentRegister extends Fragment
 {
     View view;
-    EditText uText_fRegister_Email;
+    EditText uText_fRegister_Username;
     EditText uText_fRegister_Password;
     EditText uText_fRegister_Confirm;
-    TextView vText_fRegister_EmailAnnotation;
+    TextView vText_fRegister_UsernameAnnotation;
     TextView vText_fRegister_PasswordAnnotation;
     TextView vText_fRegister_ConfirmAnnotation;
     TextView vText_fRegister_Login;
@@ -45,16 +45,16 @@ public class FragmentRegister extends Fragment
 
     void addControls()
     {
-        uText_fRegister_Email = view.findViewById(R.id.uText_fRegister_Email);
+        uText_fRegister_Username = view.findViewById(R.id.uText_fRegister_Username);
         uText_fRegister_Password = view.findViewById(R.id.uText_fRegister_Password);
         uText_fRegister_Confirm = view.findViewById(R.id.uText_fRegister_Confirm);
-        vText_fRegister_EmailAnnotation = view.findViewById(R.id.vText_fRegister_EmailAnnotation);
+        vText_fRegister_UsernameAnnotation = view.findViewById(R.id.vText_fRegister_UsernameAnnotation);
         vText_fRegister_PasswordAnnotation = view.findViewById(R.id.vText_fRegister_PasswordAnnotation);
         vText_fRegister_ConfirmAnnotation = view.findViewById(R.id.vText_fRegister_ConfirmAnnotation);
         vText_fRegister_Login = view.findViewById(R.id.vText_fRegister_Login);
         uButton_fRegister_Register = view.findViewById(R.id.uButton_fRegister_Register);
 
-        vText_fRegister_EmailAnnotation.setText("");
+        vText_fRegister_UsernameAnnotation.setText("");
         vText_fRegister_PasswordAnnotation.setText("");
         vText_fRegister_ConfirmAnnotation.setText("");
 

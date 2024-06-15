@@ -5,6 +5,8 @@
 
     <!--Start Strings-->
     <string name="login">Login</string>
+    <string name="username">Username</string>
+    <string name="username_annotation">Username Annotation</string>
     <string name="email">Email</string>
     <string name="email_annotation">Email Annotation</string>
     <string name="password">Password</string>

@@ -20,7 +20,9 @@ import java.util.ArrayList;
 import java.util.Locale;
 
 import project.evermorebakery.Adapter.AdapterCheckout;
+import project.evermorebakery.Manager.ManagerAccount;
 import project.evermorebakery.Manager.ManagerCart;
+import project.evermorebakery.Model.ModelAccount;
 import project.evermorebakery.Model.ModelCart;
 import project.evermorebakery.R;
 
@@ -36,15 +38,16 @@ public class FragmentCheckout extends Fragment
     AppCompatButton uButton_fCheckout_Payment;
     ArrayList<ModelCart> cart_list;
     NumberFormat vnd_currency;
+    ModelAccount account;
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle saved_instance_state)
     {
-
         cart_list = ManagerCart.getInstance().getCartList();
         view = inflater.inflate(R.layout.fragment_checkout, container, false);
 
+        account = ManagerAccount.getInstance().getAccount();
         vnd_currency = NumberFormat.getCurrencyInstance(new Locale("vi", "VN"));
 
         addControls();
@@ -79,6 +82,7 @@ public class FragmentCheckout extends Fragment
         vText_fCheckout_Order.setText(vnd_currency.format(ManagerCart.getInstance().getTotal()));
         vText_fCheckout_Delivery.setText(vnd_currency.format(30000));
         vText_fCheckout_Total.setText(vnd_currency.format(ManagerCart.getInstance().getTotal() + 30000));
+        vText_fCheckout_Address.setText(account.getAddress());
     }
 
     void addEvents()

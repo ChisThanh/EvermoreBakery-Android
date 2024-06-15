@@ -118,7 +118,7 @@ public class FragmentDetails extends Fragment
             cart.setPrice(price);
 
             ManagerCart.getInstance().addCart(cart);
-            Toast.makeText(requireContext(), "Added to Cart", Toast.LENGTH_SHORT).show();
+            loadFragment(new FragmentOrder());
         });
     }
 
