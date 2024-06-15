@@ -47,6 +47,11 @@ public class FragmentNotification extends Fragment
         addAdapter();
 
         uButton_fNotification_Delivery.setOnClickListener(view -> loadFragment(new FragmentDelivery()));
+        uButton_fNotification_Clear.setOnClickListener(view ->
+        {
+            ManagerNotification.getInstance().clearNotification();
+            loadFragment(new FragmentEmpty());
+        });
 
         return view;
     }

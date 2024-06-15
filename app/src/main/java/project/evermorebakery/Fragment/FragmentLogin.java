@@ -81,8 +81,11 @@ public class FragmentLogin extends Fragment
             if(annotateMissing()) return;
 
             getAccount();
-
-            if(ManagerAccount.getInstance().getAccount().getId() == null) return;
+            try {
+                if(ManagerAccount.getInstance().getAccount().getId() == null) return;
+            } catch (Exception exception) {
+                return;
+            }
 
             Intent intent = new Intent(getActivity(), ActivityMain.class);
             startActivity(intent);
