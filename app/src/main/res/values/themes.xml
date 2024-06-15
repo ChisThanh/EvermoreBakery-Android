@@ -2,6 +2,8 @@
     <!--Base Theme-->
     <style name="Base.Theme.EvermoreBakery" parent="Theme.MaterialComponents.NoActionBar">
         <item name="colorPrimary">@color/cedar_wood</item>
+        <item name="android:statusBarColor">@color/cedar_wood</item>
+        <item name="android:windowLightStatusBar">true</item>
     </style>
     <style name="Theme.EvermoreBakery" parent="Base.Theme.EvermoreBakery" />
 </resources>

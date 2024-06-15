@@ -23,6 +23,7 @@
         <activity
             android:name=".Activity.ActivityStart"
             android:exported="true"
+            android:windowLayoutInDisplayCutoutMode="shortEdges"
             android:windowSoftInputMode="adjustNothing">
 
             <intent-filter>
@@ -31,8 +32,8 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".Activity.ActivityDetails" android:windowSoftInputMode="adjustNothing" />
-        <activity android:name=".Activity.ActivityMain" android:windowSoftInputMode="adjustNothing" />
+        <activity android:name=".Activity.ActivityDetails"  android:windowLayoutInDisplayCutoutMode="shortEdges" android:windowSoftInputMode="adjustNothing" />
+        <activity android:name=".Activity.ActivityMain" android:windowLayoutInDisplayCutoutMode="shortEdges" android:windowSoftInputMode="adjustNothing" />
 
 
         <service android:name=".Handler.HandlerFirebase"
