@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="120dp"
+    android:padding="10dp"
+    android:background="@drawable/custom_radius_fifteen_background_light_apricot"
+>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/vCard_dComment_Card"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="10dp"
+        app:cardCornerRadius="20dp"
+        app:cardElevation="4dp"
+    >
+
+        <ImageView
+            android:id="@+id/vImage_dComment_Avatar"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:contentDescription="@string/image"
+            android:scaleType="centerCrop"
+            tools:srcCompat="@tools:sample/avatars"
+            tools:ignore="ImageContrastCheck"
+        />
+
+    </androidx.cardview.widget.CardView>
+
+    <TextView
+        android:id="@+id/vText_dComment_Name"
+        style="@style/TextViewDisplayTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_toEndOf="@+id/vCard_dComment_Card"
+        android:text="@string/account"
+    />
+
+    <RatingBar
+        android:id="@+id/uRating_dComment_Rating"
+        style="@style/RatingBarSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/vText_dComment_Name"
+        android:layout_toEndOf="@id/vCard_dComment_Card"
+        android:layout_marginTop="2dp"
+    />
+
+    <TextView
+        android:id="@+id/vText_dComment_Comment"
+        style="@style/TextViewFaded"
+        android:layout_width="match_parent"
+        android:layout_height="90dp"
+        android:layout_below="@id/uRating_dComment_Rating"
+        android:layout_toEndOf="@+id/vCard_dComment_Card"
+        android:layout_marginTop="10dp"
+        android:text="@string/comment"
+        tools:ignore="TextContrastCheck"
+    />
+
+</RelativeLayout>

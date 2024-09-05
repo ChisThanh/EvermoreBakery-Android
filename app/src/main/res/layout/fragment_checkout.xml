@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingStart="20dp"
+    android:paddingEnd="20dp"
+    android:background="@color/light_apricot"
+    android:overScrollMode="never"
+    android:scrollbars="none"
+    android:scrollbarSize="0dp"
+    android:orientation="vertical"
+    tools:context=".Fragment.FragmentCheckout"
+>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@color/light_apricot"
+        tools:context=".Fragment.FragmentCheckout"
+    >
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/vRecycler_fCheckout_Item"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:overScrollMode="never"
+            android:scrollbars="none"
+        />
+
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:padding="10dp"
+            android:stretchColumns="1"
+            android:background="@drawable/custom_radius_fifteen_background_white"
+        >
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+            >
+
+                <TextView
+                    style="@style/TextViewCheckout"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_span="2"
+                    android:gravity="center"
+                    android:text="@string/order_summary"
+                />
+
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+            >
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="2dp"
+                    android:layout_span="2"
+                    android:background="@color/gray"
+                />
+
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="10dp"
+            >
+
+                <TextView
+                    style="@style/TextViewCheckoutSmall"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/order"
+                />
+
+                <TextView
+                    android:id="@+id/vText_fCheckout_Order"
+                    style="@style/TextViewCheckoutSmall"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAlignment="textEnd"
+                    android:text="@string/order_money"
+                />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="5dp"
+            >
+
+                <TextView
+                    style="@style/TextViewCheckoutSmall"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/delivery"
+                />
+
+                <TextView
+                    android:id="@+id/vText_fCheckout_Delivery"
+                    style="@style/TextViewCheckoutSmall"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAlignment="textEnd"
+                    android:text="@string/order_money"
+                />
+
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+            >
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="2dp"
+                    android:layout_span="2"
+                    android:background="@color/gray"
+                />
+
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="10dp"
+            >
+
+                <TextView
+                    style="@style/TextViewCheckoutSmall"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/total"
+                />
+
+                <TextView
+                    android:id="@+id/vText_fCheckout_Total"
+                    style="@style/TextViewCheckoutSmall"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAlignment="textEnd"
+                    android:text="@string/order_money"
+                />
+
+            </TableRow>
+
+        </TableLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/custom_radius_fifteen_background_white"
+            android:layout_marginTop="10dp"
+            android:padding="10dp"
+            android:orientation="horizontal"
+        >
+
+            <TextView
+                style="@style/TextViewCheckout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/address"
+            />
+
+            <TextView
+                android:id="@+id/vText_fCheckout_Address"
+                style="@style/TextViewCheckout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:textAlignment="textEnd"
+                android:text="@string/address_details"
+            />
+
+        </LinearLayout>
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/uButton_fCheckout_Payment"
+            style="@style/ButtonPrimary"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="@string/checkout"
+            tools:ignore="VisualLintButtonSize"
+        />
+
+    </LinearLayout>
+
+</ScrollView>
+

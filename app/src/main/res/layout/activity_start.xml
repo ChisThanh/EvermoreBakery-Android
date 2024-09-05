@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:tools="http://schemas.android.com/tools"
-    android:background="@drawable/background_bread"
+    android:background="@drawable/portrait_bread"
     android:orientation="vertical"
     tools:context=".Activity.ActivityStart"
 >
@@ -17,7 +17,7 @@
         android:layout_gravity="center"
         android:layout_marginTop="30dp"
         android:contentDescription="@string/image"
-        app:srcCompat="@drawable/logo"
+        app:srcCompat="@drawable/square_logo"
     />
 
     <RelativeLayout
@@ -39,7 +39,7 @@
 
         <ProgressBar
             android:id="@+id/uProgress_aStart_ProgressBar"
-            style="@style/ProgressBarCustom"
+            style="@style/ProgressBar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/vText_aStart_Quote"
@@ -47,9 +47,10 @@
             android:layout_marginTop="20dp"
             android:layout_marginEnd="20dp"
             android:layout_marginBottom="20dp"
-            android:visibility="visible" />
+            android:visibility="visible"
+        />
 
-        <Button
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/uButton_aStart_Continue"
             style="@style/ButtonOpen"
             android:visibility="gone"

@@ -1,7 +1,9 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!--Base Theme-->
-    <style name="Base.Theme.EvermoreBakery" parent="Theme.AppCompat.NoActionBar">
-        <item name="colorPrimary">@color/cedar_wood</item>
+    <style name="Base.Theme.EvermoreBakery" parent="Theme.MaterialComponents.NoActionBar">
+        <item name="colorPrimary">@color/rust_brown</item>
+        <item name="android:statusBarColor">@color/rust_brown</item>
+        <item name="android:windowLightStatusBar">true</item>
     </style>
     <style name="Theme.EvermoreBakery" parent="Base.Theme.EvermoreBakery" />
 </resources>

@@ -1,5 +1,7 @@
+
 plugins {
     alias(libs.plugins.android.application)
+    id("com.google.gms.google-services")
 }
 
 android {
@@ -35,7 +37,13 @@ dependencies {
     implementation(libs.activity)
     implementation(libs.constraintlayout)
     implementation(libs.coordinatorlayout)
+    implementation(libs.firebase.messaging)
     testImplementation(libs.junit)
     androidTestImplementation(libs.ext.junit)
     androidTestImplementation(libs.espresso.core)
+    implementation(libs.picasso)
+    implementation(libs.volley)
+    implementation (libs.gson)
+    implementation(libs.okhttpMockwebserver)
+    implementation(files("libs/merchant-1.0.25.aar"))
 }

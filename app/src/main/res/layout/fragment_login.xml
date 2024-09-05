@@ -5,8 +5,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@color/desert_sand"
+    android:paddingStart="20dp"
+    android:paddingEnd="20dp"
+    android:background="@color/white"
+    android:overScrollMode="never"
+    android:scrollbars="none"
+    android:scrollbarSize="0dp"
     android:orientation="vertical"
+    tools:context=".Fragment.FragmentLogin"
 >
 
     <LinearLayout
@@ -24,38 +30,38 @@
         />
 
         <EditText
-            android:id="@+id/uText_fLogin_Email"
-            style="@style/EditTextPrimary"
+            android:id="@+id/uText_fLogin_Username"
+            style="@style/EditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
-            android:drawableStart="@drawable/email"
-            android:hint="@string/email"
+            android:drawableStart="@drawable/icon_profile"
+            android:hint="@string/username"
             android:autofillHints=""
             android:ems="10"
-            android:inputType="textEmailAddress"
+            android:inputType="text"
             tools:ignore="LabelFor,VisualLintTextFieldSize"
         />
 
         <TextView
-            android:id="@+id/vText_fLogin_EmailAnnotation"
+            android:id="@+id/vText_fLogin_UsernameAnnotation"
             style="@style/TextViewAnnotation"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
             android:gravity="right"
-            android:text="@string/email_annotation"
+            android:text="@string/username_annotation"
             tools:ignore="RtlHardcoded,TextContrastCheck"
         />
 
         <EditText
             android:id="@+id/uText_fLogin_Password"
-            style="@style/EditTextPrimary"
+            style="@style/EditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:drawableStart="@drawable/password"
-            android:drawableEnd="@drawable/show"
+            android:drawableStart="@drawable/icon_password"
+            android:drawableEnd="@drawable/icon_show"
             android:hint="@string/password"
             android:autofillHints=""
             android:ems="10"
@@ -74,42 +80,65 @@
             tools:ignore="RtlHardcoded,TextContrastCheck"
         />
 
-        <Button
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal"
+        >
+
+            <CheckBox
+                android:id="@+id/uCheck_fLogin_Remember"
+                style="@style/CheckBox"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/remember_account"
+                tools:ignore="VisualLintButtonSize,TouchTargetSizeCheck"
+            />
+
+            <TextView
+                android:id="@+id/vText_fLogin_Recover"
+                style="@style/TextViewHyperlink"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/forgot_password"
+                android:textAlignment="textEnd"
+                tools:ignore="TextContrastCheck"
+            />
+
+        </LinearLayout>
+
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/uButton_fLogin_Login"
             style="@style/ButtonSecondary"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="10dp"
             android:text="@string/login"
             tools:ignore="TextContrastCheck,VisualLintButtonSize"
         />
 
-        <RelativeLayout
+        <TextView
+            style="@style/TextViewBasic"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginTop="20dp"
-            android:orientation="horizontal"
-        >
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:gravity="center"
+            android:text="@string/or"
+        />
 
-            <TextView
-                android:id="@+id/vText_fLogin_Recover"
-                style="@style/TextViewMedium"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/forgot_password"
-            />
-
-            <TextView
-                android:id="@+id/vText_fLogin_Register"
-                style="@style/TextViewMedium"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentEnd="true"
-                android:text="@string/register"
-                tools:ignore="RelativeOverlap"
-            />
-
-        </RelativeLayout>
+        <TextView
+            android:id="@+id/vText_fLogin_Register"
+            style="@style/TextViewHyperlink"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:gravity="center"
+            android:text="@string/create_account"
+            tools:ignore="RelativeOverlap,TextContrastCheck"
+        />
 
     </LinearLayout>
 

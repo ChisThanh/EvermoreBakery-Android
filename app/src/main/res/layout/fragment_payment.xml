@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:paddingStart="20dp"
+    android:paddingEnd="20dp"
+    android:background="@color/light_apricot"
+    tools:context=".Fragment.FragmentPayment"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+    >
+
+        <TextView
+            android:id="@+id/vText_fPayment_Title"
+            style="@style/TextViewTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/payment_method"
+            android:gravity="center"
+        />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/uButton_fPayment_VnPay"
+            style="@style/ButtonPayment"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/vText_fPayment_Title"
+            android:layout_marginTop="20dp"
+            android:drawableEnd="@drawable/icon_next"
+            android:text="@string/vnpay"
+            tools:ignore="VisualLintButtonSize"
+        />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/uButton_fPayment_Card"
+            style="@style/ButtonPayment"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/uButton_fPayment_VnPay"
+            android:layout_marginTop="10dp"
+            android:drawableEnd="@drawable/icon_next"
+            android:text="@string/card"
+            tools:ignore="VisualLintButtonSize"
+        />
+
+        <LinearLayout
+            android:id="@+id/lLinear_fPayment_Payment"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/uButton_fPayment_Card"
+            android:layout_marginTop="10dp"
+            android:padding="20dp"
+            android:orientation="vertical"
+            android:background="@drawable/custom_radius_fifteen_background_white"
+        >
+
+            <Spinner
+                android:id="@+id/uSpinner_fPayment_Bank"
+                style="@style/Spinner"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                tools:ignore="TouchTargetSizeCheck"
+            />
+
+            <TextView
+                android:id="@+id/vText_fPayment_BankAnnotation"
+                style="@style/TextViewAnnotation"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:gravity="right"
+                android:text="@string/annotation"
+                tools:ignore="RtlHardcoded,TextContrastCheck"
+            />
+
+            <EditText
+                android:id="@+id/uText_fPayment_CardNumber"
+                style="@style/EditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:drawableStart="@drawable/icon_card"
+                android:hint="@string/card_number"
+                android:autofillHints=""
+                android:ems="10"
+                android:inputType="number"
+                tools:ignore="LabelFor,VisualLintTextFieldSize"
+            />
+
+            <TextView
+                android:id="@+id/vText_fPayment_CardNumberAnnotation"
+                style="@style/TextViewAnnotation"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:gravity="right"
+                android:text="@string/annotation"
+                tools:ignore="RtlHardcoded,TextContrastCheck"
+            />
+
+            <EditText
+                android:id="@+id/uText_fPayment_CardHolder"
+                style="@style/EditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:drawableStart="@drawable/icon_card"
+                android:hint="@string/card_holder"
+                android:textAllCaps="true"
+                android:autofillHints=""
+                android:ems="10"
+                android:inputType="text"
+                tools:ignore="LabelFor,VisualLintTextFieldSize"
+            />
+
+            <TextView
+                android:id="@+id/vText_fPayment_CardHolderAnnotation"
+                style="@style/TextViewAnnotation"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:gravity="right"
+                android:text="@string/annotation"
+                tools:ignore="RtlHardcoded,TextContrastCheck"
+            />
+
+            <EditText
+                android:id="@+id/uText_fPayment_CVV"
+                style="@style/EditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:drawableStart="@drawable/icon_card"
+                android:hint="@string/cvv"
+                android:autofillHints=""
+                android:ems="10"
+                android:inputType="number"
+                tools:ignore="LabelFor,VisualLintTextFieldSize"
+            />
+
+            <TextView
+                android:id="@+id/vText_fPayment_CVVAnnotation"
+                style="@style/TextViewAnnotation"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:gravity="right"
+                android:text="@string/annotation"
+                tools:ignore="RtlHardcoded,TextContrastCheck"
+            />
+
+            <EditText
+                android:id="@+id/uText_fPayment_ExpiryDate"
+                style="@style/EditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:drawableStart="@drawable/icon_card"
+                android:hint="@string/expiry_date"
+                android:autofillHints=""
+                android:ems="10"
+                android:inputType="date"
+                tools:ignore="LabelFor,VisualLintTextFieldSize"
+            />
+
+            <TextView
+                android:id="@+id/vText_fPayment_ExpiryDateAnnotation"
+                style="@style/TextViewAnnotation"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:gravity="right"
+                android:text="@string/annotation"
+                tools:ignore="RtlHardcoded,TextContrastCheck"
+            />
+
+        </LinearLayout>
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/uButton_fPayment_Cash"
+            style="@style/ButtonPayment"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/lLinear_fPayment_Payment"
+            android:layout_marginTop="10dp"
+            android:text="@string/cash"
+            tools:ignore="VisualLintButtonSize"
+        />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/uButton_fPayment_Payment"
+            style="@style/ButtonPrimary"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/uButton_fPayment_Cash"
+            android:layout_marginTop="20dp"
+            android:text="@string/pay_now"
+            tools:ignore="VisualLintButtonSize"
+        />
+
+    </RelativeLayout>
+
+</ScrollView>
+
+
+

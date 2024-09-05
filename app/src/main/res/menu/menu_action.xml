@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<menu
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+>
+
+    <item
+        android:id="@+id/iMenu_mAction_Profile"
+        android:icon="@drawable/icon_holder"
+        app:showAsAction="ifRoom"
+        android:title="@string/profile"
+    />
+
+    <item
+        android:id="@+id/iMenu_mAction_Settings"
+        android:icon="@drawable/icon_settings"
+        app:showAsAction="ifRoom"
+        android:title="@string/settings"
+    />
+
+    <item
+        android:id="@+id/iMenu_mAction_Help"
+        android:icon="@drawable/icon_help"
+        app:showAsAction="ifRoom"
+        android:title="@string/help"
+    />
+
+    <item
+        android:id="@+id/iMenu_mAction_Logout"
+        android:icon="@drawable/icon_logout"
+        app:showAsAction="ifRoom"
+        android:title="@string/logout"
+    />
+
+</menu>

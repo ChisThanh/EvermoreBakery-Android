@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:paddingStart="20dp"
+    android:paddingEnd="20dp"
+    android:background="@color/light_apricot"
+    android:orientation="vertical"
+    tools:context=".Fragment.FragmentMenu"
+>
+
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/lTab_fMenu_Category"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/light_apricot"
+        app:tabIndicatorHeight="0dp"
+        app:tabMode="scrollable"
+        app:tabPaddingStart="0dp"
+        app:tabPaddingEnd="0dp"
+        android:scrollbars="none"
+        android:overScrollMode="never"
+        tools:ignore="SpeakableTextPresentCheck"
+    />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/vRecycler_fMenu_Item"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="20dp"
+        android:overScrollMode="never"
+        android:scrollbars="none"
+    />
+
+</LinearLayout>

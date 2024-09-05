@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/light_apricot"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".Activity.ActivityDetails"
+>
+
+    <ImageView
+        android:id="@+id/vImage_aDetails_Background"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:elevation="-1dp"
+        android:contentDescription="@string/image"
+        android:scaleType="centerCrop"
+        app:srcCompat="@drawable/portrait_shortcake"
+    />
+
+    <ImageView
+        android:id="@+id/vImage_aDetails_Return"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="20dp"
+        android:padding="10dp"
+        android:contentDescription="@string/image"
+        app:srcCompat="@drawable/icon_return"
+        android:background="@drawable/custom_circle_background_white"
+    />
+
+    <ImageView
+        android:id="@+id/vImage_aDetails_Share"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="20dp"
+        android:padding="10dp"
+        android:layout_gravity="center"
+        android:contentDescription="@string/image"
+        app:srcCompat="@drawable/icon_share"
+        android:background="@drawable/custom_circle_background_white"
+    />
+
+    <FrameLayout
+        android:id="@+id/lFrame_aDetails_Layout"
+        style="@style/FrameLayout"
+        android:layout_width="match_parent"
+        android:layout_height="500dp"
+        android:layout_alignParentBottom="true"
+    />
+
+</RelativeLayout>
